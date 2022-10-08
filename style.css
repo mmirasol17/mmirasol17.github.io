@@ -1,0 +1,35 @@
+body {
+  background-color: lightblue;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-style: roboto;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ul ul {
+  list-style-type: disc;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+h1 {
+  color: darkblue;
+}
+
+h2 {
+  border-bottom: 2px solid;
+  color: darkblue;
+}
+
+#info {
+  line-height: 1.5em;
+}
