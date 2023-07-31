@@ -10,3 +10,24 @@ document.querySelectorAll(`a[href^="#"]`).forEach((anchor) => {
     });
   });
 });
+
+// * functionality for when email form is submitted
+const form = document.querySelector("form");
+const email = document.querySelector("#email");
+const error = document.querySelector(".error");
+const success = document.querySelector(".success");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // check if email is valid
+  if (!validateEmail(email.value)) {
+    error.classList.add("show");
+    email.classList.add("error");
+  } else {
+    error.classList.remove("show");
+    email.classList.remove("error");
+    success.classList.add("show");
+  }
+}
+);
