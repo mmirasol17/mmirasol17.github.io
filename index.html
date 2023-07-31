@@ -1,369 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marin Mirasol - Personal Portfolio</title>
-    <link href="/dist/output.css" rel="stylesheet" />
-  </head>
-  <body>
-    <!------------ NAVBAR ------------>
-    <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl">
-      <div class="container mx-auto">
-          <img class="w-12 h-12 p-2 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full" src="./icons/mm.svg" alt="MM" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marin Mirasol - Personal Portfolio</title>
+  <link href="/dist/output.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!------------ NAVBAR ------------>
+  <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl">
+    <div class="container mx-auto">
+      <div class="justify-between items-center flex">
+        <!-- site logo -->
+        <img class="w-12 h-12 p-2 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full" src="./icons/mm.svg"
+          alt="MM" />
+        <!-- links to navigate to different parts of the portfolio -->
+        <div class="flex gap-5 text-md text-white font-light">
+          <!-- ABOUT ME LINK -->
+          <a href="#about" class="transition hover:scale-110 hover:underline hover:text-blue-400" href="#about-me">
+            About Me
+          </a>
+          <!-- MY PROJECTS LINK -->
+          <a href="#projects" class="transition hover:scale-110 hover:underline hover:text-blue-400"
+            href="#my-projects">
+            My Projects
+          </a>
+          <!-- CONTACT ME LINK -->
+          <a href="#contact" class="transition hover:scale-110 hover:underline hover:text-blue-400" href="#contact-me">
+            Contact Me
+          </a>
+        </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!------------ INTRO SECTION ------------>
-    <header class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 mt-16 py-48">
-      <div class="container mx-auto">
-        <h1 class="text-3xl sm:text-5xl font-bold flex flex-wrap justify-center items-center h-full text-white drop-shadow-2xl">
-          Hello, my name is&nbsp;
-          <span class="text-blue-400 underline">Marin Mirasol</span>
-          .
-        </h1>
-      </div>
-    </header>
+  <!------------ INTRO SECTION ------------>
+  <header class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 mt-16 py-48">
+    <div class="container mx-auto">
+      <h1
+        class="text-3xl sm:text-5xl font-bold flex flex-wrap justify-center items-center h-full text-white drop-shadow-2xl">
+        Hello, my name is&nbsp;
+        <a href="#about" class="text-blue-400 underline">Marin Mirasol</a>
+        .&nbsp;
+      </h1>
+    </div>
+  </header>
 
-    <!------------ ABOUT SECTION ------------>
-    <section class="py-16 bg-gray-800">
-      <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <div class="grid-cols-1 text-white">
-          <!-- about section header -->
-          <h2 class="text-5xl font-bold mb-4 text-center text-blue-400">About Me</h2>
-          <!-- about section body -->
-          <p class="text-xl font-light leading-relaxed mb-8">
-            I am a software engineer, who graduated from Cal State San Marcos in May 2023 with a B.S. in Software Engineering. I have much experience with web and mobile
-            development projects, and am passionate about these two areas of software since they are very accessible and help many different people. As a result of working on many
-            web and mobile projects, I have learned many different programming languages, frameworks, technologies, and tools, which I have listed below.
-          </p>
+  <!------------ ABOUT SECTION ------------>
+  <section id="about" class="py-16 bg-gray-800">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div class="grid-cols-1 text-white">
+        <!-- about section header -->
+        <h2 class="text-5xl font-bold mb-4 text-center text-blue-400">About Me</h2>
+        <!-- about section body -->
+        <p class="text-xl font-light leading-relaxed mb-8">
+          I am a software engineer, who graduated from Cal State San Marcos in May 2023 with a B.S. in Software
+          Engineering. I have much experience with web and mobile
+          development projects, and am passionate about these two areas of software since they are very accessible and
+          help many different people. As a result of working on many
+          web and mobile projects, I have learned many different programming languages, frameworks, technologies, and
+          tools, which I have listed below.
+        </p>
 
-          <!-- TECH STACK -->
-          <div class="mb-8">
-            <h3 class="text-3xl font-bold mb-4 text-center text-blue-400">My Tech Stack</h3>
-            <div class="grid grid-cols-4 lg:grid-cols-5 gap-4 text-xs">
-              <!-- React.js -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/react.svg" alt="React.js" />
-                React.js
-              </div>
+        <!-- TECH STACK -->
+        <div class="mb-8">
+          <h3 class="text-3xl font-bold mb-4 text-center text-blue-400">My Tech Stack</h3>
+          <div class="grid grid-cols-4 lg:grid-cols-5 gap-4 text-xs">
+            <!-- React.js -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/react.svg" alt="React.js" />
+              React.js
+            </div>
 
-              <!-- JavaScript -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">         
-                  <img class="w-12 h-12" src="./icons/javaScript.svg" alt="JavaScript" />
-                JavaScript
-              </div>
+            <!-- JavaScript -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/javaScript.svg" alt="JavaScript" />
+              JavaScript
+            </div>
 
-              <!-- TypeScript -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/typeScript.svg" alt="TypeScript" />
-                TypeScript
-              </div>
+            <!-- TypeScript -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/typeScript.svg" alt="TypeScript" />
+              TypeScript
+            </div>
 
             <!-- PHP -->
-            <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/php.svg" alt="PHP" />
-                PHP
-                </div>
-              <!-- HTML -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/html.svg" alt="HTML" />
-                HTML
-              </div>
-              <!-- CSS -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/css.svg" alt="CSS" />
-                CSS
-              </div>
-              <!-- TailwindCSS -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/tailwind.svg" alt="TailwindCSS" />
-                TailwindCSS
-              </div>
-              <!-- C++ -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/cpp.svg" alt="C++" />
-                C++
-              </div>
-              <!-- Python -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/python.svg" alt="Python" />
-                Python
-              </div>
-              <!-- Go -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/go.svg" alt="Go" />
-                Golang
-              </div>
-              <!-- Kotlin -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                            <img class="w-12 h-12" src="./icons/kotlin.svg" alt="Kotlin" />
-                          Kotlin
-              </div>
-              <!-- Java -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                                 <img class="w-12 h-12" src="./icons/java.svg" alt="Java" />
-                               Java
-              </div>
-              <!-- Bash -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                                 <img class="w-12 h-12" src="./icons/bash.svg" alt="Bash" />
-                               Bash
-              </div>
-              <!-- SQL -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                                 <img class="w-12 h-12" src="./icons/sql.svg" alt="SQL" />
-                               SQL
-              </div>
-              <!-- AWS -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                  <img class="w-12 h-12" src="./icons/aws.svg" alt="AWS" />
-                AWS
-              </div>
-              <!-- GCP -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                               <img class="w-12 h-12" src="./icons/gcp.svg" alt="GCP" />
-                             GCP
-              </div>
-              <!-- Firebase -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                            <img class="w-12 h-12" src="./icons/firebase.svg" alt="Firebase" />
-                           Firebase
-              </div>
-              <!-- Git -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                            <img class="w-12 h-12" src="./icons/git.svg" alt="Git" />
-                          Git
-              </div>
-              <!-- VSCode -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                          <img class="w-12 h-12" src="./icons/vsCode.svg" alt="VSCode" />
-                        VSCode
-              </div>
-              <!-- Android Studio -->
-              <div class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-                <img class="w-12 h-12" src="./icons/androidStudio.svg" alt="Android Studio" />
-                Android Studio
-              </div>
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/php.svg" alt="PHP" />
+              PHP
             </div>
-          </div>
-
-          <!-- link/button to scroll to section below -->
-          <div class="text-center items-center justify-center gap-2 flex">
-            <span class="text-blue-400 text-3xl font-bold underline">How have I used these technologies?</span>
-            <!-- animating arrow down button -->
-            <div class="animate-bounce p-2 bg-gray-600 rounded-full cursor-pointer">
-              <img class="w-8 h-8" src="./icons/arrowDown.svg" alt="Arrow Down" />
+            <!-- HTML -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/html.svg" alt="HTML" />
+              HTML
             </div>
-          </div>
-        </div>
-
-        <!-- personal photo -->
-        <div class="grid-cols-1 self-center hidden sm:block">
-          <img alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
-        </div>
-      </div>
-    </section>
-
-    <!------------------- PROJECTS SECTION ------------------->
-    <section class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16">
-      <div class="container mx-auto">
-        <h2 class="text-5xl font-bold text-blue-400 text-center mb-4">My Projects</h2>
-
-        <!-- project cards grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
-          <!-- MyOrganizer project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
-            <p class="text-white font-light">Web application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.</p>
-            <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center">
-              <!-- React Symbol -->
-                  <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
-                  <!-- JavaScript Symbol -->
-                          <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
-                        <!-- Tailwind Symbol -->
-                   <img class="w-10 h-10" src="./icons/tailwind.svg" alt="Tailwind" />
-                 <!-- Firebase Symbol -->
-                       <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
-                   <!-- AWS Symbol -->
-                 <img class="w-10 h-10" src="./icons/aws.svg" alt="AWS" />
-                 </div>
-          </div>
-
-          <!-- Chattington project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
-            <p class="text-white font-light">
-              Android mobile application that interfaces with the grading system of the professor’s courses to record and update students' grades seamlessly.
-            <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center">
-                <!-- Android Studio Symbol -->
-                  <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
-                <!-- Java Symbol -->
-                  <img class="w-10 h-10" src="./icons/java.svg" alt="Java" />
+            <!-- CSS -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/css.svg" alt="CSS" />
+              CSS
             </div>
-            </p>
-          </div>
-
-          <!-- GradeApp project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
-            <p class="text-white font-light">
-              Chatbot Android mobile application that allows users to have conversations with an automated chatbot, enabled by using OpenAI's Chat Completions API.
-            </p>
-              <!-- icons of all technologies used -->
-              <div class="flex items-center gap-2 justify-center">
-              <!-- Android Studio Symbol -->
-                  <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
-              <!-- Kotlin Symbol -->
-                <img class="w-10 h-10" src="./icons/kotlin.svg" alt="Kotlin" />
-              <!-- SQL Symbol -->
-                <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
-              <!-- Firebase Symbol -->
-                <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
-              </div>
-          </div>
-
-          <!-- ProUML project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">ProUML</h3>
-            <p class="text-white font-light">
-              Web application that allows users to create and edit UML diagrams, import Java projects to be translated to UML, and collaborate with other users in real-time.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center">
-              <!-- React Symbol -->
-                <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
-              <!-- TypeScript Symbol -->
-                <img class="w-10 h-10" src="./icons/typeScript.svg" alt="TypeScript" />
-              <!-- Tailwind Symbol -->
-                <img class="w-10 h-10" src="./icons/tailwind.svg" alt="Tailwind" />
-              <!-- SQL Symbol -->
-                <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
+            <!-- TailwindCSS -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/tailwind.svg" alt="TailwindCSS" />
+              TailwindCSS
             </div>
-          </div>
-
-          <!-- Class Attendance Grading System project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">Attendance Grading System</h3>
-            <p class="text-white font-light">
-              System that records and grades attendance by receiving student identification data, determining if the student is on time or is late for class, then recording the
-              data directly into a professor’s gradebook. This system is currently used to efficiently record and grade a CSUSM Computer Science course of about 35 students.
-            </p>
-            <div class="flex items-center gap-2 justify-center">
-                <!-- Python Symbol -->
-                  <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
-                <!-- Bash Symbol -->
-                  <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+            <!-- C++ -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/cpp.svg" alt="C++" />
+              C++
             </div>
-          </div>
-
-          <!-- myPR200 GUI project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">myPR200 GUI</h3>
-            <p class="text-white font-light">GUI application that processes parsed data from a PR200 electromagnetic spectrum analyzer and visualizes the data. The source code of this application has been re-used by Marine Corps Tactical Systems Support Activity (MCTSSA) engineers for further development.</p>
-             <!-- icons of all technologies used -->
-             <div class="flex items-center gap-2 justify-center">
-                <!-- Python Symbol -->
-                  <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
+            <!-- Python -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/python.svg" alt="Python" />
+              Python
             </div>
-          </div>
-
-          <!-- CougarBlogs project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
-            <p class="text-white font-light">A simple blog website, which allows user to post blogs, and reply and search for posted blogs.</p>
-              <!-- icons of all technologies used -->
-              <div class="flex items-center gap-2 justify-center">
-                <!-- JavaScript Symbol -->
-                  <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
-                <!-- PHP Symbol -->
-                  <img class="w-10 h-10" src="./icons/php.svg" alt="PHP" />
-                <!-- HTML Symbol -->
-                  <img class="w-10 h-10" src="./icons/html.svg" alt="HTML" />
-                <!-- CSS Symbol -->
-                  <img class="w-10 h-10" src="./icons/css.svg" alt="CSS" />
+            <!-- Go -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/go.svg" alt="Go" />
+              Golang
             </div>
-          </div>
-
-          <!-- CLI Tic-Tac-Toe project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">CLI Tic-Tac-Toe</h3>
-            <p class="text-white font-light">
-              Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on a Command Line Interface, such as the Mac Terminal, Windows Command Prompt,
-              etc.
-            </p>
-             <!-- icons of all technologies used -->
-             <div class="flex items-center gap-2 justify-center">
-                <!-- C++ Symbol -->
-                  <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
-                </div>
-          </div>
-
-          <!-- CLI Car Database project card -->
-          <div class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-            <h3 class="text-2xl font-bold text-white mb-2">CLI Car Database</h3>
-            <p class="text-white font-light">
-              Command Line Interface database, which stores car information using a hash table. The data is locally stored in a .txt file, where the data will be accessed.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center">
-                <!-- C++ Symbol -->
-                  <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
+            <!-- Kotlin -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/kotlin.svg" alt="Kotlin" />
+              Kotlin
+            </div>
+            <!-- Java -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/java.svg" alt="Java" />
+              Java
+            </div>
+            <!-- Bash -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/bash.svg" alt="Bash" />
+              Bash
+            </div>
+            <!-- SQL -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/sql.svg" alt="SQL" />
+              SQL
+            </div>
+            <!-- AWS -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/aws.svg" alt="AWS" />
+              AWS
+            </div>
+            <!-- GCP -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/gcp.svg" alt="GCP" />
+              GCP
+            </div>
+            <!-- Firebase -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/firebase.svg" alt="Firebase" />
+              Firebase
+            </div>
+            <!-- Git -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/git.svg" alt="Git" />
+              Git
+            </div>
+            <!-- VSCode -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/vsCode.svg" alt="VSCode" />
+              VSCode
+            </div>
+            <!-- Android Studio -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/androidStudio.svg" alt="Android Studio" />
+              Android Studio
             </div>
           </div>
         </div>
+
+        <!-- link/button to scroll to section below -->
+        <div class="text-center items-center justify-center gap-2 flex">
+          <a href="#projects" class="text-blue-400 text-3xl font-bold underline">How have I used these technologies?</a>
+          <!-- animating arrow down button -->
+          <a href="#projects"
+            class="animate-bounce w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center">
+            <img class="w-6 h-6" src="./icons/arrowDown.svg" alt="Arrow Down" />
+          </a>
+        </div>
       </div>
-    </section>
 
-    <!------------------- CONTACTS SECTION ------------------->
-    <section class="py-16 bg-gray-800">
-      <div class="container mx-auto">
-        <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
-        <!-- Add your contact form or contact information here -->
+      <!-- personal photo -->
+      <div class="grid-cols-1 self-center hidden sm:block">
+        <img alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
-    <section class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16">
-      <div class="container mx-auto max-w-4xl">
-        <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-          <h2 class="text-5xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
-          <p class="text-white font-light text-xl mb-8 text-center">
-            I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the logic of the button scrolling, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to host the page on a public domain.
-          </p>
-          <p class="text-white font-light text-xl mb-8 text-center">
-            If you are a fellow Web/Frontend Developer or are building a personal website yourself, I highly recommend trying out these tools, as they are very easy to use, make development much more efficient, and are very powerful!
-          </p>
+  <!------------------- PROJECTS SECTION ------------------->
+  <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16">
+    <div class="container mx-auto">
+      <h2 class="text-5xl font-bold text-blue-400 text-center mb-4">My Projects</h2>
 
-          <!-- links to these tools -->
-          <div class="flex items-center gap-3 justify-center">
+      <!-- project cards grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <!-- MyOrganizer project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
+          <p class="text-white font-light mb-2">Web application that allows users to organize and visualize their
+            schedule, budget, and tasks all in one dashboard.</p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- React Symbol -->
+            <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
             <!-- JavaScript Symbol -->
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
-                <img class="w-16 h-16" src="./icons/javaScript.svg" alt="JavaScript" />
-            </a>
-            <!-- HTML Symbol -->
-            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">
-                <img class="w-16 h-16" src="./icons/html.svg" alt="HTML" />
-            </a>
+            <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
             <!-- Tailwind Symbol -->
-            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
-                <img class="w-16 h-16" src="./icons/tailwind.svg" alt="Tailwind" />
-            </a>
-            <!-- GitHub Symbol -->
-            <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">
-                <img class="w-16 h-16" src="./icons/github.svg" alt="GitHub" />
-                </a>
+            <img class="w-10 h-10" src="./icons/tailwind.svg" alt="Tailwind" />
+            <!-- Firebase Symbol -->
+            <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
+            <!-- AWS Symbol -->
+            <img class="w-10 h-10" src="./icons/aws.svg" alt="AWS" />
+          </div>
+        </div>
+
+        <!-- Chattington project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
+          <p class="text-white font-light mb-2">
+            Android mobile application that interfaces with the grading system of the professor’s courses to record and
+            update students' grades seamlessly.
+            <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- Android Studio Symbol -->
+            <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
+            <!-- Java Symbol -->
+            <img class="w-10 h-10" src="./icons/java.svg" alt="Java" />
+          </div>
+          </p>
+        </div>
+
+        <!-- GradeApp project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
+          <p class="text-white font-light mb-2">
+            Chatbot Android mobile application that allows users to have conversations with an automated chatbot,
+            enabled by using OpenAI's Chat Completions API.
+          </p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- Android Studio Symbol -->
+            <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
+            <!-- Kotlin Symbol -->
+            <img class="w-10 h-10" src="./icons/kotlin.svg" alt="Kotlin" />
+            <!-- SQL Symbol -->
+            <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
+            <!-- Firebase Symbol -->
+            <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
+          </div>
+        </div>
+
+        <!-- ProUML project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">ProUML</h3>
+          <p class="text-white font-light mb-2">
+            Web application that allows users to create and edit UML diagrams, import Java projects to be translated to
+            UML, and collaborate with other users in real-time.
+          </p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- Go Symbol -->
+            <img class="w-10 h-10" src="./icons/go.svg" alt="Go" />
+            <!-- React Symbol -->
+            <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
+            <!-- TypeScript Symbol -->
+            <img class="w-10 h-10" src="./icons/typeScript.svg" alt="TypeScript" />
+            <!-- Tailwind Symbol -->
+            <img class="w-10 h-10" src="./icons/tailwind.svg" alt="Tailwind" />
+            <!-- SQL Symbol -->
+            <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
+          </div>
+        </div>
+
+        <!-- Class Attendance Grading System project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">Attendance Grading System</h3>
+          <p class="text-white font-light mb-2">
+            System that records and grades attendance by receiving student identification data, determining if the
+            student is on time or is late for class, then recording the
+            data directly into a professor’s gradebook. This system is currently used to efficiently record and grade a
+            CSUSM Computer Science course of about 35 students.
+          </p>
+          <div class="flex items-center gap-2 justify-center">
+            <!-- Python Symbol -->
+            <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
+            <!-- Bash Symbol -->
+            <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+          </div>
+        </div>
+
+        <!-- myPR200 GUI project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">myPR200 GUI</h3>
+          <p class="text-white font-light mb-2">GUI application that processes parsed data from a PR200 electromagnetic
+            spectrum analyzer and visualizes the data. The source code of this application has been re-used by Marine
+            Corps Tactical Systems Support Activity (MCTSSA) engineers for further development.</p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- Python Symbol -->
+            <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
+            <!-- Qt Symbol -->
+            <img class="w-10 h-10" src="./icons/pyQt.svg" alt="Qt" />
+          </div>
+        </div>
+
+        <!-- CougarBlogs project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
+          <p class="text-white font-light mb-2">A simple blog website, which allows user to post blogs, and reply and
+            search for posted blogs.</p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- JavaScript Symbol -->
+            <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
+            <!-- PHP Symbol -->
+            <img class="w-10 h-10" src="./icons/php.svg" alt="PHP" />
+            <!-- HTML Symbol -->
+            <img class="w-10 h-10" src="./icons/html.svg" alt="HTML" />
+            <!-- CSS Symbol -->
+            <img class="w-10 h-10" src="./icons/css.svg" alt="CSS" />
+          </div>
+        </div>
+
+        <!-- CLI Tic-Tac-Toe project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">CLI Tic-Tac-Toe</h3>
+          <p class="text-white font-light mb-2">
+            Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on a Command Line
+            Interface, such as the Mac Terminal, Windows Command Prompt,
+            etc.
+          </p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- C++ Symbol -->
+            <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
+            <!-- Bash Symbol -->
+            <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+          </div>
+        </div>
+
+        <!-- CLI Car Database project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-110 p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+          <h3 class="text-2xl font-bold text-white mb-2">CLI Car Database</h3>
+          <p class="text-white font-light mb-2">
+            Command Line Interface database, which stores car information using a hash table. The data is locally stored
+            in a .txt file, where the data will be accessed.
+          </p>
+          <!-- icons of all technologies used -->
+          <div class="flex items-center gap-2 justify-center">
+            <!-- C++ Symbol -->
+            <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
+            <!-- Bash Symbol -->
+            <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!------------------- FOOTER SECTION ------------------->
-    <footer class="bg-gray-800 py-4">
-      <div class="container mx-auto text-center font-bold text-white">
-        <span id="current-year">&copy; 2023 Marin Mirasol. All rights reserved.</span>
+  <!------------------- CONTACTS SECTION ------------------->
+  <section id="contact" class="py-16 bg-gray-800">
+    <div class="container mx-auto">
+      <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
+      <!-- Add your contact form or contact information here -->
+    </div>
+  </section>
+
+  <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
+  <section class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16">
+    <div class="container mx-auto max-w-4xl">
+      <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
+        <h2 class="text-5xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
+        <p class="text-white font-light text-xl mb-8 text-center">
+          I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the
+          logic of the button scrolling, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to
+          host the page on a public domain.
+        </p>
+        <p class="text-white font-light text-xl mb-8 text-center">
+          If you are a fellow Web/Frontend Developer or are building a personal website yourself, I highly recommend
+          trying out somfe of these tools, as they are very easy to use, make development much more efficient, and are
+          very powerful!
+        </p>
+
+        <!-- links to these tools -->
+        <div class="flex items-center gap-3 justify-center">
+          <!-- JavaScript Symbol -->
+          <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            target="_blank" rel="noopener noreferrer">
+            <img class="w-16 h-16" src="./icons/javaScript.svg" alt="JavaScript" />
+          </a>
+          <!-- HTML Symbol -->
+          <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+            rel="noopener noreferrer">
+            <img class="w-16 h-16" src="./icons/html.svg" alt="HTML" />
+          </a>
+          <!-- Tailwind Symbol -->
+          <a class="transition hover:scale-110" href="https://tailwindcss.com/" target="_blank"
+            rel="noopener noreferrer">
+            <img class="w-16 h-16" src="./icons/tailwind.svg" alt="Tailwind" />
+          </a>
+          <!-- GitHub Symbol -->
+          <a class="transition hover:scale-110" href="https://pages.github.com/" target="_blank"
+            rel="noopener noreferrer">
+            <img class="w-16 h-16" src="./icons/github.svg" alt="GitHub" />
+          </a>
+        </div>
       </div>
-    </footer>
-  </body>
+  </section>
+
+  <!------------------- FOOTER SECTION ------------------->
+  <footer class="bg-gray-800 py-4">
+    <div class="container mx-auto text-center font-bold text-white">
+      <span id="current-year">&copy; 2023 Marin Mirasol. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- script with page logic -->
+  <script src="./scripts/index.js"></script>
+</body>
+
 </html>
