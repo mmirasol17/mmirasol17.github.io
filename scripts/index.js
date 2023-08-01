@@ -6,7 +6,6 @@ document.querySelectorAll(`a[href^="#"]`).forEach((anchor) => {
     // scroll to the top of the section with a 100px offset
     document.querySelector(this.getAttribute("href")).scrollIntoView({
       behavior: "smooth",
-      block: "center",
     });
   });
 });
