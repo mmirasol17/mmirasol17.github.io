@@ -39,16 +39,22 @@
   </nav>
 
   <!------------ INTRO SECTION ------------>
-  <header id="intro" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 mt-16 py-48">
-    <div class="container mx-auto">
-      <h1
-        class="text-3xl sm:text-5xl font-bold flex flex-wrap justify-center items-center h-full text-white drop-shadow-2xl">
-        Hello, my name is&nbsp;
-        <a href="#about" class="text-blue-400 underline">Marin Mirasol</a>
-        .&nbsp;
-      </h1>
+  <header id="intro" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 mt-16 py-48 px-4 sm:px-0">
+    <div class="container mx-auto flex justify-center items-center h-full">
+      <div class="text-center">
+        <div class="flex flex-col md:flex-row mb-1">
+          <h1 class="text-3xl sm:text-5xl font-bold text-white drop-shadow-2xl">
+            Hello, my name is&nbsp;
+          </h1>
+          <h1 class="text-3xl sm:text-5xl font-bold text-white drop-shadow-2xl">
+            <a href="#about" class="text-blue-400 underline">Marin Mirasol</a>.&nbsp;
+          </h1>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-bold text-white">I'm a software engineer!</h1>
+      </div>
     </div>
   </header>
+
 
   <!------------ ABOUT SECTION ------------>
   <section id="about" class="py-16 bg-gray-800 px-4 sm:px-0">
@@ -57,12 +63,11 @@
         <!-- about section header -->
         <h2 class="text-5xl font-bold mb-4 text-center text-blue-400">About Me</h2>
         <!-- about section body -->
-        <p class="text-xl font-light leading-relaxed mb-8">
-          I am a software engineer, who graduated from Cal State San Marcos in May 2023 with a B.S. in Software
-          Engineering. I have much experience with web and mobile
-          development projects, and am passionate about these two areas of software since they are very accessible and
-          help many different people. As a result of working on many
-          web and mobile projects, I have learned many different programming languages, frameworks, technologies, and
+        <p class="text-xl font-light leading-relaxed text-center mb-8">
+          I graduated from Cal State San Marcos in May 2023 with a B.S. in Software
+          Engineering, and I have much experience with web and mobile
+          development projects. As a result of working on these projects, I have learned many different programming
+          languages, frameworks, technologies, and
           tools, which I have listed below.
         </p>
 
@@ -127,6 +132,12 @@
               <img class="w-12 h-12" src="./icons/python.svg" alt="Python" />
               Python
             </div>
+            <!-- Qt -->
+            <div
+              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+              <img class="w-12 h-12" src="./icons/pyQt.svg" alt="PyQt" />
+              PyQt
+            </div>
             <!-- Go -->
             <div
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
@@ -163,12 +174,6 @@
               <img class="w-12 h-12" src="./icons/aws.svg" alt="AWS" />
               AWS
             </div>
-            <!-- GCP -->
-            <div
-              class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
-              <img class="w-12 h-12" src="./icons/gcp.svg" alt="GCP" />
-              GCP
-            </div>
             <!-- Firebase -->
             <div
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
@@ -198,14 +203,16 @@
 
         <!-- link/button to scroll to section below -->
         <div class="text-center items-center justify-center gap-2 flex">
-          <a href="#projects" class="text-blue-400 text-xl font-bold underline">How have I used these
-            technologies?</a>
+          <a href="#projects" class="text-blue-400 text-xl font-bold underline">
+            How have I used these technologies?
+          </a>
           <!-- animating arrow down button -->
           <a href="#projects"
-            class="animate-bounce w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center">
+            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-end justify-center mt-4">
             <img class="w-6 h-6" src="./icons/arrowDown.svg" alt="Arrow Down" />
           </a>
         </div>
+
       </div>
 
       <!-- personal photo -->
@@ -218,7 +225,7 @@
   <!------------------- PROJECTS SECTION ------------------->
   <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 sm:px-0">
     <div class="container mx-auto">
-      <h2 class="text-5xl font-bold text-blue-400 text-center mb-4">My Projects</h2>
+      <h2 class="text-5xl font-bold text-blue-400 text-center mb-8">My Projects</h2>
 
       <!-- project cards grid -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
@@ -228,7 +235,8 @@
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
             <p class="text-white font-light mb-2">Web application that allows users to organize and visualize their
-              schedule, budget, and tasks all in one dashboard.</p>
+              schedule, budget, and tasks all in one dashboard.
+            </p>
             <!-- icons of all technologies used -->
             <div class="flex items-center gap-2 justify-center mb-2">
               <!-- React Symbol -->
@@ -245,55 +253,8 @@
           </div>
           <!-- link to project -->
           <a href="https://myorganizertool.com/" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View Project</a>
-        </div>
-
-        <!-- Chattington project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
-            <p class="text-white font-light mb-2">
-              Android mobile application that interfaces with the grading system of the professor’s courses to record
-              and
-              update students' grades seamlessly.
-              <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
-              <!-- Android Studio Symbol -->
-              <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
-              <!-- Java Symbol -->
-              <img class="w-10 h-10" src="./icons/java.svg" alt="Java" />
-            </div>
-          </div>
-          <!-- link to project -->
-          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">Not
-            Open-Sourced / Publicly Available</a>
-        </div>
-
-        <!-- GradeApp project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
-            <p class="text-white font-light mb-2">
-              Chatbot Android mobile application that allows users to have conversations with an automated chatbot,
-              enabled by using OpenAI's Chat Completions API.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
-              <!-- Android Studio Symbol -->
-              <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
-              <!-- Kotlin Symbol -->
-              <img class="w-10 h-10" src="./icons/kotlin.svg" alt="Kotlin" />
-              <!-- SQL Symbol -->
-              <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
-              <!-- Firebase Symbol -->
-              <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
-            </div>
-          </div>
-          <!-- link to project -->
-          <a href="https://github.com/mmirasol17/Chattington" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View Project</a>
+            class="text-blue-400 underline text-lg transition hover:scale-110">View Project
+          </a>
         </div>
 
         <!-- ProUML project card -->
@@ -322,7 +283,57 @@
           </div>
           <!-- link to project -->
           <a href="https://prouml.com/" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View Project</a>
+            class="text-blue-400 underline text-lg transition hover:scale-110">View Project
+          </a>
+        </div>
+
+        <!-- Chattington project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
+            <p class="text-white font-light mb-2">
+              Chatbot Android mobile application that allows users to have conversations with an automated chatbot,
+              enabled by using OpenAI's Chat Completions API.
+            </p>
+            <!-- icons of all technologies used -->
+            <div class="flex items-center gap-2 justify-center mb-2">
+              <!-- Android Studio Symbol -->
+              <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
+              <!-- Kotlin Symbol -->
+              <img class="w-10 h-10" src="./icons/kotlin.svg" alt="Kotlin" />
+              <!-- SQL Symbol -->
+              <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
+              <!-- Firebase Symbol -->
+              <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
+            </div>
+          </div>
+          <!-- link to project -->
+          <a href="https://github.com/mmirasol17/Chattington" target="_blank" rel="noopener noreferrer"
+            class="text-blue-400 underline text-lg transition hover:scale-110">View Project
+          </a>
+        </div>
+
+        <!-- GradeApp project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
+            <p class="text-white font-light mb-2">
+              Android mobile application that interfaces with the grading system of the professor’s courses to record
+              and update students' grades seamlessly.
+              <!-- icons of all technologies used -->
+            <div class="flex items-center gap-2 justify-center mb-2">
+              <!-- Android Studio Symbol -->
+              <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
+              <!-- Java Symbol -->
+              <img class="w-10 h-10" src="./icons/java.svg" alt="Java" />
+            </div>
+          </div>
+          <!-- link to project -->
+          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">
+            Not Open-Sourced / Publicly Available
+          </a>
         </div>
 
         <!-- Class Attendance Grading System project card -->
@@ -345,7 +356,8 @@
           </div>
           <!-- link to project -->
           <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">Not
-            Open-Sourced / Publicly Available</a>
+            Open-Sourced / Publicly Available
+          </a>
         </div>
 
         <!-- myPR200 GUI project card -->
@@ -356,7 +368,8 @@
             <p class="text-white font-light mb-2">GUI application that processes parsed data from a PR200
               electromagnetic
               spectrum analyzer and visualizes the data. The source code of this application has been re-used by Marine
-              Corps Tactical Systems Support Activity (MCTSSA) engineers for further development.</p>
+              Corps Tactical Systems Support Activity (MCTSSA) engineers for further development.
+            </p>
             <!-- icons of all technologies used -->
             <div class="flex items-center gap-2 justify-center mb-2">
               <!-- Python Symbol -->
@@ -366,8 +379,9 @@
             </div>
           </div>
           <!-- link to project -->
-          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">Not
-            Open-Sourced / Publicly Available</a>
+          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">
+            Not Open-Sourced / Publicly Available
+          </a>
         </div>
 
         <!-- CougarBlogs project card -->
@@ -376,7 +390,8 @@
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
             <p class="text-white font-light mb-2">A simple blog website, which allows user to post blogs, and reply and
-              search for posted blogs.</p>
+              search for posted blogs.
+            </p>
             <!-- icons of all technologies used -->
             <div class="flex items-center gap-2 justify-center mb-2">
               <!-- JavaScript Symbol -->
@@ -392,42 +407,19 @@
           <!-- link to project -->
           <a href="dfdsf.com" target="_blank" rel="noopener noreferrer"
             class="text-blue-400 underline text-lg transition hover:scale-110">View
-            Project</a>
-        </div>
-
-        <!-- CLI Tic-Tac-Toe project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">CLI Tic-Tac-Toe</h3>
-            <p class="text-white font-light mb-2">
-              Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on a Command Line
-              Interface, such as the Mac Terminal, Windows Command Prompt,
-              etc.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
-              <!-- C++ Symbol -->
-              <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
-              <!-- Bash Symbol -->
-              <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
-            </div>
-          </div>
-          <!-- link to project -->
-          <a href="dfdsfd.com" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View
-            Project</a>
+            Project
+          </a>
         </div>
 
         <!-- CLI Car Database project card -->
         <div
           class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
           <div>
-            <h3 class="text-2xl font-bold text-white mb-2">CLI Car Database</h3>
+            <h3 class="text-2xl font-bold text-white mb-2">Car Database CLI</h3>
             <p class="text-white font-light mb-2">
-              Command Line Interface database, which stores car information using a hash table. The data is locally
-              stored
-              in a .txt file, where the data will be accessed.
+              Database command-line interface (CLI), which stores car information using a hash table. The data is
+              locally
+              stored in a .txt file, where the data will be accessed.
             </p>
             <!-- icons of all technologies used -->
             <div class="flex items-center gap-2 justify-center">
@@ -438,16 +430,40 @@
             </div>
           </div>
           <!-- link to project -->
-          <a href="dfdsfd.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://github.com/mmirasol17/Car-Database" target="_blank" rel="noopener noreferrer"
             class="text-blue-400 underline text-lg transition hover:scale-110">View
             Project</a>
         </div>
+
+        <!-- CLI Tic-Tac-Toe project card -->
+        <div
+          class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Tic-Tac-Toe CLI</h3>
+            <p class="text-white font-light mb-2">
+              Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local
+              command-line, such as the Mac Terminal, Windows Command Prompt, etc.
+            </p>
+            <!-- icons of all technologies used -->
+            <div class="flex items-center gap-2 justify-center mb-2">
+              <!-- C++ Symbol -->
+              <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
+              <!-- Bash Symbol -->
+              <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+            </div>
+          </div>
+          <!-- link to project -->
+          <a href="https://github.com/mmirasol17/Terminal-Tic-Tac-Toe" target="_blank" rel="noopener noreferrer"
+            class="text-blue-400 underline text-lg transition hover:scale-110">View
+            Project
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!------------------- CONTACTS SECTION ------------------->
-  <!-- CONTACTS SECTION -->
   <section id="contact" class="py-16 bg-gray-800 px-4 sm:px-0">
     <div class="container mx-auto flex justify-center items-center">
       <div class="w-full max-w-3xl">
@@ -457,11 +473,7 @@
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/in/marin-mirasol/" target="_blank" rel="noopener noreferrer"
             class="transition hover:scale-110">
-            <!-- white background -->
-            <div class="w-12 h-12 bg-white">
-              <img class="w-14 h-14 object-cover" src="./icons/linkedIn.svg" alt="LinkedIn" />
-            </div>
-
+            <img class="w-16 h-16" src="./icons/linkedin.svg" alt="LinkedIn" />
           </a>
           <a href="https://github.com/mmirasol17" target="_blank" rel="noopener noreferrer"
             class="transition hover:scale-110">
@@ -498,8 +510,6 @@
     </div>
   </section>
 
-
-
   <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
   <section class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 sm:px-0">
     <div class="container mx-auto max-w-4xl">
@@ -512,7 +522,7 @@
         </p>
         <p class="text-white font-light text-lg mb-8 text-center">
           If you are a fellow Web/Frontend Developer or are building a personal website yourself, I highly recommend
-          trying out somfe of these tools, as they are very easy to use, make development much more efficient, and are
+          trying out some of these tools, as they are very easy to use, make development much more efficient, and are
           very powerful!
         </p>
 
@@ -523,19 +533,19 @@
             target="_blank" rel="noopener noreferrer">
             <img class="w-12 h-12" src="./icons/javaScript.svg" alt="JavaScript" />
           </a>
-          &nbsp;X&nbsp;
+          X
           <!-- HTML Symbol -->
           <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
             rel="noopener noreferrer">
             <img class="w-12 h-12" src="./icons/html.svg" alt="HTML" />
           </a>
-          &nbsp;X&nbsp;
+          X
           <!-- Tailwind Symbol -->
           <a class="transition hover:scale-110" href="https://tailwindcss.com/" target="_blank"
             rel="noopener noreferrer">
             <img class="w-12 h-12" src="./icons/tailwind.svg" alt="Tailwind" />
           </a>
-          &nbsp;X&nbsp;
+          X
           <!-- GitHub Symbol -->
           <a class="transition hover:scale-110" href="https://pages.github.com/" target="_blank"
             rel="noopener noreferrer">
