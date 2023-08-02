@@ -39,7 +39,7 @@
   </nav>
 
   <!------------ INTRO SECTION ------------>
-  <header id="intro" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 mt-16 py-48 px-4 sm:px-0">
+  <header id="intro" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 mt-16 py-48 px-4">
     <div class="container mx-auto flex justify-center items-center h-full">
       <div class="text-center">
         <div class="flex flex-col md:flex-row mb-1">
@@ -47,7 +47,7 @@
             Hello, my name is&nbsp;
           </h1>
           <h1 class="text-3xl sm:text-5xl font-bold text-white drop-shadow-2xl">
-            <a href="#about" class="text-blue-400 underline">Marin Mirasol</a>.&nbsp;
+            <a href="#about" class="text-blue-400 underline transition hover:scale-110">Marin Mirasol</a>.&nbsp;
           </h1>
         </div>
         <h1 class="text-3xl sm:text-5xl font-bold text-white">I'm a software engineer!</h1>
@@ -57,24 +57,28 @@
 
 
   <!------------ ABOUT SECTION ------------>
-  <section id="about" class="py-16 bg-gray-800 px-4 sm:px-0">
-    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+  <section id="about" class="py-16 bg-gray-800 px-4">
+    <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div class="grid-cols-1 text-white">
         <!-- about section header -->
-        <h2 class="text-5xl font-bold mb-4 text-center text-blue-400">About Me</h2>
+        <h2 class="text-5xl font-bold mb-8 text-center text-blue-400">About Me</h2>
+        <!-- only show photo above paragraph if mobile viewport -->
+        <div class="lg:hidden mb-8 flex justify-center items-center">
+          <img class="max-w-sm h-auto" alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
+        </div>
+
         <!-- about section body -->
         <p class="text-xl font-light leading-relaxed text-center mb-8">
           I graduated from Cal State San Marcos in May 2023 with a B.S. in Software
-          Engineering, and I have much experience with web and mobile
-          development projects. As a result of working on these projects, I have learned many different programming
-          languages, frameworks, technologies, and
-          tools, which I have listed below.
+          Engineering, and I have a lot of experience with web and mobile development projects. As a result of working
+          on these projects, I have learned many different programming languages, frameworks, technologies, and tools,
+          which I have listed below.
         </p>
 
         <!-- TECH STACK -->
         <div class="mb-8">
           <h3 class="text-3xl font-bold mb-4 text-center text-blue-400">My Tech Stack</h3>
-          <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-xs">
+          <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-xs justify-center">
             <!-- React.js -->
             <div
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
@@ -202,28 +206,29 @@
         </div>
 
         <!-- link/button to scroll to section below -->
-        <div class="text-center items-center justify-center gap-2 flex">
+        <div class="text-center items-center justify-center gap-2 flex flex-col">
           <a href="#projects" class="text-blue-400 text-xl font-bold underline">
             How have I used these technologies?
           </a>
           <!-- animating arrow down button -->
           <a href="#projects"
-            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-end justify-center mt-4">
+            class="animate-bounce w-14 h-14 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4">
             <img class="w-6 h-6" src="./icons/arrowDown.svg" alt="Arrow Down" />
           </a>
         </div>
-
       </div>
 
       <!-- personal photo -->
-      <div class="grid-cols-1 self-center hidden sm:block">
-        <img alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
+      <div class="hidden lg:grid-cols-1 lg:self-center lg:flex lg:justify-center lg:max-w-lg">
+        <img class="mx-auto" alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
       </div>
+
+
     </div>
   </section>
 
   <!------------------- PROJECTS SECTION ------------------->
-  <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 sm:px-0">
+  <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4">
     <div class="container mx-auto">
       <h2 class="text-5xl font-bold text-blue-400 text-center mb-8">My Projects</h2>
 
@@ -238,7 +243,7 @@
               schedule, budget, and tasks all in one dashboard.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- React Symbol -->
               <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
               <!-- JavaScript Symbol -->
@@ -268,7 +273,7 @@
               UML, and collaborate with other users in real-time.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- Go Symbol -->
               <img class="w-10 h-10" src="./icons/go.svg" alt="Go" />
               <!-- React Symbol -->
@@ -297,7 +302,7 @@
               enabled by using OpenAI's Chat Completions API.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- Android Studio Symbol -->
               <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
               <!-- Kotlin Symbol -->
@@ -323,7 +328,7 @@
               Android mobile application that interfaces with the grading system of the professor’s courses to record
               and update students' grades seamlessly.
               <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- Android Studio Symbol -->
               <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
               <!-- Java Symbol -->
@@ -347,7 +352,7 @@
               professor’s gradebook. This system is currently used to efficiently record and grade a CSUSM Computer
               Science course of about 35 students.
             </p>
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- Python Symbol -->
               <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
               <!-- Bash Symbol -->
@@ -371,7 +376,7 @@
               Corps Tactical Systems Support Activity (MCTSSA) engineers for further development.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- Python Symbol -->
               <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
               <!-- Qt Symbol -->
@@ -389,11 +394,11 @@
           class="text-center bg-gray-600 rounded-2xl transition hover:scale-[102%] p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
-            <p class="text-white font-light mb-2">A simple blog website, which allows user to post blogs, and reply and
+            <p class="text-white font-light mb-2">A simple blog website, which allows users to post blogs, and reply and
               search for posted blogs.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- JavaScript Symbol -->
               <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
               <!-- PHP Symbol -->
@@ -422,7 +427,7 @@
               stored in a .txt file, where the data will be accessed.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- C++ Symbol -->
               <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
               <!-- Bash Symbol -->
@@ -445,7 +450,7 @@
               command-line, such as the Mac Terminal, Windows Command Prompt, etc.
             </p>
             <!-- icons of all technologies used -->
-            <div class="flex items-center gap-2 justify-center mb-2">
+            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- C++ Symbol -->
               <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
               <!-- Bash Symbol -->
@@ -464,7 +469,7 @@
   </section>
 
   <!------------------- CONTACTS SECTION ------------------->
-  <section id="contact" class="py-16 bg-gray-800 px-4 sm:px-0">
+  <section id="contact" class="py-16 bg-gray-800 px-4">
     <div class="container mx-auto flex justify-center items-center">
       <div class="w-full max-w-3xl">
         <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
@@ -485,25 +490,28 @@
           <!-- name input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="name">Name</label>
-            <input class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-500"
+            <input
+              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
               type="text" name="name" placeholder="John Doe" />
           </div>
           <!-- email input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="email">Email</label>
-            <input class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-500"
+            <input
+              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
               type="email" name="email" placeholder="johndoe@example.com" />
           </div>
           <!-- message input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="message">Message</label>
             <textarea
-              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-500"
+              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
               name="message" rows="10"
               placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></textarea>
           </div>
           <!-- submit button -->
-          <button class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-110"
+          <button
+            class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600"
             type="submit">Submit</button>
         </form>
       </div>
@@ -511,7 +519,7 @@
   </section>
 
   <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
-  <section class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 sm:px-0">
+  <section class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4">
     <div class="container mx-auto max-w-4xl">
       <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
         <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
@@ -525,31 +533,34 @@
           trying out some of these tools, as they are very easy to use, make development much more efficient, and are
           very powerful!
         </p>
+        <p class="text-white font-light text-lg mb-8 text-center">
+          Feel free to click on any of the icons of these tools below to learn more about them!
+        </p>
 
         <!-- links to these tools -->
         <div class="flex items-center gap-3 justify-center text-white font-light">
           <!-- JavaScript Symbol -->
           <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             target="_blank" rel="noopener noreferrer">
-            <img class="w-12 h-12" src="./icons/javaScript.svg" alt="JavaScript" />
+            <img class="w-12 h-12 animate-pulse" src="./icons/javaScript.svg" alt="JavaScript" />
           </a>
           X
           <!-- HTML Symbol -->
           <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
             rel="noopener noreferrer">
-            <img class="w-12 h-12" src="./icons/html.svg" alt="HTML" />
+            <img class="w-12 h-12 animate-pulse" src="./icons/html.svg" alt="HTML" />
           </a>
           X
           <!-- Tailwind Symbol -->
           <a class="transition hover:scale-110" href="https://tailwindcss.com/" target="_blank"
             rel="noopener noreferrer">
-            <img class="w-12 h-12" src="./icons/tailwind.svg" alt="Tailwind" />
+            <img class="w-12 h-12 animate-pulse" src="./icons/tailwind.svg" alt="Tailwind" />
           </a>
           X
           <!-- GitHub Symbol -->
           <a class="transition hover:scale-110" href="https://pages.github.com/" target="_blank"
             rel="noopener noreferrer">
-            <img class="w-12 h-12" src="./icons/github.svg" alt="GitHub" />
+            <img class="w-12 h-12 animate-pulse" src="./icons/github.svg" alt="GitHub" />
           </a>
         </div>
       </div>
