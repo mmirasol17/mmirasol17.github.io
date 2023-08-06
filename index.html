@@ -532,42 +532,50 @@
             class="transition hover:scale-110">
             <img class="w-16 h-16" src="./icons/linkedIn.svg" alt="LinkedIn" />
           </a>
+          <!-- GitHub -->
           <a href="https://github.com/mmirasol17" target="_blank" rel="noopener noreferrer"
             class="transition hover:scale-110">
             <img class="w-12 h-12" src="./icons/github.svg" alt="GitHub" />
           </a>
+          <!-- Discord -->
+          <a href="https://discord.gg/fh5JjD5GXk" target="_blank" rel="noopener noreferrer"
+            class="transition hover:scale-110">
+            <img class="w-12 h-12" src="./icons/discord.svg" alt="Discord" />
+          </a>
         </div>
+
         <!-- Email contact form -->
-        <form class="flex flex-col gap-6" action="https://formspree.io/f/mwkdvdrp" method="POST">
+        <form id="contact-form" class="flex flex-col gap-6" action="https://formspree.io/f/mwkdvdrp" method="post">
           <!-- name input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="name">Name</label>
-            <input
-              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
-              type="text" name="subject" placeholder="John Doe" />
+            <input id="name"
+              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+              name="name" type="text" placeholder="John Doe" />
           </div>
           <!-- email input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="email">Email</label>
-            <input
+            <input id="email"
               class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
-              type="email" name="email" placeholder="johndoe@example.com" />
+              name="email" type="email" placeholder="johndoe@example.com" />
           </div>
           <!-- message input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="message">Message</label>
-            <textarea
-              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+            <textarea id="message"
+              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
               name="message" rows="10"
-              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></textarea>
+              placeholder="Hello there Marin! My name is John, and I would love to discuss a project that I am working on!"></textarea>
           </div>
           <!-- submit button -->
           <button
             class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600"
-            type="submit">
+            type="submit" value="send">
             Submit
           </button>
         </form>
+
       </div>
     </div>
   </section>
@@ -579,7 +587,7 @@
         <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
         <p class="text-white font-light text-lg mb-8 text-center">
           I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the
-          logic of the button scrolling, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to
+          button logic, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to
           host the page on a public domain.
         </p>
         <p class="text-white font-light text-lg mb-8 text-center">
