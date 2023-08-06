@@ -115,11 +115,11 @@
             </a>
 
             <!-- ASP.NET -->
-            <a href="https://dotnet.microsoft.com/en-us/apps/aspnet" target="_blank" rel="noopener noreferrer"
+            <!-- <a href="https://dotnet.microsoft.com/en-us/apps/aspnet" target="_blank" rel="noopener noreferrer"
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
               <img class="w-12 h-12" src="./icons/aspNet.svg" alt="ASP.NET" />
               ASP.NET
-            </a>
+            </a> -->
 
             <!-- HTML -->
             <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
@@ -136,7 +136,7 @@
               CSS
             </a>
 
-            <!-- TailwindCSS (show hyphen if mobile viewport) -->
+            <!-- TailwindCSS -->
             <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer"
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
               <img class="w-12 h-12" src="./icons/tailwind.svg" alt="TailwindCSS" />
@@ -207,18 +207,18 @@
             </a>
 
             <!-- GitHub -->
-            <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+            <!-- <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
               <img class="w-12 h-12" src="./icons/github.svg" alt="GitHub" />
               GitHub
-            </a>
+            </a> -->
 
             <!-- GitHub Desktop -->
-            <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"
+            <!-- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
               <img class="w-12 h-12" src="./icons/githubDesktop.svg" alt="GitHub Desktop" />
               GitHub Desktop
-            </a>
+            </a> -->
 
             <!-- AWS -->
             <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
@@ -235,11 +235,11 @@
             </a>
 
             <!-- VSCode -->
-            <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"
+            <!-- <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
               <img class="w-12 h-12" src="./icons/vsCode.svg" alt="VSCode" />
               VSCode
-            </a>
+            </a> -->
 
             <!-- Android Studio -->
             <a href="https://developer.android.com/studio" target="_blank" rel="noopener noreferrer"
@@ -249,11 +249,11 @@
             </a>
 
             <!-- JetBrains -->
-            <a href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer"
+            <!-- <a href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer"
               class="flex flex-col rounded-3xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
               <img class="w-12 h-12" src="./icons/jetBrains.svg" alt="JetBrains" />
               JetBrains
-            </a>
+            </a> -->
           </div>
         </div>
 
@@ -377,7 +377,7 @@
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
             <p class="text-white font-light mb-2">
-              Android mobile application that interfaces with the grading system of the professor’s courses to record
+              Android mobile application that interfaces with the grading system of a professor’s courses to record
               and update students' grades seamlessly.
               <!-- icons of all technologies used -->
             <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
@@ -402,7 +402,7 @@
               System that records and grades attendance by receiving student identification data from students,
               determining if the student is on time or is late for class, then recording the data directly into a
               professor’s gradebook. This system is currently used to efficiently record and grade a CSUSM Computer
-              Science course of about 35 students.
+              Science course of about 35 students per section.
             </p>
             <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
               <!-- Python Symbol -->
@@ -538,13 +538,13 @@
           </a>
         </div>
         <!-- Email contact form -->
-        <form class="flex flex-col gap-6">
+        <form class="flex flex-col gap-6" action="https://formspree.io/f/mwkdvdrp" method="POST">
           <!-- name input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="name">Name</label>
             <input
               class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white  placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
-              type="text" name="name" placeholder="John Doe" />
+              type="text" name="subject" placeholder="John Doe" />
           </div>
           <!-- email input -->
           <div class="flex flex-col">
@@ -564,7 +564,9 @@
           <!-- submit button -->
           <button
             class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600"
-            type="submit">Submit</button>
+            type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>
