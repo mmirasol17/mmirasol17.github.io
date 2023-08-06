@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // options for the IntersectionObserver
   const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
+    root: null, // use the viewport as the root
+    rootMargin: '0px', // no margin
+    threshold: 0.1, // trigger when 10% of the section is visible
   };
 
   // create an observer to observe when sections are intersecting
