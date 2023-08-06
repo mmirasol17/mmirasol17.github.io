@@ -1,11 +1,70 @@
-// * functionality for scrolling to different sections of the page
-document.querySelectorAll(`a[href^="#"]`).forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+// * functionality for highlighting active section in the navbar
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('.section'); // get all sections
+  let activeSectionId = null; // track the ID of the currently active section
 
-    // scroll to the top of the section with a 100px offset
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
+  // options for the IntersectionObserver
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5,
+  };
+
+  // create an observer to observe when sections are intersecting
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      // get the ID and link of the section that is intersecting
+      const targetId = entry.target.getAttribute('id');
+      const targetLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+
+      if (entry.isIntersecting) {
+        if (targetId !== activeSectionId) {
+          // remove highlighting from the previously active section
+          if (activeSectionId) {
+            const activeLink = document.querySelector(`.nav-link[href="#${activeSectionId}"]`);
+            activeLink.style.textDecoration = 'none';
+            activeLink.style.color = '#FFFFFF';
+          }
+          // highlight the current section
+          targetLink.style.textDecoration = 'underline';
+          targetLink.style.color = '#60A5FA';
+          activeSectionId = targetId; // update active section
+        }
+      } else {
+        // remove highlighting when section is not intersecting
+        targetLink.style.textDecoration = 'none';
+        targetLink.style.color = '#FFFFFF';
+        if (targetId === activeSectionId) {
+          activeSectionId = null; // clear active section if no longer intersecting
+        }
+      }
+    });
+  }, observerOptions);
+
+  // observe each section for when it is intersecting
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
+// * functionality for scrolling to different sections of the page
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll(`a[href^="#"]`).forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // get the section that the link is pointing to
+      const targetSection = document.querySelector(this.getAttribute("href"));
+
+      // get the height of the navbar and calculate the offset
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
+      const offset = targetSection.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+      // scroll to the section with the offset and smooth behavior
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth",
+      });
     });
   });
 });

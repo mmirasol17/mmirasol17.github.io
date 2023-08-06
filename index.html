@@ -10,7 +10,7 @@
 
 <body>
   <!------------ NAVBAR ------------>
-  <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl">
+  <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl navbar">
     <div class="container mx-auto">
       <div class="justify-between items-center flex">
         <!-- site logo -->
@@ -21,16 +21,15 @@
         <!-- links to navigate to different parts of the portfolio -->
         <div class="flex gap-5 text-md text-white font-light">
           <!-- ABOUT ME LINK -->
-          <a href="#about" class="transition hover:scale-110 hover:underline hover:text-blue-400" href="#about-me">
+          <a href="#about" class="transition hover:scale-110 nav-link" href="#about-me">
             About Me
           </a>
           <!-- MY PROJECTS LINK -->
-          <a href="#projects" class="transition hover:scale-110 hover:underline hover:text-blue-400"
-            href="#my-projects">
+          <a href="#projects" class="transition hover:scale-110 nav-link" href="#my-projects">
             My Projects
           </a>
           <!-- CONTACT ME LINK -->
-          <a href="#contact" class="transition hover:scale-110 hover:underline hover:text-blue-400" href="#contact-me">
+          <a href="#contact" class="transition hover:scale-110 nav-link" href="#contact-me">
             Contact Me
           </a>
         </div>
@@ -57,7 +56,7 @@
 
 
   <!------------ ABOUT SECTION ------------>
-  <section id="about" class="py-16 bg-gray-800 px-4">
+  <section id="about" class="py-16 bg-gray-800 px-4 section">
     <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div class="grid-cols-1 text-white">
         <!-- about section header -->
@@ -69,10 +68,9 @@
 
         <!-- about section body -->
         <p class="text-xl font-light leading-relaxed text-center mb-8">
-          I graduated from Cal State San Marcos in May 2023 with a B.S. in Software
-          Engineering, and I have a lot of experience with web and mobile development projects. As a result of working
-          on these projects, I have learned many different programming languages, frameworks, technologies, and tools,
-          which I have listed below.
+          I graduated from Cal State San Marcos in May 2023 with a B.S. in Software Engineering, and I have a lot of
+          experience with developing web and mobile applications. As a result of working on these applications, I have
+          learned many different programming languages, frameworks, technologies, and tools, which I have listed below.
         </p>
 
         <!-- TECH STACK -->
@@ -280,7 +278,7 @@
   </section>
 
   <!------------------- PROJECTS SECTION ------------------->
-  <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4">
+  <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 section">
     <div class="container mx-auto">
       <h2 class="text-5xl font-bold text-blue-400 text-center mb-8">My Projects</h2>
 
@@ -521,7 +519,7 @@
   </section>
 
   <!------------------- CONTACTS SECTION ------------------->
-  <section id="contact" class="py-16 bg-gray-800 px-4">
+  <section id="contact" class="py-16 bg-gray-800 px-4 section">
     <div class="container mx-auto flex justify-center items-center">
       <div class="w-full max-w-3xl">
         <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
