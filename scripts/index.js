@@ -1,49 +1,73 @@
 // * functionality for highlighting active section in the navbar
 document.addEventListener('DOMContentLoaded', function () {
-  const sections = document.querySelectorAll('.section'); // get all sections
-  let activeSectionId = null; // track the ID of the currently active section
+  const sections = document.querySelectorAll('.section');
+  const navbarLinks = document.querySelectorAll('.nav-link');
 
-  // options for the IntersectionObserver
   const observerOptions = {
-    root: null, // use the viewport as the root
-    rootMargin: '0px', // no margin
-    threshold: 0.1, // trigger when 10% of the section is visible
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5, // 0.5 means that the section is 50% visible
   };
 
   // create an observer to observe when sections are intersecting
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      // get the ID and link of the section that is intersecting
-      const targetId = entry.target.getAttribute('id');
-      const targetLink = document.querySelector(`.nav-link[href="#${targetId}"]`);
+    let topSection = null;
 
-      if (entry.isIntersecting) {
-        if (targetId !== activeSectionId) {
-          // remove highlighting from the previously active section
-          if (activeSectionId) {
-            const activeLink = document.querySelector(`.nav-link[href="#${activeSectionId}"]`);
-            activeLink.style.textDecoration = 'none';
-            activeLink.style.color = '#FFFFFF';
-          }
-          // highlight the current section
-          targetLink.style.textDecoration = 'underline';
-          targetLink.style.color = '#60A5FA';
-          activeSectionId = targetId; // update active section
-        }
-      } else {
-        // remove highlighting when section is not intersecting
-        targetLink.style.textDecoration = 'none';
-        targetLink.style.color = '#FFFFFF';
-        if (targetId === activeSectionId) {
-          activeSectionId = null; // clear active section if no longer intersecting
-        }
+    // loop through all the sections
+    entries.forEach(entry => {
+      // if the section is intersecting and is the topmost section, set it as the top section
+      if (entry.isIntersecting && (!topSection || entry.boundingClientRect.y < topSection.boundingClientRect.y)) {
+        topSection = entry;
       }
     });
+
+    // if there is a top section, highlight the link in the navbar
+    if (topSection) {
+      const topLinkId = topSection.target.getAttribute('id');
+      const topLink = document.querySelector(`.nav-link[href="#${topLinkId}"]`);
+      highlightLink(topLink);
+    }
   }, observerOptions);
 
-  // observe each section for when it is intersecting
+  // observe all the sections
   sections.forEach(section => {
     observer.observe(section);
+  });
+
+  // helper function to highlight the link in the navbar
+  function highlightLink(link) {
+    // remove underline and change color of all links so new link can be highlighted
+    navbarLinks.forEach(navLink => {
+      navLink.style.textDecoration = 'none';
+      navLink.style.color = '#FFFFFF';
+    });
+    // highlight the link by underlining it and changing the color
+    link.style.textDecoration = 'underline';
+    link.style.color = '#60A5FA';
+  }
+
+  // add event listener to window to highlight the link in the navbar when scrolling
+  window.addEventListener('scroll', function () {
+    let closestSection = null;
+    let closestDistance = Infinity;
+
+    // loop through all the sections and find the closest section to the top of the page
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top);
+      // if distance is less than closest distance, set closest section to current section
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestSection = section;
+      }
+    });
+
+    // if there is a closest section, highlight the link in the navbar
+    if (closestSection) {
+      const closestLinkId = closestSection.getAttribute('id');
+      const closestLink = document.querySelector(`.nav-link[href="#${closestLinkId}"]`);
+      highlightLink(closestLink);
+    }
   });
 });
 
