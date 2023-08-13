@@ -1,4 +1,4 @@
-// * functionality for highlighting active section in the navbar
+// ! functionality for highlighting active section in the navbar
 document.addEventListener('DOMContentLoaded', function () {
   const sections = document.querySelectorAll('.section');
   const navbarLinks = document.querySelectorAll('.nav-link');
@@ -15,9 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // loop through all the sections
     entries.forEach(entry => {
-      // if the section is intersecting and is the topmost section, set it as the top section
-      if (entry.isIntersecting && (!topSection || entry.boundingClientRect.y < topSection.boundingClientRect.y)) {
-        topSection = entry;
+      // Exclude the intro section from being considered for highlighting
+      if (entry.target.id !== 'intro') {
+        // if the section is intersecting and is the topmost section, set it as the top section
+        if (entry.isIntersecting && (!topSection || entry.boundingClientRect.y < topSection.boundingClientRect.y)) {
+          topSection = entry;
+        }
       }
     });
 
@@ -25,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (topSection) {
       const topLinkId = topSection.target.getAttribute('id');
       const topLink = document.querySelector(`.nav-link[href="#${topLinkId}"]`);
-      highlightLink(topLink);
+      if (topLink) { // Add a check here
+        highlightLink(topLink);
+      }
     }
   }, observerOptions);
 
@@ -54,24 +59,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // loop through all the sections and find the closest section to the top of the page
     sections.forEach(section => {
       const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top);
+      const sectionHeight = rect.height; // Get the height of the section
+      const distance = Math.abs(rect.top) - sectionHeight / 2; // Adjusted distance calculation
       // if distance is less than closest distance, set closest section to current section
       if (distance < closestDistance) {
-        closestDistance = distance;
+        closestDistance = distance - 400;
         closestSection = section;
       }
     });
 
-    // if there is a closest section, highlight the link in the navbar
-    if (closestSection) {
+    // if the user scrolls to the top of the page, unhighlight all links
+    if (closestSection && (closestSection.id === 'intro' || closestSection.id === 'fact')) {
+      navbarLinks.forEach(navLink => {
+        navLink.style.textDecoration = 'none';
+        navLink.style.color = '#FFFFFF';
+      });
+    } else if (closestSection && closestSection.id !== 'intro' && closestSection.id !== 'fact') {
       const closestLinkId = closestSection.getAttribute('id');
       const closestLink = document.querySelector(`.nav-link[href="#${closestLinkId}"]`);
       highlightLink(closestLink);
-    }
+    } 
   });
 });
 
-// * functionality for scrolling to different sections of the page
+// ! functionality for scrolling to different sections of the page
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll(`a[href^="#"]`).forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -93,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// * form validation
+// ! form validation
 document.addEventListener('DOMContentLoaded', function () {
   // get the form and input elements from their ids
   const form = document.querySelector('#contact-form');
@@ -189,5 +200,3 @@ document.addEventListener('DOMContentLoaded', function () {
   `;
   document.head.appendChild(styleElement);
 });
-
-
