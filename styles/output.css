@@ -572,8 +572,16 @@ video {
   position: fixed;
 }
 
+.relative {
+  position: relative;
+}
+
 .top-0 {
   top: 0px;
+}
+
+.top-28 {
+  top: 7rem;
 }
 
 .z-50 {
@@ -585,16 +593,20 @@ video {
   margin-right: auto;
 }
 
+.-mt-10 {
+  margin-top: -2.5rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 
-.mb-24 {
-  margin-bottom: 6rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .mb-4 {
@@ -603,10 +615,6 @@ video {
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .mt-4 {
