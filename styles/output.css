@@ -593,10 +593,6 @@ video {
   margin-right: auto;
 }
 
-.-mt-10 {
-  margin-top: -2.5rem;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1031,6 +1027,10 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:top-0 {
+    top: 0px;
+  }
+
   .sm\:mb-16 {
     margin-bottom: 4rem;
   }
