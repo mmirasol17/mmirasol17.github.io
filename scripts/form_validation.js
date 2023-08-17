@@ -13,21 +13,21 @@ document.addEventListener('DOMContentLoaded', function () {
       // check if name is valid (not empty)
       if (nameInput.value.trim() === '') {
         valid = false;
-        showError(nameInput, 'Name field cannot be empty');
+        showError(nameInput, 'Please enter your name');
       } else {
         hideError(nameInput);
       }
       // check if email is valid (not empty and has @ symbol)
       if (!isValidEmail(emailInput.value)) {
         valid = false;
-        showError(emailInput, 'Invalid email address');
+        showError(emailInput, 'Please enter a valid email address');
       } else {
         hideError(emailInput);
       }
       // check if message is valid (not empty)
       if (messageInput.value.trim() === '') {
         valid = false;
-        showError(messageInput, 'Message field cannot be empty');
+        showError(messageInput, 'Please enter a message');
       } else {
         hideError(messageInput);
       }

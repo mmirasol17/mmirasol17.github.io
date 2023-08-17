@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marin Mirasol - Personal Portfolio</title>
   <link href="./styles/output.css" rel="stylesheet" />
+  <link href="./styles/animations.css" rel="stylesheet" />
 
   <!-- site favicon configs -->
   <link rel="icon" href="./favicon/favicon.ico" />
@@ -46,12 +47,11 @@
   </nav>
 
 <!------------ INTRO SECTION ------------>
-<header id="intro" class="bg-gradient-to-b h-[100svh] sm:min-h-[100svh] from-blue-800 via-blue-900 to-gray-900 px-4 animate-gradient section">
-  <div class="container mx-auto grid grid-rows-3 sm:flex sm:flex-col sm:justify-center items-center h-full">
-    <div class="grid-rows-1 sm:grid-rows-none"></div>
-    <div class="grid-rows-1 sm:grid-rows-none">
+<header id="intro" class="bg-gradient-to-b h-[100dvh] sm:min-h-[100svh] from-blue-800 via-blue-900 to-gray-900 px-4 section">
+  <div class="container mx-auto flex flex-col justify-between sm:justify-center items-center h-full">
+    <div class="fade-in">
       <!-- personal photo -->
-      <div class="sm:mt-[15svh] mb-4 flex justify-center items-center">
+      <div class="mt-28 sm:mt-[15svh] mb-4 flex justify-center items-center">
         <div class="max-w-screen sm:max-w-sm w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden">
           <img class="h-full w-full object-cover drop-shadow-xl" alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
         </div>
@@ -70,7 +70,7 @@
       </div>
     </div>
     <!-- button to about me section -->
-    <div class="grid-rows-1 mt-auto sm:mt-0 sm:grid-rows-none text-center items-center gap-2 mb-10 flex flex-col">
+    <div class="mt-auto sm:mt-0 text-center items-center gap-2 mb-8 flex flex-col fade-in">
       <a href="#about" class="text-blue-400 text-lg lg:text-3xl font-bold underline">
         Learn more about me!
       </a>
@@ -87,7 +87,7 @@
   <section id="about" class="py-16 bg-gray-800 px-4 section">
     <div class="container mx-auto text-white md:max-w-5xl flex flex-col h-full">
       <!-- about header and paragraph -->
-      <div>
+      <div class="fade-in">
         <h2 class="text-5xl font-bold mb-8 text-center text-blue-400">About Me</h2>
         <p class="text-lg md:text-xl font-light leading-relaxed text-center mb-8 mx-6">
           I graduated from Cal State San Marcos in May 2023 with a B.S. in Software Engineering, and I have a lot of
@@ -98,46 +98,46 @@
 
       <!-- TECH STACK -->
       <div class="mb-8">
-        <h3 class="text-3xl font-bold mb-4 text-center text-blue-400">My Tech Stack</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-10 gap-3 text-xs justify-center">
+        <h3 class="text-3xl font-bold mb-4 text-center text-blue-400 fade-in">My Tech Stack</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-10 gap-3 text-xs font-bold justify-center">
           <!-- React.js -->
           <a href="https://react.dev/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/react.svg" alt="React.js" />
             React.js
           </a>
 
           <!-- JavaScript -->
           <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/javaScript.svg" alt="JavaScript" />
             JavaScript
           </a>
 
           <!-- TypeScript -->
           <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/typeScript.svg" alt="TypeScript" />
             TypeScript
           </a>
 
           <!-- PHP -->
           <a href="https://www.php.net/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/php.svg" alt="PHP" />
             PHP
           </a>
 
           <!-- C# -->
           <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/cs.svg" alt="C#" />
             C#
           </a>
 
           <!-- ASP.NET -->
           <!-- <a href="https://dotnet.microsoft.com/en-us/apps/aspnet" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/aspNet.svg" alt="ASP.NET" />
             ASP.NET
           </a> -->
@@ -145,133 +145,133 @@
           <!-- HTML -->
           <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
             target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/html.svg" alt="HTML" />
             HTML
           </a>
 
           <!-- CSS -->
           <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/css.svg" alt="CSS" />
             CSS
           </a>
 
           <!-- TailwindCSS -->
           <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/tailwind.svg" alt="TailwindCSS" />
             TailwindCSS
           </a>
 
           <!-- C++ -->
           <a href="https://www.cplusplus.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/cpp.svg" alt="C++" />
             C++
           </a>
 
           <!-- Python -->
           <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/python.svg" alt="Python" />
             Python
           </a>
 
           <!-- Qt -->
           <a href="https://doc.qt.io/qtforpython-6/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/pyQt.svg" alt="PyQt" />
             PyQt
           </a>
 
           <!-- Go -->
           <a href="https://golang.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/go.svg" alt="Go" />
             Golang
           </a>
 
           <!-- Kotlin -->
           <a href="https://kotlinlang.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/kotlin.svg" alt="Kotlin" />
             Kotlin
           </a>
 
           <!-- Java -->
           <a href="https://www.java.com/en/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/java.svg" alt="Java" />
             Java
           </a>
 
           <!-- Bash -->
           <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/bash.svg" alt="Bash" />
             Bash
           </a>
 
           <!-- SQL -->
           <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/sql.svg" alt="SQL" />
             SQL
           </a>
 
           <!-- Git -->
           <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/git.svg" alt="Git" />
             Git
           </a>
 
           <!-- GitHub -->
           <!-- <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/github.svg" alt="GitHub" />
             GitHub
           </a> -->
 
           <!-- GitHub Desktop -->
           <!-- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/githubDesktop.svg" alt="GitHub Desktop" />
             GitHub Desktop
           </a> -->
 
           <!-- AWS -->
           <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/aws.svg" alt="AWS" />
             AWS
           </a>
 
           <!-- Firebase -->
           <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/firebase.svg" alt="Firebase" />
             Firebase
           </a>
 
           <!-- VSCode -->
           <!-- <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/vsCode.svg" alt="VSCode" />
             VSCode
           </a> -->
 
           <!-- Android Studio -->
           <a href="https://developer.android.com/studio" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/androidStudio.svg" alt="Android Studio" />
             Android Studio
           </a>
 
           <!-- JetBrains -->
           <!-- <a href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center font-bold">
+            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-110 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/jetBrains.svg" alt="JetBrains" />
             JetBrains
           </a> -->
@@ -279,7 +279,7 @@
       </div>
 
       <!-- LINK/BUTTON TO PROJECTS -->
-      <div class="text-center items-center justify-center gap-2 flex flex-col">
+      <div class="text-center items-center justify-center gap-2 flex flex-col fade-in">
         <a href="#projects" class="text-blue-400 text-xl font-bold underline">
           How have I used some of these technologies?
         </a>
@@ -296,13 +296,13 @@
   <!------------------- PROJECTS SECTION ------------------->
   <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 section">
     <div class="container mx-auto">
-      <h2 class="text-5xl font-bold text-blue-400 text-center mb-8">My Projects</h2>
+      <h2 class="text-5xl font-bold text-blue-400 text-center mb-8 fade-in">My Projects</h2>
 
       <!-- project cards grid -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base">
         <!-- MyOrganizer project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
             <p class="text-white font-light mb-2">Web application that allows users to organize and visualize their
@@ -330,7 +330,7 @@
 
         <!-- ProUML project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">ProUML</h3>
             <p class="text-white font-light mb-2">
@@ -360,7 +360,7 @@
 
         <!-- Chattington project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
             <p class="text-white font-light mb-2">
@@ -387,7 +387,7 @@
 
         <!-- GradeApp project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
             <p class="text-white font-light mb-2">
@@ -409,7 +409,7 @@
 
         <!-- Class Attendance Grading System project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">Attendance Grading System</h3>
             <p class="text-white font-light mb-2">
@@ -433,7 +433,7 @@
 
         <!-- myPR200 GUI project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">myPR200 GUI</h3>
             <p class="text-white font-light mb-2">GUI application that processes parsed data from a PR200
@@ -457,7 +457,7 @@
 
         <!-- CougarBlogs project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
             <p class="text-white font-light mb-2">A simple blog website, which allows users to post blogs, and reply and
@@ -484,7 +484,7 @@
 
         <!-- CLI Car Database project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">Car Database CLI</h3>
             <p class="text-white font-light mb-2">
@@ -508,7 +508,7 @@
 
         <!-- CLI Tic-Tac-Toe project card -->
         <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between">
+          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
           <div>
             <h3 class="text-2xl font-bold text-white mb-2">Tic-Tac-Toe CLI</h3>
             <p class="text-white font-light mb-2">
@@ -537,7 +537,7 @@
   <!------------------- CONTACTS SECTION ------------------->
   <section id="contact" class="py-16 bg-gray-800 px-4 section">
     <div class="container mx-auto flex justify-center items-center">
-      <div class="w-full max-w-3xl">
+      <div class="w-full max-w-3xl fade-in">
         <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
         <!-- LinkedIn and GitHub links -->
         <div class="flex items-center gap-3 justify-center mb-2">
@@ -559,7 +559,7 @@
         </div>
 
         <!-- Email contact form -->
-        <form id="contact-form" class="flex flex-col gap-6" action="https://formspree.io/f/mwkdvdrp" method="post">
+        <form id="contact-form" class="flex flex-col gap-6 fade-in" action="https://formspree.io/f/mwkdvdrp" method="post">
           <!-- name input -->
           <div class="flex flex-col">
             <label class="text-white font-bold mb-2" for="name">Name</label>
@@ -597,24 +597,26 @@
   <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
   <section id="fact" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-8 section">
     <div class="container mx-auto max-w-4xl">
-      <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700">
-        <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
-        <p class="text-white font-light text-md md:text-lg mb-8 text-center">
-          I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the
-          button logic, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to
-          host the page on a public domain.
-        </p>
-        <p class="text-white font-light text-md md:text-lg mb-8 text-center">
-          If you are building a website, I highly recommend trying out some of these tools, as they are 
-          very easy to use, make development much more efficient, and are very powerful!
-        </p>
-        <p class="text-white font-light text-md md:text-lg mb-8 text-center">
-          Feel free to <span class="underline">click</span> on any of the icons of these tools below to learn more about
-          them!
-        </p>
+      <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 fade-in">
+        <div class="fade-in">
+          <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
+          <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+            I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the
+            button logic, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to
+            host the page on a public domain.
+          </p>
+          <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+            If you are building a website, I highly recommend trying out some of these tools, as they are 
+            very easy to use, make development much more efficient, and are very powerful!
+          </p>
+          <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+            Feel free to <span class="underline">click</span> on any of the icons of these tools below to learn more about
+            them!
+          </p>
+        </div>
 
         <!-- links to these tools -->
-        <div class="flex items-center gap-3 justify-center text-white font-light">
+        <div class="flex items-center gap-3 justify-center text-white font-light fade-in">
           <!-- JavaScript Symbol -->
           <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
             target="_blank" rel="noopener noreferrer">
@@ -645,14 +647,22 @@
 
   <!------------------- FOOTER SECTION ------------------->
   <footer class="bg-gray-800 py-4">
-    <div class="container mx-auto text-center font-bold text-white">
+    <div class="container mx-auto text-center font-bold text-white flex flex-col gap-2">
+      <!-- arrow up button -->
+      <div class="flex mt-2 justify-center">
+        <a href="#intro"
+          class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center">
+          <img class="w-6 h-6" src="./icons/arrowUp.svg" alt="Arrow Up" />
+        </a>
+      </div>
+      <!-- copyright details -->
       <span id="current-year">&copy; 2023 Marin Mirasol. All rights reserved.</span>
     </div>
   </footer>
 
   <!-- include all scripts for page logic -->
-  <script src="./scripts/contact_form.js"></script>
   <script src="./scripts/fade_in.js"></script>
+  <script src="./scripts/form_validation.js"></script>
   <script src="./scripts/section_indicator.js"></script>
   <script src="./scripts/section_scroll.js"></script>
 </body>
