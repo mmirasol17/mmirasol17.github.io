@@ -662,12 +662,12 @@ video {
   height: 1.5rem;
 }
 
-.h-\[100dvh\] {
-  height: 100dvh;
-}
-
 .h-full {
   height: 100%;
+}
+
+.min-h-\[100svh\] {
+  min-height: 100svh;
 }
 
 .w-10 {
@@ -1049,16 +1049,8 @@ video {
     margin-top: 0px;
   }
 
-  .sm\:mt-\[15svh\] {
-    margin-top: 15svh;
-  }
-
   .sm\:h-64 {
     height: 16rem;
-  }
-
-  .sm\:min-h-\[100svh\] {
-    min-height: 100svh;
   }
 
   .sm\:w-64 {
