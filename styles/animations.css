@@ -17,3 +17,9 @@
     opacity: 1;
   }
   
+/* Optional: Remove hover scaling animation on mobile devices */
+@media (hover: none) {
+  :hover {
+    transform: none !important;
+  }
+}
