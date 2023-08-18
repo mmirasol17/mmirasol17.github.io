@@ -8,7 +8,12 @@
     }
   }
   
-  .animate-fadeIn {
-    animation: fadeIn 1s ease-in-out;
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .fade-in.animate-fadeIn {
+    opacity: 1;
   }
   
