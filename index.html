@@ -1,670 +1,1126 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Marin Mirasol - Personal Portfolio</title>
+    <link
+      href="./styles/output.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./styles/animations.css"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marin Mirasol - Personal Portfolio</title>
-  <link href="./styles/output.css" rel="stylesheet" />
-  <link href="./styles/animations.css" rel="stylesheet" />
+    <!-- site favicon configs -->
+    <link
+      rel="icon"
+      href="./favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      type="image/png"
+      href="./favicon/favicon.svg"
+    />
+    <link
+      rel="manifest"
+      href="./favicon/site.webmanifest"
+    />
+  </head>
 
-  <!-- site favicon configs -->
-  <link rel="icon" href="./favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png" />
-  <link rel="mask-icon" type="image/png" href="./favicon/favicon.svg" />
-  <link rel="manifest" href="./favicon/site.webmanifest" />
-</head>
-
-<body>
-  <!------------ NAVBAR ------------>
-  <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl navbar">
-    <div class="container mx-auto">
-      <div class="justify-between items-center flex">
-        <!-- site logo -->
-        <a href="#intro"
-          class="w-12 h-12 p-2 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full transition hover:scale-110">
-          <img src="./icons/mm.svg" alt="MM" />
-        </a>
-        <!-- links to navigate to different parts of the portfolio -->
-        <div class="flex gap-5 text-md text-white font-light">
-          <!-- ABOUT ME LINK -->
-          <a href="#about" class="transition hover:scale-110 nav-link" href="#about-me">
-            About
+  <body>
+    <!------------ NAVBAR ------------>
+    <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl navbar">
+      <div class="container mx-auto">
+        <div class="justify-between items-center flex">
+          <!-- site logo -->
+          <a
+            href="#intro"
+            class="w-12 h-12 p-2 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full transition hover:scale-110"
+          >
+            <img
+              src="./icons/mm.svg"
+              alt="MM"
+            />
           </a>
-          <!-- MY PROJECTS LINK -->
-          <a href="#projects" class="transition hover:scale-110 nav-link" href="#my-projects">
-            Projects
+          <!-- links to navigate to different parts of the portfolio -->
+          <div class="flex gap-5 text-md text-white font-light">
+            <!-- ABOUT ME LINK -->
+            <a
+              href="#about"
+              class="transition hover:scale-110 nav-link"
+              href="#about-me"
+            >
+              About
+            </a>
+            <!-- MY PROJECTS LINK -->
+            <a
+              href="#projects"
+              class="transition hover:scale-110 nav-link"
+              href="#my-projects"
+            >
+              Projects
+            </a>
+            <!-- CONTACT ME LINK -->
+            <a
+              href="#contact"
+              class="transition hover:scale-110 nav-link"
+              href="#contact-me"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!------------ INTRO SECTION ------------>
+    <header
+      id="intro"
+      class="bg-gradient-to-b min-h-[100svh] from-blue-800 via-blue-900 to-gray-900 px-4 section"
+    >
+      <div class="container mx-auto flex flex-col justify-between sm:justify-center items-center min-h-[100svh]">
+        <div class="fade-in">
+          <!-- personal photo -->
+          <div class="mt-28 mb-4 flex justify-center items-center">
+            <div class="max-w-screen sm:max-w-sm w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden">
+              <img
+                class="h-full w-full object-cover drop-shadow-xl"
+                alt="Marin Mirasol"
+                src="./images/MarinMirasol.jpg"
+              />
+            </div>
+          </div>
+          <!-- personal intro -->
+          <div class="text-center mb-10 sm:mb-16">
+            <div class="flex flex-col sm:flex-row mb-1">
+              <h1 class="text-3xl lg:text-5xl font-bold text-white drop-shadow-2xl">Hello, my name is&nbsp;</h1>
+              <h1 class="text-3xl lg:text-5xl font-bold text-white drop-shadow-2xl">
+                <a
+                  href="#about"
+                  class="text-blue-400 underline transition hover:scale-110"
+                  >Marin Mirasol</a
+                >.&nbsp;
+              </h1>
+            </div>
+            <h1 class="text-3xl lg:text-5xl font-bold text-white">I'm a software engineer!</h1>
+          </div>
+        </div>
+        <!-- button to about me section -->
+        <div class="mt-auto sm:mt-0 text-center items-center gap-2 mb-8 flex flex-col fade-in">
+          <a
+            href="#about"
+            class="text-blue-400 text-lg lg:text-3xl font-bold underline"
+          >
+            Learn more about me!
           </a>
-          <!-- CONTACT ME LINK -->
-          <a href="#contact" class="transition hover:scale-110 nav-link" href="#contact-me">
-            Contact
+          <!-- animating arrow down button -->
+          <a
+            href="#about"
+            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4"
+          >
+            <img
+              class="w-6 h-6"
+              src="./icons/arrowDown.svg"
+              alt="Arrow Down"
+            />
           </a>
         </div>
       </div>
-    </div>
-  </nav>
+    </header>
 
-<!------------ INTRO SECTION ------------>
-<header id="intro" class="bg-gradient-to-b min-h-[100svh] from-blue-800 via-blue-900 to-gray-900 px-4 section">
-  <div class="container mx-auto flex flex-col justify-between sm:justify-center items-center min-h-[100svh]">
-    <div class="fade-in">
-      <!-- personal photo -->
-      <div class="mt-28 mb-4 flex justify-center items-center">
-        <div class="max-w-screen sm:max-w-sm w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden">
-          <img class="h-full w-full object-cover drop-shadow-xl" alt="Marin Mirasol" src="./images/MarinMirasol.jpg" />
+    <!------------ ABOUT SECTION ------------>
+    <section
+      id="about"
+      class="py-16 bg-gray-800 px-4 section"
+    >
+      <div class="container mx-auto text-white md:max-w-5xl flex flex-col h-full">
+        <!-- about header and paragraph -->
+        <div class="fade-in">
+          <h2 class="text-5xl font-bold mb-8 text-center text-blue-400">About Me</h2>
+          <p class="text-lg md:text-xl font-light leading-relaxed text-center mb-8 mx-6">
+            I graduated from Cal State San Marcos in May 2023 with a B.S. in Software Engineering, and I have a lot of experience with developing web and mobile applications. As a
+            result of working on these applications, I have learned many different programming languages, frameworks, technologies, and tools, which I have listed below.
+          </p>
         </div>
-      </div>
-      <!-- personal intro -->
-      <div class="text-center mb-10 sm:mb-16">
-        <div class="flex flex-col sm:flex-row mb-1">
-          <h1 class="text-3xl lg:text-5xl font-bold text-white drop-shadow-2xl">
-            Hello, my name is&nbsp;
-          </h1>
-          <h1 class="text-3xl lg:text-5xl font-bold text-white drop-shadow-2xl">
-            <a href="#about" class="text-blue-400 underline transition hover:scale-110">Marin Mirasol</a>.&nbsp;
-          </h1>
-        </div>
-        <h1 class="text-3xl lg:text-5xl font-bold text-white">I'm a software engineer!</h1>
-      </div>
-    </div>
-    <!-- button to about me section -->
-    <div class="mt-auto sm:mt-0 text-center items-center gap-2 mb-8 flex flex-col fade-in">
-      <a href="#about" class="text-blue-400 text-lg lg:text-3xl font-bold underline">
-        Learn more about me!
-      </a>
-      <!-- animating arrow down button -->
-      <a href="#about"
-        class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4">
-        <img class="w-6 h-6" src="./icons/arrowDown.svg" alt="Arrow Down" />
-      </a>
-    </div>
-  </div>
-</header>
 
-  <!------------ ABOUT SECTION ------------>
-  <section id="about" class="py-16 bg-gray-800 px-4 section">
-    <div class="container mx-auto text-white md:max-w-5xl flex flex-col h-full">
-      <!-- about header and paragraph -->
-      <div class="fade-in">
-        <h2 class="text-5xl font-bold mb-8 text-center text-blue-400">About Me</h2>
-        <p class="text-lg md:text-xl font-light leading-relaxed text-center mb-8 mx-6">
-          I graduated from Cal State San Marcos in May 2023 with a B.S. in Software Engineering, and I have a lot of
-          experience with developing web and mobile applications. As a result of working on these applications, I have
-          learned many different programming languages, frameworks, technologies, and tools, which I have listed below.
-        </p>
-      </div>
+        <!-- TECH STACK -->
+        <div class="mb-8">
+          <h3 class="text-3xl font-bold mb-4 text-center text-blue-400 fade-in">My Tech Stack</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-10 gap-3 text-xs font-bold justify-center fade-in">
+            <!-- React.js -->
+            <a
+              href="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/react.svg"
+                alt="React.js"
+              />
+              React.js
+            </a>
 
-      <!-- TECH STACK -->
-      <div class="mb-8">
-        <h3 class="text-3xl font-bold mb-4 text-center text-blue-400 fade-in">My Tech Stack</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-10 gap-3 text-xs font-bold justify-center fade-in">
-          <!-- React.js -->
-          <a href="https://react.dev/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/react.svg" alt="React.js" />
-            React.js
-          </a>
+            <!-- JavaScript -->
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/javaScript.svg"
+                alt="JavaScript"
+              />
+              JavaScript
+            </a>
 
-          <!-- JavaScript -->
-          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/javaScript.svg" alt="JavaScript" />
-            JavaScript
-          </a>
+            <!-- TypeScript -->
+            <a
+              href="https://www.typescriptlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/typeScript.svg"
+                alt="TypeScript"
+              />
+              TypeScript
+            </a>
 
-          <!-- TypeScript -->
-          <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/typeScript.svg" alt="TypeScript" />
-            TypeScript
-          </a>
+            <!-- PHP -->
+            <a
+              href="https://www.php.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/php.svg"
+                alt="PHP"
+              />
+              PHP
+            </a>
 
-          <!-- PHP -->
-          <a href="https://www.php.net/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/php.svg" alt="PHP" />
-            PHP
-          </a>
+            <!-- C# -->
+            <a
+              href="https://learn.microsoft.com/en-us/dotnet/csharp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/cs.svg"
+                alt="C#"
+              />
+              C#
+            </a>
 
-          <!-- C# -->
-          <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/cs.svg" alt="C#" />
-            C#
-          </a>
-
-          <!-- ASP.NET -->
-          <!-- <a href="https://dotnet.microsoft.com/en-us/apps/aspnet" target="_blank" rel="noopener noreferrer"
+            <!-- ASP.NET -->
+            <!-- <a href="https://dotnet.microsoft.com/en-us/apps/aspnet" target="_blank" rel="noopener noreferrer"
             class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/aspNet.svg" alt="ASP.NET" />
             ASP.NET
           </a> -->
 
-          <!-- HTML -->
-          <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
-            target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/html.svg" alt="HTML" />
-            HTML
-          </a>
+            <!-- HTML -->
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/html.svg"
+                alt="HTML"
+              />
+              HTML
+            </a>
 
-          <!-- CSS -->
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/css.svg" alt="CSS" />
-            CSS
-          </a>
+            <!-- CSS -->
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/css.svg"
+                alt="CSS"
+              />
+              CSS
+            </a>
 
-          <!-- TailwindCSS -->
-          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/tailwind.svg" alt="TailwindCSS" />
-            TailwindCSS
-          </a>
+            <!-- TailwindCSS -->
+            <a
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/tailwind.svg"
+                alt="TailwindCSS"
+              />
+              TailwindCSS
+            </a>
 
-          <!-- C++ -->
-          <a href="https://www.cplusplus.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/cpp.svg" alt="C++" />
-            C++
-          </a>
+            <!-- C++ -->
+            <a
+              href="https://www.cplusplus.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/cpp.svg"
+                alt="C++"
+              />
+              C++
+            </a>
 
-          <!-- Python -->
-          <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/python.svg" alt="Python" />
-            Python
-          </a>
+            <!-- Python -->
+            <a
+              href="https://www.python.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/python.svg"
+                alt="Python"
+              />
+              Python
+            </a>
 
-          <!-- Qt -->
-          <a href="https://doc.qt.io/qtforpython-6/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/pyQt.svg" alt="PyQt" />
-            PyQt
-          </a>
+            <!-- Qt -->
+            <a
+              href="https://doc.qt.io/qtforpython-6/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/pyQt.svg"
+                alt="PyQt"
+              />
+              PyQt
+            </a>
 
-          <!-- Go -->
-          <a href="https://golang.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/go.svg" alt="Go" />
-            Golang
-          </a>
+            <!-- Go -->
+            <a
+              href="https://golang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/go.svg"
+                alt="Go"
+              />
+              Golang
+            </a>
 
-          <!-- Kotlin -->
-          <a href="https://kotlinlang.org/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/kotlin.svg" alt="Kotlin" />
-            Kotlin
-          </a>
+            <!-- Kotlin -->
+            <a
+              href="https://kotlinlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/kotlin.svg"
+                alt="Kotlin"
+              />
+              Kotlin
+            </a>
 
-          <!-- Java -->
-          <a href="https://www.java.com/en/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/java.svg" alt="Java" />
-            Java
-          </a>
+            <!-- Java -->
+            <a
+              href="https://www.java.com/en/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/java.svg"
+                alt="Java"
+              />
+              Java
+            </a>
 
-          <!-- Bash -->
-          <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/bash.svg" alt="Bash" />
-            Bash
-          </a>
+            <!-- Bash -->
+            <a
+              href="https://www.gnu.org/software/bash/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/bash.svg"
+                alt="Bash"
+              />
+              Bash
+            </a>
 
-          <!-- SQL -->
-          <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/sql.svg" alt="SQL" />
-            SQL
-          </a>
+            <!-- SQL -->
+            <a
+              href="https://www.mysql.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/sql.svg"
+                alt="SQL"
+              />
+              SQL
+            </a>
 
-          <!-- Git -->
-          <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/git.svg" alt="Git" />
-            Git
-          </a>
+            <!-- Git -->
+            <a
+              href="https://git-scm.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/git.svg"
+                alt="Git"
+              />
+              Git
+            </a>
 
-          <!-- GitHub -->
-          <!-- <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+            <!-- GitHub -->
+            <!-- <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
             class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/github.svg" alt="GitHub" />
             GitHub
           </a> -->
 
-          <!-- GitHub Desktop -->
-          <!-- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"
+            <!-- GitHub Desktop -->
+            <!-- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"
             class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/githubDesktop.svg" alt="GitHub Desktop" />
             GitHub Desktop
           </a> -->
 
-          <!-- AWS -->
-          <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/aws.svg" alt="AWS" />
-            AWS
-          </a>
+            <!-- AWS -->
+            <a
+              href="https://aws.amazon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/aws.svg"
+                alt="AWS"
+              />
+              AWS
+            </a>
 
-          <!-- Firebase -->
-          <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/firebase.svg" alt="Firebase" />
-            Firebase
-          </a>
+            <!-- Firebase -->
+            <a
+              href="https://firebase.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/firebase.svg"
+                alt="Firebase"
+              />
+              Firebase
+            </a>
 
-          <!-- VSCode -->
-          <!-- <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"
+            <!-- VSCode -->
+            <!-- <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"
             class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/vsCode.svg" alt="VSCode" />
             VSCode
           </a> -->
 
-          <!-- Android Studio -->
-          <a href="https://developer.android.com/studio" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/androidStudio.svg" alt="Android Studio" />
-            Android Studio
-          </a>
+            <!-- Android Studio -->
+            <a
+              href="https://developer.android.com/studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/androidStudio.svg"
+                alt="Android Studio"
+              />
+              Android Studio
+            </a>
 
-          <!-- JetBrains -->
-          <!-- <a href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer"
+            <!-- JetBrains -->
+            <!-- <a href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer"
             class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
             <img class="w-12 h-12" src="./icons/jetBrains.svg" alt="JetBrains" />
             JetBrains
           </a> -->
+          </div>
+        </div>
+
+        <!-- LINK/BUTTON TO PROJECTS -->
+        <div class="text-center items-center justify-center gap-2 flex flex-col fade-in">
+          <a
+            href="#projects"
+            class="text-blue-400 text-xl font-bold underline"
+          >
+            How have I used some of these technologies?
+          </a>
+          <!-- animating arrow down button -->
+          <a
+            href="#projects"
+            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4"
+          >
+            <img
+              class="w-6 h-6"
+              src="./icons/arrowDown.svg"
+              alt="Arrow Down"
+            />
+          </a>
         </div>
       </div>
+    </section>
 
-      <!-- LINK/BUTTON TO PROJECTS -->
-      <div class="text-center items-center justify-center gap-2 flex flex-col fade-in">
-        <a href="#projects" class="text-blue-400 text-xl font-bold underline">
-          How have I used some of these technologies?
-        </a>
-        <!-- animating arrow down button -->
-        <a href="#projects"
-          class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4">
-          <img class="w-6 h-6" src="./icons/arrowDown.svg" alt="Arrow Down" />
-        </a>
-      </div>
+    <!------------------- PROJECTS SECTION ------------------->
+    <section
+      id="projects"
+      class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 section"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-5xl font-bold text-blue-400 text-center mb-8 fade-in">My Projects</h2>
 
-    </div>
-  </section>
-
-  <!------------------- PROJECTS SECTION ------------------->
-  <section id="projects" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 section">
-    <div class="container mx-auto">
-      <h2 class="text-5xl font-bold text-blue-400 text-center mb-8 fade-in">My Projects</h2>
-
-      <!-- project cards grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base">
-        <!-- MyOrganizer project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
-            <p class="text-white font-light mb-2">Web application that allows users to organize and visualize their
-              schedule, budget, and tasks all in one dashboard.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- React Symbol -->
-              <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
-              <!-- JavaScript Symbol -->
-              <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
-              <!-- Tailwind Symbol -->
-              <img class="w-10 h-10" src="./icons/tailwind.svg" alt="Tailwind" />
-              <!-- Firebase Symbol -->
-              <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
-              <!-- AWS Symbol -->
-              <img class="w-10 h-10" src="./icons/aws.svg" alt="AWS" />
-            </div>
-          </div>
-          <!-- link to project -->
-          <a href="https://myorganizertool.com/" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View Project
-          </a>
-        </div>
-
-        <!-- ProUML project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">ProUML</h3>
-            <p class="text-white font-light mb-2">
-              Web application that allows users to create and edit UML diagrams, import Java projects to be translated
-              to
-              UML, and collaborate with other users in real-time.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- Go Symbol -->
-              <img class="w-10 h-10" src="./icons/go.svg" alt="Go" />
-              <!-- React Symbol -->
-              <img class="w-10 h-10" src="./icons/react.svg" alt="React" />
-              <!-- TypeScript Symbol -->
-              <img class="w-10 h-10" src="./icons/typeScript.svg" alt="TypeScript" />
-              <!-- Tailwind Symbol -->
-              <img class="w-10 h-10" src="./icons/tailwind.svg" alt="Tailwind" />
-              <!-- SQL Symbol -->
-              <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
-            </div>
-          </div>
-          <!-- link to project -->
-          <a href="https://prouml.com/" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View Project
-          </a>
-        </div>
-
-        <!-- Chattington project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
-            <p class="text-white font-light mb-2">
-              Chatbot Android mobile application that allows users to have conversations with an automated chatbot,
-              enabled by using OpenAI's Chat Completions API.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- Android Studio Symbol -->
-              <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
-              <!-- Kotlin Symbol -->
-              <img class="w-10 h-10" src="./icons/kotlin.svg" alt="Kotlin" />
-              <!-- SQL Symbol -->
-              <img class="w-10 h-10" src="./icons/sql.svg" alt="SQL" />
-              <!-- Firebase Symbol -->
-              <img class="w-10 h-10" src="./icons/firebase.svg" alt="Firebase" />
-            </div>
-          </div>
-          <!-- link to project -->
-          <a href="https://github.com/mmirasol17/Chattington" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View Project
-          </a>
-        </div>
-
-        <!-- GradeApp project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
-            <p class="text-white font-light mb-2">
-              Android mobile application that interfaces with the grading system of a professor’s courses to record
-              and update students' grades seamlessly.
+        <!-- project cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base">
+          <!-- MyOrganizer project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
+              <p class="text-white font-light mb-2">Web application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.</p>
               <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- Android Studio Symbol -->
-              <img class="w-10 h-10" src="./icons/androidStudio.svg" alt="Android Studio" />
-              <!-- Java Symbol -->
-              <img class="w-10 h-10" src="./icons/java.svg" alt="Java" />
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- React Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/react.svg"
+                  alt="React"
+                />
+                <!-- JavaScript Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/javaScript.svg"
+                  alt="JavaScript"
+                />
+                <!-- Tailwind Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/tailwind.svg"
+                  alt="Tailwind"
+                />
+                <!-- Firebase Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/firebase.svg"
+                  alt="Firebase"
+                />
+                <!-- AWS Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/aws.svg"
+                  alt="AWS"
+                />
+              </div>
             </div>
+            <!-- link to project -->
+            <a
+              href="https://myorganizertool.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 underline text-lg transition hover:scale-110"
+              >View Project
+            </a>
           </div>
-          <!-- link to project -->
-          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">
-            Not Open-Sourced / Publicly Available
-          </a>
-        </div>
 
-        <!-- Class Attendance Grading System project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">Attendance Grading System</h3>
-            <p class="text-white font-light mb-2">
-              System that records and grades attendance by receiving student identification data from students,
-              determining if the student is on time or is late for class, then recording the data directly into a
-              professor’s gradebook. This system is currently used to efficiently record and grade a CSUSM Computer
-              Science course of about 35 students per section.
-            </p>
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- Python Symbol -->
-              <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
-              <!-- Bash Symbol -->
-              <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+          <!-- ProUML project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">ProUML</h3>
+              <p class="text-white font-light mb-2">
+                Web application that allows users to create and edit UML diagrams, import Java projects to be translated to UML, and collaborate with other users in real-time.
+              </p>
+              <!-- icons of all technologies used -->
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- Go Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/go.svg"
+                  alt="Go"
+                />
+                <!-- React Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/react.svg"
+                  alt="React"
+                />
+                <!-- TypeScript Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/typeScript.svg"
+                  alt="TypeScript"
+                />
+                <!-- Tailwind Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/tailwind.svg"
+                  alt="Tailwind"
+                />
+                <!-- SQL Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/sql.svg"
+                  alt="SQL"
+                />
+              </div>
             </div>
+            <!-- link to project -->
+            <a
+              href="https://prouml.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 underline text-lg transition hover:scale-110"
+              >View Project
+            </a>
           </div>
-          <!-- link to project -->
-          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">Not
-            Open-Sourced / Publicly Available
-          </a>
-        </div>
 
-        <!-- myPR200 GUI project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">myPR200 GUI</h3>
-            <p class="text-white font-light mb-2">GUI application that processes parsed data from a PR200
-              electromagnetic
-              spectrum analyzer and visualizes the data. The source code of this application has been re-used by Marine
-              Corps Tactical Systems Support Activity (MCTSSA) engineers for further development.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- Python Symbol -->
-              <img class="w-10 h-10" src="./icons/python.svg" alt="Python" />
-              <!-- Qt Symbol -->
-              <img class="w-10 h-10" src="./icons/pyQt.svg" alt="Qt" />
+          <!-- Chattington project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
+              <p class="text-white font-light mb-2">
+                Chatbot Android mobile application that allows users to have conversations with an automated chatbot, enabled by using OpenAI's Chat Completions API.
+              </p>
+              <!-- icons of all technologies used -->
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- Android Studio Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/androidStudio.svg"
+                  alt="Android Studio"
+                />
+                <!-- Kotlin Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/kotlin.svg"
+                  alt="Kotlin"
+                />
+                <!-- SQL Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/sql.svg"
+                  alt="SQL"
+                />
+                <!-- Firebase Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/firebase.svg"
+                  alt="Firebase"
+                />
+              </div>
             </div>
+            <!-- link to project -->
+            <a
+              href="https://github.com/mmirasol17/Chattington"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 underline text-lg transition hover:scale-110"
+              >View Project
+            </a>
           </div>
-          <!-- link to project -->
-          <a target="_blank" rel="noopener noreferrer" class="text-blue-400 text-lg align-bottom">
-            Not Open-Sourced / Publicly Available
-          </a>
-        </div>
 
-        <!-- CougarBlogs project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
-            <p class="text-white font-light mb-2">A simple blog website, which allows users to post blogs, and reply and
-              search for posted blogs.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- JavaScript Symbol -->
-              <img class="w-10 h-10" src="./icons/javaScript.svg" alt="JavaScript" />
-              <!-- PHP Symbol -->
-              <img class="w-10 h-10" src="./icons/php.svg" alt="PHP" />
-              <!-- HTML Symbol -->
-              <img class="w-10 h-10" src="./icons/html.svg" alt="HTML" />
-              <!-- CSS Symbol -->
-              <img class="w-10 h-10" src="./icons/css.svg" alt="CSS" />
+          <!-- GradeApp project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
+              <p class="text-white font-light mb-2">
+                Android mobile application that interfaces with the grading system of a professor’s courses to record and update students' grades seamlessly.
+                <!-- icons of all technologies used -->
+              </p>
+
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- Android Studio Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/androidStudio.svg"
+                  alt="Android Studio"
+                />
+                <!-- Java Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/java.svg"
+                  alt="Java"
+                />
+              </div>
             </div>
+            <!-- link to project -->
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 text-lg align-bottom"
+            >
+              Not Open-Sourced / Publicly Available
+            </a>
           </div>
-          <!-- link to project -->
-          <a href="dfdsf.com" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View
-            Project
-          </a>
-        </div>
 
-        <!-- CLI Car Database project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">Car Database CLI</h3>
-            <p class="text-white font-light mb-2">
-              Database command-line interface (CLI), which stores car information using a hash table. The data is
-              locally
-              stored in a .txt file, where the data will be accessed.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- C++ Symbol -->
-              <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
-              <!-- Bash Symbol -->
-              <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+          <!-- Class Attendance Grading System project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Attendance Grading System</h3>
+              <p class="text-white font-light mb-2">
+                System that records and grades attendance by receiving identification data from students, then recording their attendance grades directly into a professor’s
+                gradebook.
+              </p>
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- Python Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/python.svg"
+                  alt="Python"
+                />
+                <!-- Bash Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/bash.svg"
+                  alt="Bash"
+                />
+              </div>
             </div>
+            <!-- link to project -->
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 text-lg align-bottom"
+              >Not Open-Sourced / Publicly Available
+            </a>
           </div>
-          <!-- link to project -->
-          <a href="https://github.com/mmirasol17/Car-Database" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View
-            Project</a>
-        </div>
 
-        <!-- CLI Tic-Tac-Toe project card -->
-        <div
-          class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
-          <div>
-            <h3 class="text-2xl font-bold text-white mb-2">Tic-Tac-Toe CLI</h3>
-            <p class="text-white font-light mb-2">
-              Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local
-              command-line, such as the Mac Terminal, Windows Command Prompt, etc.
-            </p>
-            <!-- icons of all technologies used -->
-            <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
-              <!-- C++ Symbol -->
-              <img class="w-10 h-10" src="./icons/cpp.svg" alt="C++" />
-              <!-- Bash Symbol -->
-              <img class="w-10 h-10" src="./icons/bash.svg" alt="Bash" />
+          <!-- myPR200 GUI project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">myPR200 GUI</h3>
+              <p class="text-white font-light mb-2">
+                GUI application that processes parsed data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.
+              </p>
+              <!-- icons of all technologies used -->
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- Python Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/python.svg"
+                  alt="Python"
+                />
+                <!-- Qt Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/pyQt.svg"
+                  alt="Qt"
+                />
+              </div>
             </div>
+            <!-- link to project -->
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 text-lg align-bottom"
+            >
+              Not Open-Sourced / Publicly Available
+            </a>
           </div>
-          <!-- link to project -->
-          <a href="https://github.com/mmirasol17/Terminal-Tic-Tac-Toe" target="_blank" rel="noopener noreferrer"
-            class="text-blue-400 underline text-lg transition hover:scale-110">View
-            Project
-          </a>
-        </div>
 
+          <!-- CougarBlogs project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">CougarBlogs</h3>
+              <p class="text-white font-light mb-2">A simple blog website, which allows users to post blogs, and reply and search for posted blogs.</p>
+              <!-- icons of all technologies used -->
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- JavaScript Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/javaScript.svg"
+                  alt="JavaScript"
+                />
+                <!-- PHP Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/php.svg"
+                  alt="PHP"
+                />
+                <!-- HTML Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/html.svg"
+                  alt="HTML"
+                />
+                <!-- CSS Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/css.svg"
+                  alt="CSS"
+                />
+              </div>
+            </div>
+            <!-- link to project -->
+            <a
+              href="dfdsf.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 underline text-lg transition hover:scale-110"
+              >View Project
+            </a>
+          </div>
+
+          <!-- CLI Car Database project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Car Database CLI</h3>
+              <p class="text-white font-light mb-2">
+                Database command-line interface (CLI), which stores car information using a hash table. The data is locally stored in a .txt file, where the data will be accessed.
+              </p>
+              <!-- icons of all technologies used -->
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- C++ Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/cpp.svg"
+                  alt="C++"
+                />
+                <!-- Bash Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/bash.svg"
+                  alt="Bash"
+                />
+              </div>
+            </div>
+            <!-- link to project -->
+            <a
+              href="https://github.com/mmirasol17/Car-Database"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 underline text-lg transition hover:scale-110"
+              >View Project</a
+            >
+          </div>
+
+          <!-- CLI Tic-Tac-Toe project card -->
+          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Tic-Tac-Toe CLI</h3>
+              <p class="text-white font-light mb-2">
+                Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local command-line, such as the Mac Terminal, Windows Command Prompt,
+                etc.
+              </p>
+              <!-- icons of all technologies used -->
+              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+                <!-- C++ Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/cpp.svg"
+                  alt="C++"
+                />
+                <!-- Bash Symbol -->
+                <img
+                  class="w-10 h-10"
+                  src="./icons/bash.svg"
+                  alt="Bash"
+                />
+              </div>
+            </div>
+            <!-- link to project -->
+            <a
+              href="https://github.com/mmirasol17/Terminal-Tic-Tac-Toe"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-400 underline text-lg transition hover:scale-110"
+              >View Project
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!------------------- CONTACTS SECTION ------------------->
-  <section id="contact" class="py-16 bg-gray-800 px-4 section">
-    <div class="container mx-auto flex justify-center items-center">
-      <div class="w-full max-w-3xl fade-in">
-        <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
-        <!-- LinkedIn and GitHub links -->
-        <div class="flex items-center gap-3 justify-center mb-2">
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/marin-mirasol/" target="_blank" rel="noopener noreferrer"
-            class="transition hover:scale-110">
-            <img class="w-16 h-16" src="./icons/linkedIn.svg" alt="LinkedIn" />
-          </a>
-          <!-- GitHub -->
-          <a href="https://github.com/mmirasol17" target="_blank" rel="noopener noreferrer"
-            class="transition hover:scale-110">
-            <img class="w-12 h-12" src="./icons/github.svg" alt="GitHub" />
-          </a>
-          <!-- Discord -->
-          <a href="https://discord.gg/fh5JjD5GXk" target="_blank" rel="noopener noreferrer"
-            class="transition hover:scale-110">
-            <img class="w-12 h-12" src="./icons/discord.svg" alt="Discord" />
+    <!------------------- CONTACTS SECTION ------------------->
+    <section
+      id="contact"
+      class="py-16 bg-gray-800 px-4 section"
+    >
+      <div class="container mx-auto flex justify-center items-center">
+        <div class="w-full max-w-3xl fade-in">
+          <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
+          <!-- LinkedIn and GitHub links -->
+          <div class="flex items-center gap-3 justify-center mb-2">
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/marin-mirasol/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition hover:scale-110"
+            >
+              <img
+                class="w-16 h-16"
+                src="./icons/linkedIn.svg"
+                alt="LinkedIn"
+              />
+            </a>
+            <!-- GitHub -->
+            <a
+              href="https://github.com/mmirasol17"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition hover:scale-110"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/github.svg"
+                alt="GitHub"
+              />
+            </a>
+            <!-- Discord -->
+            <a
+              href="https://discord.gg/fh5JjD5GXk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition hover:scale-110"
+            >
+              <img
+                class="w-12 h-12"
+                src="./icons/discord.svg"
+                alt="Discord"
+              />
+            </a>
+          </div>
+
+          <!-- Email contact form -->
+          <form
+            id="contact-form"
+            class="flex flex-col gap-6 fade-in"
+            action="https://formspree.io/f/mwkdvdrp"
+            method="post"
+          >
+            <!-- name input -->
+            <div class="flex flex-col">
+              <label
+                class="text-white font-bold mb-2"
+                for="name"
+                >Name</label
+              >
+              <input
+                id="name"
+                class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+                name="name"
+                type="text"
+                placeholder="John Doe"
+              />
+            </div>
+            <!-- email input -->
+            <div class="flex flex-col">
+              <label
+                class="text-white font-bold mb-2"
+                for="email"
+                >Email</label
+              >
+              <input
+                id="email"
+                class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+                name="email"
+                type="email"
+                placeholder="johndoe@example.com"
+              />
+            </div>
+            <!-- message input -->
+            <div class="flex flex-col">
+              <label
+                class="text-white font-bold mb-2"
+                for="message"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+                name="message"
+                rows="10"
+                placeholder="Hello there Marin! My name is John, and I would love to discuss a project that I am working on!"
+              ></textarea>
+            </div>
+            <!-- submit button -->
+            <button
+              class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600"
+              type="submit"
+              value="send"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
+    <section
+      id="fact"
+      class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-8 section"
+    >
+      <div class="container mx-auto max-w-4xl">
+        <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 fade-in">
+          <div class="fade-in">
+            <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
+            <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+              I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the button logic, HTML to structure the page, TailwindCSS to
+              style the page, and GitHub Pages to host the page on a public domain.
+            </p>
+            <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+              If you are building a website, I highly recommend trying out some of these tools, as they are very easy to use, make development much more efficient, and are very
+              powerful!
+            </p>
+            <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+              Feel free to <span class="underline">click</span> on any of the icons of these tools below to learn more about them!
+            </p>
+          </div>
+
+          <!-- links to these tools -->
+          <div class="flex items-center gap-3 justify-center text-white font-light fade-in">
+            <!-- JavaScript Symbol -->
+            <a
+              class="transition hover:scale-110"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-12 h-12 animate-pulse"
+                src="./icons/javaScript.svg"
+                alt="JavaScript"
+              />
+            </a>
+            X
+            <!-- HTML Symbol -->
+            <a
+              class="transition hover:scale-110"
+              href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-12 h-12 animate-pulse"
+                src="./icons/html.svg"
+                alt="HTML"
+              />
+            </a>
+            X
+            <!-- Tailwind Symbol -->
+            <a
+              class="transition hover:scale-110"
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-12 h-12 animate-pulse"
+                src="./icons/tailwind.svg"
+                alt="Tailwind"
+              />
+            </a>
+            X
+            <!-- GitHub Symbol -->
+            <a
+              class="transition hover:scale-110"
+              href="https://pages.github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                class="w-12 h-12 animate-pulse"
+                src="./icons/github.svg"
+                alt="GitHub"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!------------------- FOOTER SECTION ------------------->
+    <footer class="bg-gray-800 py-4">
+      <div class="container mx-auto text-center font-bold text-white flex flex-col gap-2">
+        <!-- arrow up button -->
+        <div class="flex mt-2 justify-center">
+          <a
+            href="#intro"
+            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center"
+          >
+            <img
+              class="w-6 h-6"
+              src="./icons/arrowUp.svg"
+              alt="Arrow Up"
+            />
           </a>
         </div>
-
-        <!-- Email contact form -->
-        <form id="contact-form" class="flex flex-col gap-6 fade-in" action="https://formspree.io/f/mwkdvdrp" method="post">
-          <!-- name input -->
-          <div class="flex flex-col">
-            <label class="text-white font-bold mb-2" for="name">Name</label>
-            <input id="name"
-              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
-              name="name" type="text" placeholder="John Doe" />
-          </div>
-          <!-- email input -->
-          <div class="flex flex-col">
-            <label class="text-white font-bold mb-2" for="email">Email</label>
-            <input id="email"
-              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
-              name="email" type="email" placeholder="johndoe@example.com" />
-          </div>
-          <!-- message input -->
-          <div class="flex flex-col">
-            <label class="text-white font-bold mb-2" for="message">Message</label>
-            <textarea id="message"
-              class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
-              name="message" rows="10"
-              placeholder="Hello there Marin! My name is John, and I would love to discuss a project that I am working on!"></textarea>
-          </div>
-          <!-- submit button -->
-          <button
-            class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600"
-            type="submit" value="send">
-            Submit
-          </button>
-        </form>
-
+        <!-- copyright details -->
+        <span id="current-year">&copy; 2023 Marin Mirasol. All rights reserved.</span>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
-  <section id="fact" class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-8 section">
-    <div class="container mx-auto max-w-4xl">
-      <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 fade-in">
-        <div class="fade-in">
-          <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
-          <p class="text-white font-light text-md md:text-lg mb-8 text-center">
-            I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the
-            button logic, HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to
-            host the page on a public domain.
-          </p>
-          <p class="text-white font-light text-md md:text-lg mb-8 text-center">
-            If you are building a website, I highly recommend trying out some of these tools, as they are 
-            very easy to use, make development much more efficient, and are very powerful!
-          </p>
-          <p class="text-white font-light text-md md:text-lg mb-8 text-center">
-            Feel free to <span class="underline">click</span> on any of the icons of these tools below to learn more about
-            them!
-          </p>
-        </div>
-
-        <!-- links to these tools -->
-        <div class="flex items-center gap-3 justify-center text-white font-light fade-in">
-          <!-- JavaScript Symbol -->
-          <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-            target="_blank" rel="noopener noreferrer">
-            <img class="w-12 h-12 animate-pulse" src="./icons/javaScript.svg" alt="JavaScript" />
-          </a>
-          X
-          <!-- HTML Symbol -->
-          <a class="transition hover:scale-110" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
-            rel="noopener noreferrer">
-            <img class="w-12 h-12 animate-pulse" src="./icons/html.svg" alt="HTML" />
-          </a>
-          X
-          <!-- Tailwind Symbol -->
-          <a class="transition hover:scale-110" href="https://tailwindcss.com/" target="_blank"
-            rel="noopener noreferrer">
-            <img class="w-12 h-12 animate-pulse" src="./icons/tailwind.svg" alt="Tailwind" />
-          </a>
-          X
-          <!-- GitHub Symbol -->
-          <a class="transition hover:scale-110" href="https://pages.github.com/" target="_blank"
-            rel="noopener noreferrer">
-            <img class="w-12 h-12 animate-pulse" src="./icons/github.svg" alt="GitHub" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!------------------- FOOTER SECTION ------------------->
-  <footer class="bg-gray-800 py-4">
-    <div class="container mx-auto text-center font-bold text-white flex flex-col gap-2">
-      <!-- arrow up button -->
-      <div class="flex mt-2 justify-center">
-        <a href="#intro"
-          class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center">
-          <img class="w-6 h-6" src="./icons/arrowUp.svg" alt="Arrow Up" />
-        </a>
-      </div>
-      <!-- copyright details -->
-      <span id="current-year">&copy; 2023 Marin Mirasol. All rights reserved.</span>
-    </div>
-  </footer>
-
-  <!-- include all scripts for page logic -->
-  <script src="./scripts/fade_in.js"></script>
-  <script src="./scripts/form_validation.js"></script>
-  <script src="./scripts/section_indicator.js"></script>
-  <script src="./scripts/section_scroll.js"></script>
-</body>
-
+    <!-- include all scripts for page logic -->
+    <script src="./scripts/fade_in.js"></script>
+    <script src="./scripts/form_validation.js"></script>
+    <script src="./scripts/section_indicator.js"></script>
+    <script src="./scripts/section_scroll.js"></script>
+  </body>
 </html>
