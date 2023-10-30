@@ -1,0 +1,13 @@
+name: Deploy with secret key
+
+on:
+  push:
+    branches:
+      - master
+
+# get the FORMSPREE_LINK from the GitHub secrets key
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      FORMSPREE_LINK: ${{ secrets.FORMSPREE_LINK }}

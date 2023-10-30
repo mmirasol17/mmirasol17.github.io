@@ -1,10 +1,11 @@
 {
-  "name": "portfolio",
+  "name": "marins-portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Marin Mirasol's personal portfolio website.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx npm-force-resolutions",
     "start": "npx tailwindcss build ./styles/styles.css -o ./styles/output.css"
   },
   "keywords": [],
@@ -12,10 +13,12 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.14",
+    "dotenv-webpack": "^8.0.1",
     "postcss": "^8.4.27",
     "tailwind": "^4.0.0"
   },
   "devDependencies": {
+    "npm-force-resolutions": "^0.0.10",
     "tailwindcss": "^3.3.3",
     "tailwindcss-cli": "^0.1.2"
   }
