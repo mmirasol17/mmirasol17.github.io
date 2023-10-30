@@ -9,5 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORMSPREE_LINK: ${{ secrets.FORMSPREE_LINK }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        env:
+          FORMSPREE_LINK: ${{ secrets.FORMSPREE_LINK }}
