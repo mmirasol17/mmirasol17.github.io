@@ -56,13 +56,13 @@
 
   <body>
     <!------------ NAVBAR ------------>
-    <nav class="bg-gray-800 h-16 flex items-center px-4 fixed top-0 w-full z-50 shadow-2xl navbar">
-      <div class="container mx-auto">
-        <div class="justify-between items-center flex">
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-content">
           <!-- site logo -->
           <a
             href="#intro"
-            class="w-12 h-12 p-2 bg-gradient-to-br from-blue-600 to-blue-400 rounded-full transition hover:scale-110"
+            class="navbar-logo"
           >
             <img
               src="./icons/ui/mm.svg"
@@ -70,11 +70,11 @@
             />
           </a>
           <!-- links to navigate to different parts of the portfolio -->
-          <div class="flex gap-5 text-md text-white font-light">
+          <div class="navbar-links">
             <!-- ABOUT ME LINK -->
             <a
               href="#about"
-              class="transition hover:scale-110 nav-link"
+              class="navbar-link"
               href="#about-me"
             >
               About
@@ -82,7 +82,7 @@
             <!-- MY PROJECTS LINK -->
             <a
               href="#projects"
-              class="transition hover:scale-110 nav-link"
+              class="navbar-link"
               href="#my-projects"
             >
               Projects
@@ -90,7 +90,7 @@
             <!-- CONTACT ME LINK -->
             <a
               href="#contact"
-              class="transition hover:scale-110 nav-link"
+              class="navbar-link"
               href="#contact-me"
             >
               Contact
@@ -103,7 +103,7 @@
     <!------------ INTRO SECTION ------------>
     <header
       id="intro"
-      class="bg-gradient-to-b min-h-[100svh] from-blue-800 via-blue-900 to-gray-900 px-4 section"
+      class="min-h-[100svh] px-4 section section-alt"
     >
       <div class="container mx-auto flex flex-col justify-between sm:justify-center items-center min-h-[100svh]">
         <div class="fade-in">
@@ -564,7 +564,7 @@
     <!------------------- PROJECTS SECTION ------------------->
     <section
       id="projects"
-      class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-4 section"
+      class="py-16 px-4 section section-alt"
     >
       <div class="container mx-auto">
         <h2 class="text-5xl font-bold text-blue-400 text-center mb-8 fade-in">My Projects</h2>
@@ -572,33 +572,33 @@
         <!-- project cards grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base">
           <!-- MyOrganizer project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">MyOrganizer</h3>
-              <p class="text-white font-light mb-2">Web application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.</p>
+              <h3 class="project-title">MyOrganizer</h3>
+              <p class="project-description">Web application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.</p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- React Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/react.svg"
                   alt="React"
                 />
                 <!-- TypeScript Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/typescript.svg"
                   alt="TypeScript"
                 />
                 <!-- Tailwind Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/tailwind.svg"
                   alt="Tailwind"
                 />
                 <!-- Firebase Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/firebase.svg"
                   alt="Firebase"
                 />
@@ -615,41 +615,41 @@
           </div>
 
           <!-- ProUML project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">ProUML</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">ProUML</h3>
+              <p class="project-description">
                 Web application that allows users to create and edit UML diagrams, import Java projects to be translated to UML, and collaborate with other users in real-time.
               </p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- Go Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/go.svg"
                   alt="Go"
                 />
                 <!-- React Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/react.svg"
                   alt="React"
                 />
                 <!-- TypeScript Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/typescript.svg"
                   alt="TypeScript"
                 />
                 <!-- Tailwind Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/tailwind.svg"
                   alt="Tailwind"
                 />
                 <!-- SQL Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/sql.svg"
                   alt="SQL"
                 />
@@ -666,35 +666,35 @@
           </div>
 
           <!-- Chattington project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">Chattington</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">Chattington</h3>
+              <p class="project-description">
                 Chatbot Android mobile application that allows users to have conversations with an automated chatbot, enabled by using OpenAI's Chat Completions API.
               </p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- Android Studio Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/androidstudio.svg"
                   alt="Android Studio"
                 />
                 <!-- Kotlin Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/kotlin.svg"
                   alt="Kotlin"
                 />
                 <!-- SQL Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/sql.svg"
                   alt="SQL"
                 />
                 <!-- Firebase Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/firebase.svg"
                   alt="Firebase"
                 />
@@ -711,24 +711,24 @@
           </div>
 
           <!-- GradeApp project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">GradeApp</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">GradeApp</h3>
+              <p class="project-description">
                 Android mobile application that interfaces with the grading system of a professor’s courses to record and update students' grades seamlessly.
                 <!-- icons of all technologies used -->
               </p>
 
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- Android Studio Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/androidstudio.svg"
                   alt="Android Studio"
                 />
                 <!-- Java Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/java.svg"
                   alt="Java"
                 />
@@ -745,23 +745,23 @@
           </div>
 
           <!-- Class Attendance Grading System project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">Attendance Grading System</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">Attendance Grading System</h3>
+              <p class="project-description">
                 System that records and grades attendance by receiving identification data from students, then recording their attendance grades directly into a professor’s
                 gradebook.
               </p>
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- Python Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/python.svg"
                   alt="Python"
                 />
                 <!-- Bash Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/bash.svg"
                   alt="Bash"
                 />
@@ -777,23 +777,23 @@
           </div>
 
           <!-- myPR200 GUI project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">myPR200 GUI</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">myPR200 GUI</h3>
+              <p class="project-description">
                 GUI application that processes parsed data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.
               </p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- Python Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/python.svg"
                   alt="Python"
                 />
                 <!-- Qt Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/pyqt.svg"
                   alt="Qt"
                 />
@@ -810,33 +810,33 @@
           </div>
 
           <!-- CougarBlogs project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">ExchangeMyIdeas</h3>
-              <p class="text-white font-light mb-2">A minimalistic blog website, which allows users to post, reply, and search for blogs.</p>
+              <h3 class="project-title">ExchangeMyIdeas</h3>
+              <p class="project-description">A minimalistic blog website, which allows users to post, reply, and search for blogs.</p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- JavaScript Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/javascript.svg"
                   alt="JavaScript"
                 />
                 <!-- PHP Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/php.svg"
                   alt="PHP"
                 />
                 <!-- HTML Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/html.svg"
                   alt="HTML"
                 />
                 <!-- CSS Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/css.svg"
                   alt="CSS"
                 />
@@ -853,23 +853,23 @@
           </div>
 
           <!-- CLI Car Database project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">Car Database CLI</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">Car Database CLI</h3>
+              <p class="project-description">
                 Database command-line interface (CLI), which stores car information using a hash table. The data is locally stored in a .txt file, where the data will be accessed.
               </p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- C++ Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/cpp.svg"
                   alt="C++"
                 />
                 <!-- Bash Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/bash.svg"
                   alt="Bash"
                 />
@@ -886,24 +886,24 @@
           </div>
 
           <!-- CLI Tic-Tac-Toe project card -->
-          <div class="text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between fade-in">
+          <div class="project-card fade-in">
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2">Tic-Tac-Toe CLI</h3>
-              <p class="text-white font-light mb-2">
+              <h3 class="project-title">Tic-Tac-Toe CLI</h3>
+              <p class="project-description">
                 Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local command-line, such as the Mac Terminal, Windows Command Prompt,
                 etc.
               </p>
               <!-- icons of all technologies used -->
-              <div class="flex flex-wrap items-center gap-2 justify-center mb-2">
+              <div class="project-icons">
                 <!-- C++ Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/cpp.svg"
                   alt="C++"
                 />
                 <!-- Bash Symbol -->
                 <img
-                  class="w-10 h-10"
+                  class="project-icon"
                   src="./icons/tech-stack/bash.svg"
                   alt="Bash"
                 />
@@ -1041,21 +1041,21 @@
     <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
     <section
       id="fact"
-      class="bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900 py-16 px-8 section"
+      class="py-16 px-8 section section-alt"
     >
       <div class="container mx-auto max-w-4xl">
         <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 fade-in">
           <div class="fade-in">
             <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
-            <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+            <p class="text-white font-light md:text-lg mb-8 text-center">
               I built this portfolio using JavaScript, HTML, TailwindCSS, and GitHub Pages! I used JavaScript to handle the logic of this site (contact form validation, scrolling
               logic, etc.). Additionally, I leveraged HTML to structure the page, TailwindCSS to style the page, and GitHub Pages to host the page on a public domain.
             </p>
-            <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+            <p class="text-white font-light md:text-lg mb-8 text-center">
               If you are building a website, I highly recommend trying out some of these tools, as they are very easy to use, make development much more efficient, and are very
               powerful!
             </p>
-            <p class="text-white font-light text-md md:text-lg mb-8 text-center">
+            <p class="text-white font-light md:text-lg mb-8 text-center">
               Feel free to <span class="underline">click</span> on any of the icons of these tools below to learn more about them!
             </p>
           </div>
