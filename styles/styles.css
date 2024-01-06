@@ -29,12 +29,36 @@
   }
 
   /* SECTION STYLES */
-
-  .section-alt {
+  .section-primary {
     @apply bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900;
   }
 
-  /* PROJECT CARD STYLES */
+  .section-alt {
+    @apply py-16 px-4 bg-gray-800;
+  }
+
+  .section-container {
+    @apply container mx-auto;
+  }
+
+  .section-arrow {
+    @apply animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center transition duration-200 hover:drop-shadow-glow;
+  }
+
+  .section-arrow-icon {
+    @apply w-6 h-6;
+  }
+
+  /* TECH STACK STYLES */
+  .tech-stack-card {
+    @apply flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center;
+  }
+
+  .tech-stack-icon {
+    @apply w-12 h-12;
+  }
+
+  /* PROJECTS STYLES */
   .project-card {
     @apply text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between;
   }
@@ -52,6 +76,17 @@
   }
 
   .project-icon {
-    @apply w-12 h-12;
+    @apply w-10 h-10;
+  }
+
+  /* FUN FACT STYLES */
+
+  /* FOOTER STYLES */
+  .footer {
+    @apply bg-gray-800 py-4;
+  }
+
+  .footer-container {
+    @apply container mx-auto text-center font-bold text-white flex flex-col gap-2;
   }
 }

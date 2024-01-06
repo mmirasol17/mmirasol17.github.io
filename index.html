@@ -103,9 +103,9 @@
     <!------------ INTRO SECTION ------------>
     <header
       id="intro"
-      class="min-h-[100svh] px-4 section section-alt"
+      class="min-h-[100svh] px-4 section section-primary"
     >
-      <div class="container mx-auto flex flex-col justify-between sm:justify-center items-center min-h-[100svh]">
+      <div class="section-container flex flex-col justify-between sm:justify-center items-center min-h-[100svh]">
         <div class="fade-in">
           <!-- personal photo -->
           <div class="mt-28 mb-4 flex justify-center items-center">
@@ -124,7 +124,7 @@
               <h1 class="text-3xl lg:text-5xl font-bold text-white drop-shadow-2xl">
                 <a
                   href="#about"
-                  class="text-blue-400 underline transition hover:scale-110"
+                  class="text-blue-400 underline transition hover:drop-shadow-glow"
                   >Marin Mirasol</a
                 >.&nbsp;
               </h1>
@@ -136,17 +136,17 @@
         <div class="mt-auto sm:mt-0 text-center items-center gap-2 mb-8 flex flex-col fade-in">
           <a
             href="#about"
-            class="text-blue-400 text-lg lg:text-3xl font-bold underline"
+            class="text-blue-400 text-lg lg:text-3xl font-bold underline transition duration-75 hover:drop-shadow-glow"
           >
             Learn more about me!
           </a>
           <!-- animating arrow down button -->
           <a
             href="#about"
-            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4"
+            class="section-arrow mt-4"
           >
             <img
-              class="w-6 h-6"
+              class="section-arrow-icon"
               src="./icons/ui/arrowdown.svg"
               alt="Arrow Down"
             />
@@ -158,9 +158,9 @@
     <!------------ ABOUT SECTION ------------>
     <section
       id="about"
-      class="py-16 bg-gray-800 px-4 section"
+      class="section-alt section"
     >
-      <div class="container mx-auto text-white md:max-w-5xl flex flex-col h-full">
+      <div class="section-container text-white md:max-w-5xl flex flex-col h-full">
         <!-- about header and paragraph -->
         <div class="fade-in">
           <h2 class="text-5xl font-bold mb-8 text-center text-blue-400">About Me</h2>
@@ -179,10 +179,10 @@
               href="https://react.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/react.svg"
                 alt="React.js"
               />
@@ -195,10 +195,10 @@
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/javascript.svg"
                 alt="JavaScript"
               />
@@ -211,10 +211,10 @@
               href="https://www.typescriptlang.org/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/typescript.svg"
                 alt="TypeScript"
               />
@@ -226,10 +226,10 @@
               href="https://www.php.net/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/php.svg"
                 alt="PHP"
               />
@@ -241,10 +241,10 @@
               href="https://learn.microsoft.com/en-us/dotnet/csharp/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/cs.svg"
                 alt="C#"
               />
@@ -256,10 +256,10 @@
               href="https://dotnet.microsoft.com/en-us/apps/aspnet"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/dotnet.svg"
                 alt="ASP.NET"
               />
@@ -271,10 +271,10 @@
               href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/html.svg"
                 alt="HTML"
               />
@@ -286,10 +286,10 @@
               href="https://developer.mozilla.org/en-US/docs/Web/CSS"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/css.svg"
                 alt="CSS"
               />
@@ -301,10 +301,10 @@
               href="https://tailwindcss.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/tailwind.svg"
                 alt="TailwindCSS"
               />
@@ -316,10 +316,10 @@
               href="https://www.cplusplus.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/cpp.svg"
                 alt="C++"
               />
@@ -331,10 +331,10 @@
               href="https://www.python.org/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/python.svg"
                 alt="Python"
               />
@@ -346,10 +346,10 @@
               href="https://doc.qt.io/qtforpython-6/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/pyqt.svg"
                 alt="PyQt"
               />
@@ -362,10 +362,10 @@
               href="https://golang.org/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/go.svg"
                 alt="Go"
               />
@@ -378,10 +378,10 @@
               href="https://kotlinlang.org/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/kotlin.svg"
                 alt="Kotlin"
               />
@@ -393,10 +393,10 @@
               href="https://www.java.com/en/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/java.svg"
                 alt="Java"
               />
@@ -408,10 +408,10 @@
               href="https://www.gnu.org/software/bash/manual/bash.html#What-is-Bash_003f"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/bash.svg"
                 alt="Bash"
               />
@@ -423,10 +423,10 @@
               href="https://www.mysql.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/mysql.svg"
                 alt="MySQL"
               />
@@ -438,10 +438,10 @@
               href="https://www.postgresql.org/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/postgresql.svg"
                 alt="PostgreSQL"
               />
@@ -453,10 +453,10 @@
               href="https://git-scm.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/git.svg"
                 alt="Git"
               />
@@ -465,15 +465,15 @@
 
             <!-- GitHub -->
             <!-- <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/socials/github.svg" alt="GitHub" />
+            class="tech-stack-card fade-in">
+            <img class="tech-stack-icon" src="./icons/socials/github.svg" alt="GitHub" />
             GitHub
           </a> -->
 
             <!-- GitHub Desktop -->
             <!-- <a href="https://desktop.github.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/tech-stack/githubdesktop.svg" alt="GitHub Desktop" />
+            class="tech-stack-card fade-in">
+            <img class="tech-stack-icon" src="./icons/tech-stack/githubdesktop.svg" alt="GitHub Desktop" />
             GitHub Desktop
           </a> -->
 
@@ -482,10 +482,10 @@
               href="https://aws.amazon.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/aws.svg"
                 alt="AWS"
               />
@@ -497,10 +497,10 @@
               href="https://firebase.google.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/firebase.svg"
                 alt="Firebase"
               />
@@ -509,8 +509,8 @@
 
             <!-- VSCode -->
             <!-- <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/tech-stack/vscode.svg" alt="VSCode" />
+            class="tech-stack-card fade-in">
+            <img class="tech-stack-icon" src="./icons/tech-stack/vscode.svg" alt="VSCode" />
             VSCode
           </a> -->
 
@@ -519,10 +519,10 @@
               href="https://developer.android.com/studio"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in"
+              class="tech-stack-card fade-in"
             >
               <img
-                class="w-12 h-12"
+                class="tech-stack-icon"
                 src="./icons/tech-stack/androidstudio.svg"
                 alt="Android Studio"
               />
@@ -531,8 +531,8 @@
 
             <!-- JetBrains -->
             <!-- <a href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center fade-in">
-            <img class="w-12 h-12" src="./icons/tech-stack/jetbrains.svg" alt="JetBrains" />
+            class="tech-stack-card fade-in">
+            <img class="tech-stack-icon" src="./icons/tech-stack/jetbrains.svg" alt="JetBrains" />
             JetBrains
           </a> -->
           </div>
@@ -549,10 +549,10 @@
           <!-- animating arrow down button -->
           <a
             href="#projects"
-            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center mt-4"
+            class="section-arrow mt-4"
           >
             <img
-              class="w-6 h-6"
+              class="section-arrow-icon"
               src="./icons/ui/arrowdown.svg"
               alt="Arrow Down"
             />
@@ -564,9 +564,9 @@
     <!------------------- PROJECTS SECTION ------------------->
     <section
       id="projects"
-      class="py-16 px-4 section section-alt"
+      class="py-16 px-4 section section-primary"
     >
-      <div class="container mx-auto">
+      <div class="section-container">
         <h2 class="text-5xl font-bold text-blue-400 text-center mb-8 fade-in">My Projects</h2>
 
         <!-- project cards grid -->
@@ -914,7 +914,7 @@
               href="https://github.com/mmirasol17/Terminal-Tic-Tac-Toe"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110"
+              class="text-blue-400 underline text-lg transition hover:scale-110 hover:drop-shadow-glow"
               >View Project
             </a>
           </div>
@@ -925,9 +925,9 @@
     <!------------------- CONTACTS SECTION ------------------->
     <section
       id="contact"
-      class="py-16 bg-gray-800 px-4 section"
+      class="section-alt section"
     >
-      <div class="container mx-auto flex justify-center items-center">
+      <div class="section-container flex justify-center items-center">
         <div class="w-full max-w-3xl fade-in">
           <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
           <!-- LinkedIn and GitHub links -->
@@ -1041,9 +1041,9 @@
     <!------------------- FUN FACT SECTION TO SHOW WHAT TOOLS WERE USED FOR THIS SITE ------------------->
     <section
       id="fact"
-      class="py-16 px-8 section section-alt"
+      class="py-16 px-8 section section-primary"
     >
-      <div class="container mx-auto max-w-4xl">
+      <div class="section-container max-w-4xl">
         <div class="rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 fade-in">
           <div class="fade-in">
             <h2 class="text-4xl font-bold mb-4 text-white text-center">Fun Fact!</h2>
@@ -1123,16 +1123,16 @@
     </section>
 
     <!------------------- FOOTER SECTION ------------------->
-    <footer class="bg-gray-800 py-4">
-      <div class="container mx-auto text-center font-bold text-white flex flex-col gap-2">
+    <footer class="footer">
+      <div class="footer-container">
         <!-- arrow up button -->
         <div class="flex mt-2 justify-center">
           <a
             href="#intro"
-            class="animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center"
+            class="section-arrow"
           >
             <img
-              class="w-6 h-6"
+              class="section-arrow-icon"
               src="./icons/ui/arrowup.svg"
               alt="Arrow Up"
             />
