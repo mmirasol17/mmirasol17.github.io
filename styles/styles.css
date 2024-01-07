@@ -41,6 +41,10 @@
     @apply container mx-auto;
   }
 
+  .section-link {
+    @apply text-blue-400 font-bold underline transition duration-200 hover:drop-shadow-glow;
+  }
+
   .section-arrow {
     @apply animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center transition duration-200 hover:drop-shadow-glow;
   }
@@ -49,7 +53,28 @@
     @apply w-6 h-6;
   }
 
-  /* TECH STACK STYLES */
+  /* INTRO SECTION STYLES */
+  .intro-photo-section {
+    @apply mt-28 mb-4 flex justify-center items-center;
+  }
+
+  .intro-photo-container {
+    @apply sm:max-w-sm w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden;
+  }
+
+  .intro-photo {
+    @apply h-full w-full object-cover drop-shadow-xl;
+  }
+
+  .intro-footer {
+    @apply mt-auto sm:mt-0 text-center items-center gap-2 mb-8 flex flex-col;
+  }
+
+  /* TECH STACK SECTION STYLES */
+  .tech-stack-cards {
+    @apply grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-10 gap-3 text-xs font-bold justify-center;
+  }
+
   .tech-stack-card {
     @apply flex flex-col rounded-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2 transition hover:scale-105 justify-center items-center text-center;
   }
@@ -58,7 +83,15 @@
     @apply w-12 h-12;
   }
 
-  /* PROJECTS STYLES */
+  /* PROJECTS SECTION STYLES */
+  .projects-header {
+    @apply text-5xl font-bold text-blue-400 text-center mb-8;
+  }
+
+  .project-cards {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base;
+  }
+
   .project-card {
     @apply text-center bg-gray-600 rounded-2xl p-4 shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 flex flex-col justify-between;
   }
@@ -79,11 +112,48 @@
     @apply w-10 h-10;
   }
 
-  /* FUN FACT STYLES */
+  .project-link-public {
+    @apply text-blue-400 underline text-lg transition hover:scale-110;
+  }
+
+  .project-link-private {
+    @apply text-blue-400 text-lg align-bottom;
+  }
+
+  /* FUN FACT SECTION STYLES */
+
+  /* CONTACT SECTION STYLES */
+  .contact-card {
+    @apply transition hover:scale-110;
+  }
+
+  .contact-icon {
+    @apply w-12 h-12;
+  }
+
+  .contact-form {
+    @apply flex flex-col gap-6;
+  }
+
+  .contact-form-label {
+    @apply text-white font-bold mb-2;
+  }
+
+  .contact-form-input {
+    @apply rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400;
+  }
+
+  .contact-form-submit {
+    @apply bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600;
+  }
 
   /* FOOTER STYLES */
   .footer {
     @apply bg-gray-800 py-4;
+  }
+
+  .footer-arrow-container {
+    @apply flex mt-2 justify-center;
   }
 
   .footer-container {

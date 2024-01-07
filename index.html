@@ -6,12 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <!-- Site browser title -->
     <title>Marin Mirasol - Personal Portfolio</title>
+    <!-- Site browser description -->
     <meta
       name="description"
       content="A software developer passionate about building, learning, and using software solutions that can improve the overall quality of life."
     />
 
+    <!-- CSS stylesheet refs -->
     <link
       href="./styles/output.css"
       rel="stylesheet"
@@ -108,10 +111,10 @@
       <div class="section-container flex flex-col justify-between sm:justify-center items-center min-h-[100svh]">
         <div class="fade-in">
           <!-- personal photo -->
-          <div class="mt-28 mb-4 flex justify-center items-center">
-            <div class="max-w-screen sm:max-w-sm w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden">
+          <div class="intro-photo-section">
+            <div class="intro-photo-container">
               <img
-                class="h-full w-full object-cover drop-shadow-xl"
+                class="intro-photo"
                 alt="Marin Mirasol"
                 src="./images/MarinMirasol.jpg"
               />
@@ -124,7 +127,7 @@
               <h1 class="text-3xl lg:text-5xl font-bold text-white drop-shadow-2xl">
                 <a
                   href="#about"
-                  class="text-blue-400 underline transition hover:drop-shadow-glow"
+                  class="section-link"
                   >Marin Mirasol</a
                 >.&nbsp;
               </h1>
@@ -133,10 +136,10 @@
           </div>
         </div>
         <!-- button to about me section -->
-        <div class="mt-auto sm:mt-0 text-center items-center gap-2 mb-8 flex flex-col fade-in">
+        <div class="intro-footer fade-in">
           <a
             href="#about"
-            class="text-blue-400 text-lg lg:text-3xl font-bold underline transition duration-75 hover:drop-shadow-glow"
+            class="section-link text-lg lg:text-3xl"
           >
             Learn more about me!
           </a>
@@ -158,7 +161,7 @@
     <!------------ ABOUT SECTION ------------>
     <section
       id="about"
-      class="section-alt section"
+      class="section section-alt"
     >
       <div class="section-container text-white md:max-w-5xl flex flex-col h-full">
         <!-- about header and paragraph -->
@@ -173,7 +176,7 @@
         <!-- TECH STACK -->
         <div class="mb-8">
           <h3 class="text-3xl font-bold mb-4 text-center text-blue-400 fade-in">My Tech Stack</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-10 gap-3 text-xs font-bold justify-center fade-in">
+          <div class="tech-stack-cards fade-in">
             <!-- React.js -->
             <a
               href="https://react.dev/"
@@ -542,7 +545,7 @@
         <div class="text-center items-center justify-center gap-2 flex flex-col fade-in">
           <a
             href="#projects"
-            class="text-blue-400 text-xl font-bold underline"
+            class="section-link text-xl"
           >
             How have I used some of these technologies?
           </a>
@@ -567,10 +570,10 @@
       class="py-16 px-4 section section-primary"
     >
       <div class="section-container">
-        <h2 class="text-5xl font-bold text-blue-400 text-center mb-8 fade-in">My Projects</h2>
+        <h2 class="projects-header fade-in">My Projects</h2>
 
         <!-- project cards grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base">
+        <div class="project-cards">
           <!-- MyOrganizer project card -->
           <div class="project-card fade-in">
             <div>
@@ -609,7 +612,7 @@
               href="https://myorganizer.app/"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110"
+              class="project-link-public"
               >View Project
             </a>
           </div>
@@ -660,7 +663,7 @@
               href="https://prouml.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110"
+              class="project-link-public"
               >View Project
             </a>
           </div>
@@ -705,7 +708,7 @@
               href="https://github.com/mmirasol17/Chattington"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110"
+              class="project-link-public"
               >View Project
             </a>
           </div>
@@ -738,7 +741,7 @@
             <a
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 text-lg align-bottom"
+              class="project-link-private"
             >
               Not Open-Sourced / Publicly Available
             </a>
@@ -771,7 +774,7 @@
             <a
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 text-lg align-bottom"
+              class="project-link-private"
               >Not Open-Sourced / Publicly Available
             </a>
           </div>
@@ -803,7 +806,7 @@
             <a
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 text-lg align-bottom"
+              class="project-link-private"
             >
               Not Open-Sourced / Publicly Available
             </a>
@@ -847,7 +850,7 @@
               href="http://www.exchangemyideas.online"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110"
+              class="project-link-public"
               >View Project
             </a>
           </div>
@@ -880,7 +883,7 @@
               href="https://github.com/mmirasol17/Car-Database"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110"
+              class="project-link-public"
               >View Project</a
             >
           </div>
@@ -914,7 +917,7 @@
               href="https://github.com/mmirasol17/Terminal-Tic-Tac-Toe"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-400 underline text-lg transition hover:scale-110 hover:drop-shadow-glow"
+              class="project-link-public"
               >View Project
             </a>
           </div>
@@ -925,37 +928,37 @@
     <!------------------- CONTACTS SECTION ------------------->
     <section
       id="contact"
-      class="section-alt section"
+      class="section section-alt"
     >
       <div class="section-container flex justify-center items-center">
         <div class="w-full max-w-3xl fade-in">
           <h2 class="text-5xl font-bold mb-4 text-blue-400 text-center">Contact Me</h2>
           <!-- LinkedIn and GitHub links -->
           <div class="flex items-center gap-3 justify-center mb-2">
-            <!-- LinkedIn -->
-            <a
-              href="https://www.linkedin.com/in/marin-mirasol/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="transition hover:scale-110"
-            >
-              <img
-                class="w-16 h-16"
-                src="./icons/socials/linkedin.svg"
-                alt="LinkedIn"
-              />
-            </a>
             <!-- GitHub -->
             <a
               href="https://github.com/mmirasol17"
               target="_blank"
               rel="noopener noreferrer"
-              class="transition hover:scale-110"
+              class="contact-card"
             >
               <img
-                class="w-12 h-12"
+                class="contact-icon"
                 src="./icons/socials/github.svg"
                 alt="GitHub"
+              />
+            </a>
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/marin-mirasol/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card"
+            >
+              <img
+                class="contact-icon"
+                src="./icons/socials/linkedin.svg"
+                alt="LinkedIn"
               />
             </a>
             <!-- Discord -->
@@ -963,10 +966,10 @@
               href="https://discord.gg/fh5JjD5GXk"
               target="_blank"
               rel="noopener noreferrer"
-              class="transition hover:scale-110"
+              class="contact-card"
             >
               <img
-                class="w-12 h-12"
+                class="contact-icon"
                 src="./icons/socials/discord.svg"
                 alt="Discord"
               />
@@ -977,19 +980,19 @@
           <form
             action="https://formspree.io/f/mwkdvdrp"
             id="contact-form"
-            class="flex flex-col gap-6 fade-in"
+            class="contact-form fade-in"
             method="post"
           >
             <!-- name input -->
             <div class="flex flex-col">
               <label
-                class="text-white font-bold mb-2"
+                class="contact-form-label"
                 for="name"
                 >Name</label
               >
               <input
                 id="name"
-                class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+                class="contact-form-input"
                 name="name"
                 type="text"
                 placeholder="John Doe"
@@ -998,13 +1001,13 @@
             <!-- email input -->
             <div class="flex flex-col">
               <label
-                class="text-white font-bold mb-2"
+                class="contact-form-label"
                 for="email"
                 >Email</label
               >
               <input
                 id="email"
-                class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+                class="contact-form-input"
                 name="email"
                 type="email"
                 placeholder="johndoe@example.com"
@@ -1013,13 +1016,13 @@
             <!-- message input -->
             <div class="flex flex-col">
               <label
-                class="text-white font-bold mb-2"
+                class="contact-form-label"
                 for="message"
                 >Message</label
               >
               <textarea
                 id="message"
-                class="rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:border-[3px] focus:border-blue-400"
+                class="contact-form-input"
                 name="message"
                 rows="10"
                 placeholder="Hello there Marin! My name is John, and I would love to discuss a project that I am working on!"
@@ -1027,7 +1030,7 @@
             </div>
             <!-- submit button -->
             <button
-              class="bg-blue-400 text-white font-bold rounded-2xl py-4 transition hover:scale-[102%] hover:bg-blue-600"
+              class="contact-form-submit"
               type="submit"
               value="send"
             >
