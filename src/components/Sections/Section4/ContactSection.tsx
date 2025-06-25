@@ -1,6 +1,12 @@
 import React, { useCallback, useState } from "react";
-import { ContactForm } from "../../../types/ContactForm";
 import { AnimatedSection } from "../../AnimatedSection";
+import { SocialMediaIcon } from "../../Icons/SocialMediaIcon";
+
+export interface ContactForm {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export function ContactSection() {
   const [formData, setFormData] = useState<ContactForm>({
@@ -68,38 +74,27 @@ export function ContactSection() {
       id='contact'
       className='py-16 px-4 bg-gray-800'
     >
-      <div className='container mx-auto flex justify-center items-center'>
+      <div className='mx-auto flex justify-center items-center'>
         <div className='w-full max-w-3xl'>
           <h2 className='text-5xl font-bold mb-4 text-blue-400 text-center'>Contact Me</h2>
 
           <div className='flex items-center gap-3 justify-center mb-8'>
-            <a
-              href='https://github.com/mmirasol17'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='transition hover:scale-110 text-4xl'
-              title='GitHub'
-            >
-              🐙
-            </a>
-            <a
-              href='https://www.linkedin.com/in/marin-mirasol/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='transition hover:scale-110 text-4xl'
-              title='LinkedIn'
-            >
-              💼
-            </a>
-            <a
-              href='https://discord.gg/fh5JjD5GXk'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='transition hover:scale-110 text-4xl'
-              title='Discord'
-            >
-              💬
-            </a>
+            <SocialMediaIcon
+              icon='github'
+              className='w-12 h-12'
+            />
+            <SocialMediaIcon
+              icon='linkedin'
+              className='w-12 h-12'
+            />
+            <SocialMediaIcon
+              icon='discord'
+              className='w-12 h-12'
+            />
+            <SocialMediaIcon
+              icon='instagram'
+              className='w-12 h-12'
+            />
           </div>
 
           <div className='flex flex-col gap-6'>

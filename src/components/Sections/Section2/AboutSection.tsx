@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { AnimatedSection } from "../../AnimatedSection";
-import { TechStackGrid } from "./TechStackGrid";
+import { TechnologyStackGrid } from "./TechnologyStackGrid";
 
 export function AboutSection() {
   const scrollToProjects = useCallback(() => {
@@ -20,7 +20,7 @@ export function AboutSection() {
       id='about'
       className='py-16 px-4 bg-gray-800'
     >
-      <div className='container mx-auto text-white md:max-w-5xl flex flex-col h-full'>
+      <div className='mx-auto text-white md:max-w-5xl flex flex-col h-full'>
         <div>
           <h2 className='text-5xl font-bold mb-8 text-center text-blue-400'>About Me</h2>
           <p className='text-lg md:text-xl font-light leading-relaxed text-center mb-8 mx-6'>
@@ -29,7 +29,7 @@ export function AboutSection() {
           </p>
         </div>
 
-        <TechStackGrid />
+        <TechnologyStackGrid />
 
         <div className='text-center items-center justify-center gap-2 flex flex-col'>
           <button

@@ -18,7 +18,7 @@ export function IntroSection() {
       id='intro'
       className='min-h-screen px-4 bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900'
     >
-      <div className='container mx-auto flex flex-col justify-between sm:justify-center items-center min-h-screen'>
+      <div className='mx-auto flex flex-col justify-between sm:justify-center items-center min-h-screen'>
         <div className='transition-opacity duration-1000 opacity-100'>
           <div className='mt-28 mb-4 flex justify-center items-center'>
             <div className='sm:max-w-sm w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center'>
@@ -26,6 +26,7 @@ export function IntroSection() {
                 <img
                   alt='Marin Mirasol'
                   src='./images/MarinMirasol.jpg'
+                  loading='lazy'
                 />
               </div>
             </div>
@@ -44,7 +45,7 @@ export function IntroSection() {
                 .&nbsp;
               </h1>
             </div>
-            <h1 className='text-3xl lg:text-5xl font-bold text-white'>I'm a software developer!</h1>
+            <h1 className='text-3xl lg:text-5xl font-bold text-white'>I'm a software engineer!</h1>
           </div>
         </div>
 
@@ -63,6 +64,7 @@ export function IntroSection() {
               className='w-6 h-6'
               src='./icons/ui/arrowdown.svg'
               alt='Arrow Down'
+              loading='lazy'
             />
           </button>
         </div>

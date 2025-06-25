@@ -59,6 +59,7 @@ export function Navbar() {
             <img
               src='./icons/ui/mm.svg'
               alt='MM'
+              loading='lazy'
             />
           </button>
 

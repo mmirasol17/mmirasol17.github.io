@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className='bg-gray-800 py-4'>
-      <div className='container mx-auto text-center font-bold text-white flex flex-col gap-2'>
+      <div className='mx-auto text-center font-bold text-white flex flex-col gap-2'>
         <div className='flex mt-2 justify-center'>
           <button
             onClick={scrollToTop}
