@@ -1,5 +1,6 @@
 {
   "name": "marins-portfolio",
+  "homepage": "https://marinmirasol.com",
   "version": "1.0.0",
   "description": "Marin Mirasol's personal portfolio website built with React, TypeScript, and TailwindCSS",
   "private": true,
@@ -11,9 +12,12 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist",
-    "build:prod": "npm run clean && npm run type-check && vite build"
+    "build:prod": "npm run clean && npm run type-check && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
