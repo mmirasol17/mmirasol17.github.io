@@ -1,5 +1,4 @@
-import React from "react";
-import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
+import React, { useState, useEffect, useRef } from "react";
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -8,18 +7,45 @@ interface AnimatedSectionProps {
 }
 
 /**
- * AnimatedSection component that fades in when it comes into view.
+ * AnimatedSection component that fades in from black when it comes into view.
+ * Only animates once, then stays visible.
  * @param {AnimatedSectionProps} props - The properties for the AnimatedSection component.
  * @return {JSX.Element} The rendered AnimatedSection component.
  */
 export function AnimatedSection(props: AnimatedSectionProps) {
-  const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const currentRef = sectionRef.current;
+    if (!currentRef || hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [hasAnimated]);
 
   return (
     <section
-      ref={ref}
+      ref={sectionRef}
       id={props.id}
-      className={`transition-opacity duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"} ${props.className}`}
+      className={`transition-opacity duration-1000 ${hasAnimated ? "opacity-100" : "opacity-0 bg-black"} ${props.className}`}
     >
       {props.children}
     </section>
