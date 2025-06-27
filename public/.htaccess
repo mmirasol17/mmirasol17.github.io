@@ -1,7 +1,14 @@
 # Add proper MIME types for JavaScript modules
 AddType application/javascript .js
-AddType application/javascript .mjs
+AddType application/javascript .mjs  
 AddType text/javascript .js
+AddType application/javascript .tsx
+AddType application/javascript .ts
+
+# Force MIME type for ES modules
+<FilesMatch "\.(js|mjs|jsx|ts|tsx)$">
+    Header set Content-Type "application/javascript"
+</FilesMatch>
 
 # Enable compression
 <IfModule mod_deflate.c>
@@ -24,3 +31,6 @@ AddType text/javascript .js
     Header always set X-Frame-Options DENY
     Header always set X-XSS-Protection "1; mode=block"
 </IfModule>
+
+# Disable server signature
+ServerSignature Off
