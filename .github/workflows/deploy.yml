@@ -4,13 +4,11 @@ on:
   push:
     branches: [main]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -39,6 +37,14 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+
+      - name: Add .nojekyll file (important for GitHub Pages)
+        run: touch ./dist/.nojekyll
+
+      - name: Fix MIME types for GitHub Pages
+        run: |
+          echo '*.js' > ./dist/.gitattributes
+          echo '*.mjs' >> ./dist/.gitattributes
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
