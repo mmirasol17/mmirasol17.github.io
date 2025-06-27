@@ -8,6 +8,8 @@ export default defineConfig({
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    // Disable in production to avoid issues with relative paths
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: undefined,
