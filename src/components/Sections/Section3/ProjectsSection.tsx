@@ -1,0 +1,27 @@
+import { AnimatedSection } from "../../AnimatedSection";
+import { useProjects } from "../../../hooks/useProjects";
+import { ProjectItem } from "./ProjectItem";
+
+export function ProjectsSection() {
+  const { projects } = useProjects();
+
+  return (
+    <AnimatedSection
+      id='projects'
+      className='py-16 px-8 md:px-16 bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900'
+    >
+      <div className='mx-auto'>
+        <h2 className='text-5xl font-bold text-blue-400 text-center mb-8'>My Projects</h2>
+
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm lg:text-base'>
+          {projects.map((project, index) => (
+            <ProjectItem
+              key={index + project.title}
+              project={project}
+            />
+          ))}
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
