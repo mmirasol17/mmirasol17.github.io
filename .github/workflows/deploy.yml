@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_GOOGLE_DOCS_DOCUMENT_ID: ${{ secrets.VITE_GOOGLE_DOCS_DOCUMENT_ID }}
+          VITE_GOOGLE_DOC_ID_FOR_RESUME: ${{ secrets.VITE_GOOGLE_DOC_ID_FOR_RESUME }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
