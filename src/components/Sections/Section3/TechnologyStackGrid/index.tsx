@@ -1,5 +1,5 @@
-import { useTechnologyStack } from "../../../hooks/useTechnologyStack";
-import { TechnologyType } from "../../../types/TechnologyType";
+import { useTechnologyStack } from "../../../../hooks/useTechnologyStack";
+import { TechnologyType } from "../../../../types/TechnologyType";
 import { TechnologyStackItem } from "./TechnologyStackItem";
 
 export function TechnologyStackGrid() {

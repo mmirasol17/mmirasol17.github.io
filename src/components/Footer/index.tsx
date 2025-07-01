@@ -16,19 +16,12 @@ export function Footer() {
             onClick={scrollToTop}
             className='animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center transition duration-200 hover:scale-110'
           >
-            <svg
-              className='w-6 h-6 text-white'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M5 10l7-7m0 0l7 7m-7-7v18'
-              />
-            </svg>
+            <img
+              className='w-6 h-6'
+              src='./icons/ui/arrowup.svg'
+              alt='Arrow Down'
+              loading='lazy'
+            />
           </button>
         </div>
         <span>&copy; 2023 Marin Mirasol. All rights reserved.</span>

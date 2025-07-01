@@ -1,6 +1,6 @@
-import { TechnologyMetadataMapping } from "../../../types/TechnologyMetadataMapping";
-import { TechnologyType } from "../../../types/TechnologyType";
-import { TechnologyIcon } from "../../Icons/TechnologyIcon";
+import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
+import { TechnologyType } from "../../../../types/TechnologyType";
+import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
 
 interface TechnologyStackItemProps {
   technology: TechnologyType;

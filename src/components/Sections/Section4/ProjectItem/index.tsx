@@ -1,6 +1,6 @@
-import { IProject } from "../../../hooks/useProjects";
-import { TechnologyType } from "../../../types/TechnologyType";
-import { TechnologyIcon } from "../../Icons/TechnologyIcon";
+import { IProject } from "../../../../hooks/useProjects";
+import { TechnologyType } from "../../../../types/TechnologyType";
+import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
 
 interface ProjectItemProps {
   project: IProject;

@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <AnimatedSection
       id='projects'
-      className='py-16 px-8 md:px-16 bg-gradient-to-b from-blue-800 via-blue-900 to-gray-900'
+      className='py-16 px-4 bg-gray-800'
     >
       <div className='mx-auto'>
         <h2 className='text-5xl font-bold text-blue-400 text-center mb-8'>My Projects</h2>
