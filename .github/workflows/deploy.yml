@@ -39,7 +39,7 @@ jobs:
           VITE_GOOGLE_DOC_ID_FOR_RESUME: ${{ secrets.VITE_GOOGLE_DOC_ID_FOR_RESUME }}
           VITE_BUILD_NUMBER: ${{ github.run_number }}
           VITE_COMMIT_SHA: ${{ github.sha }}
-          VITE_REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+          VITE_REPO_URL: https://github.com/mmirasol17/mmirasol17.github.io
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
