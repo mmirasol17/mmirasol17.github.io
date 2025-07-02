@@ -16,6 +16,10 @@ export function Footer() {
     return import.meta.env.VITE_COMMIT_SHA;
   }, []);
 
+  const repoUrl = useMemo(() => {
+    return import.meta.env.VITE_GITHUB_REPO_URL;
+  }, []);
+
   return (
     <footer className='bg-gray-800 py-4'>
       <div className='mx-auto text-center font-bold text-white flex flex-col gap-2'>
@@ -34,12 +38,30 @@ export function Footer() {
         </div>
         <span>&copy; 2023 Marin Mirasol. All rights reserved.</span>
 
-        {/* Build info */}
+        {/* Build info with links */}
         {(buildNumber || commitSha) && (
-          <div className='text-xs text-gray-400 font-normal'>
-            {buildNumber && <span>Build #{buildNumber}</span>}
+          <div className='text-xs text-gray-400 font-normal flex items-center justify-center gap-1'>
+            {buildNumber && (
+              <a
+                href={`${repoUrl}/actions/runs/${buildNumber}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='hover:underline transition-colors'
+              >
+                Build #{buildNumber}
+              </a>
+            )}
             {buildNumber && commitSha && <span> • </span>}
-            {commitSha && <span>{commitSha.slice(0, 7)}</span>}
+            {commitSha && (
+              <a
+                href={`${repoUrl}/commit/${commitSha}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='hover:underline transition-colors'
+              >
+                {commitSha.slice(0, 7)}
+              </a>
+            )}
           </div>
         )}
       </div>
