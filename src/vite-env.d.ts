@@ -1,7 +1,8 @@
 /// <reference types="vite/client" />
 interface ImportMetaEnv {
   readonly VITE_GOOGLE_DOC_ID_FOR_RESUME: string;
-  // add other env variables here as needed
+  readonly VITE_BUILD_NUMBER: string;
+  readonly VITE_COMMIT_SHA: string;
 }
 
 interface ImportMeta {

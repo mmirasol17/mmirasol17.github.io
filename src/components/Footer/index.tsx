@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 export function Footer() {
   const scrollToTop = useCallback(() => {
@@ -6,6 +6,14 @@ export function Footer() {
       top: 0,
       behavior: "smooth",
     });
+  }, []);
+
+  const buildNumber = useMemo(() => {
+    return import.meta.env.VITE_BUILD_NUMBER;
+  }, []);
+
+  const commitSha = useMemo(() => {
+    return import.meta.env.VITE_COMMIT_SHA;
   }, []);
 
   return (
@@ -25,6 +33,15 @@ export function Footer() {
           </button>
         </div>
         <span>&copy; 2023 Marin Mirasol. All rights reserved.</span>
+
+        {/* Build info */}
+        {(buildNumber || commitSha) && (
+          <div className='text-xs text-gray-400 font-normal'>
+            {buildNumber && <span>Build #{buildNumber}</span>}
+            {buildNumber && commitSha && <span> • </span>}
+            {commitSha && <span>{commitSha.slice(0, 7)}</span>}
+          </div>
+        )}
       </div>
     </footer>
   );
