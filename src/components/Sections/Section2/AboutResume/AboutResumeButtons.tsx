@@ -100,7 +100,7 @@ export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) 
 
         {/* Inline Preview Option */}
         <div className='text-center'>
-          <p className='text-sm text-gray-400 mb-2'>Click "View Resume" to see it instantly in your browser</p>
+          <p className='text-sm text-gray-400 mb-2'>Click "View Resume" to preview in this page</p>
         </div>
 
         {/* Success/Error Notifications */}
