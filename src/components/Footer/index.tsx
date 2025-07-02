@@ -8,15 +8,19 @@ export function Footer() {
     });
   }, []);
 
-  const buildNumber = useMemo(() => {
-    return import.meta.env.VITE_BUILD_NUMBER;
+  const githubBuildNumber = useMemo(() => {
+    return import.meta.env.VITE_GITHUB_BUILD_NUMBER;
   }, []);
 
-  const commitSha = useMemo(() => {
-    return import.meta.env.VITE_COMMIT_SHA;
+  const githubBuildId = useMemo(() => {
+    return import.meta.env.VITE_GITHUB_BUILD_ID;
   }, []);
 
-  const repoUrl = useMemo(() => {
+  const githubCommitSha = useMemo(() => {
+    return import.meta.env.VITE_GITHUB_COMMIT_SHA;
+  }, []);
+
+  const githubRepoUrl = useMemo(() => {
     return import.meta.env.VITE_GITHUB_REPO_URL;
   }, []);
 
@@ -39,27 +43,27 @@ export function Footer() {
         <span>&copy; 2023 Marin Mirasol. All rights reserved.</span>
 
         {/* Build info with links */}
-        {(buildNumber || commitSha) && (
+        {(githubBuildNumber || githubCommitSha) && (
           <div className='text-xs text-gray-400 font-normal flex items-center justify-center gap-1'>
-            {buildNumber && (
+            {githubBuildNumber && (
               <a
-                href={`${repoUrl}/actions/runs/${buildNumber}`}
+                href={`${githubRepoUrl}/actions/runs/${githubBuildId}`}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='hover:underline transition-colors'
               >
-                Build #{buildNumber}
+                Build #{githubBuildNumber}
               </a>
             )}
-            {buildNumber && commitSha && <span> • </span>}
-            {commitSha && (
+            {githubBuildNumber && githubCommitSha && <span> • </span>}
+            {githubCommitSha && (
               <a
-                href={`${repoUrl}/commit/${commitSha}`}
+                href={`${githubRepoUrl}/commit/${githubCommitSha}`}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='hover:underline transition-colors'
               >
-                {commitSha.slice(0, 7)}
+                {githubCommitSha.slice(0, 7)}
               </a>
             )}
           </div>

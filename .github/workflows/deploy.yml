@@ -37,8 +37,9 @@ jobs:
         run: npm run build
         env:
           VITE_GOOGLE_DOC_ID_FOR_RESUME: ${{ secrets.VITE_GOOGLE_DOC_ID_FOR_RESUME }}
-          VITE_BUILD_NUMBER: ${{ github.run_number }}
-          VITE_COMMIT_SHA: ${{ github.sha }}
+          VITE_GITHUB_BUILD_NUMBER: ${{ github.run_number }}
+          VITE_GITHUB_BUILD_ID: ${{ github.run_id }}
+          VITE_GITHUB_COMMIT_SHA: ${{ github.sha }}
           VITE_GITHUB_REPO_URL: https://github.com/mmirasol17/mmirasol17.github.io
 
       - name: Setup Pages
