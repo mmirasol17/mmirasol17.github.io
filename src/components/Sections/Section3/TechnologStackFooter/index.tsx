@@ -19,7 +19,7 @@ export function TechnologyStackFooter() {
         onClick={scrollToProjects}
         className='text-blue-400 font-bold underline transition duration-200 hover:text-blue-300 text-xl'
       >
-        How have I used some of these technologies?
+        How have I used these technologies?
       </button>
       <button
         onClick={scrollToProjects}
