@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { IProject } from "../../../../hooks/useProjects";
-import { TechnologyType } from "../../../../types/TechnologyType";
 import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
-import { ExternalLink, GitBranchIcon, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
 
 interface ProjectItemProps {

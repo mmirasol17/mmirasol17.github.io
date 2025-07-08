@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useTechnologies } from "../../../../hooks/useTechnologies";
 import { Minus, Plus } from "lucide-react";
 import { TechnologyCategory } from "./TechnologyCategory";
