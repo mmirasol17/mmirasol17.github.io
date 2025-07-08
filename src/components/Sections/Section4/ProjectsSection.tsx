@@ -10,7 +10,7 @@ export function ProjectsSection() {
       id='projects'
       className='py-16 px-4 bg-gray-800'
     >
-      <div className='mx-auto md:px-4'>
+      <div className='mx-auto max-w-7xl md:px-4'>
         <h2 className='text-5xl font-bold text-blue-400 text-center mb-8'>My Projects</h2>
 
         <div className='grid grid-cols-1 gap-8 text-sm lg:text-base'>
