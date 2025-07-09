@@ -3,6 +3,7 @@ import { IProject } from "../../../../hooks/useProjects";
 import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
 import { ExternalLink, Github } from "lucide-react";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
+import Markdown from "react-markdown";
 
 interface ProjectItemProps {
   project: IProject;
@@ -39,15 +40,43 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
 
   return (
     <div className='bg-gradient-to-br from-gray-400 to-gray-700 rounded-2xl p-6 shadow-2xl hover:scale-[101%] transition-transform duration-300'>
-      <div className='flex justify-between items-start mb-3'>
-        <div>
-          <h4 className='text-xl font-bold text-white mb-1'>{props.project.title}</h4>
-          <span className='text-blue-300 text-sm font-medium'>{projectType}</span>
+      <div className='mb-3'>
+        <div className='flex justify-between items-start gap-3 sm:flex-row flex-col'>
+          <div className='flex-1'>
+            <h4 className='text-xl font-bold text-white mb-1'>{props.project.title}</h4>
+            <span className='text-blue-300 text-sm font-medium'>{projectType}</span>
+          </div>
+          <span className={`px-3 py-1 rounded-full text-xs font-medium text-white whitespace-nowrap self-start ${projectStatusInfo.color}`}>{projectStatusInfo.status}</span>
         </div>
-        <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${projectStatusInfo.color}`}>{projectStatusInfo.status}</span>
       </div>
 
-      <p className='text-white text-sm mb-4 leading-relaxed'>{props.project.description}</p>
+      <Markdown
+        components={{
+          p: ({ node, ...props }) => (
+            <p
+              className='text-white text-sm mb-4 leading-relaxed'
+              {...props}
+            />
+          ),
+          a: ({ node, ...props }) => (
+            <a
+              className='text-blue-300 font-bold hover:underline'
+              target='_blank'
+              rel='noopener noreferrer'
+              title={props.href}
+              {...props}
+            />
+          ),
+          code: ({ node, ...props }) => (
+            <code
+              className='bg-gray-800 text-white px-1 rounded'
+              {...props}
+            />
+          ),
+        }}
+      >
+        {props.project.description}
+      </Markdown>
 
       {/* Conditional highlights section */}
       {/* {props.project.highlights && props.project.highlights.length > 0 && (

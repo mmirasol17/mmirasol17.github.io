@@ -23,7 +23,7 @@ export function useProjects() {
       {
         title: "Enterprise SaaS",
         description:
-          "Full-stack enterprise SaaS platform, SigParser, serving 1,000+ users with AI-powered parsing algorithms, third-party integrations, data enrichment, and statistics tracking for enhanced Contact data.",
+          "Full-stack enterprise SaaS platform, [SigParser](https://sigparser.com), serving 1,000+ users with AI-powered parsing algorithms, third-party integrations, data enrichment, and statistics tracking for enhanced Contact data.",
         technologies: ["react", "cs", "dotnet", "postgresql", "aws", "terraform", "sagemaker", "bedrock", "huggingface", "jupyter", "python"],
         link: "https://sigparser.com",
         isPublic: false,
@@ -85,7 +85,8 @@ export function useProjects() {
       },
       {
         title: "GradeApp",
-        description: "Android mobile application that interfaces with the grading system of a professor's courses to record and update students' grades seamlessly.",
+        description:
+          "Android mobile application that interfaces with the grading system of a [CSUSM](https://www.csusm.edu/) professor's courses to record and update students' grades seamlessly.",
         technologies: ["java", "androidstudio", "bash"],
         isPublic: false,
         highlights: [
@@ -100,7 +101,7 @@ export function useProjects() {
       {
         title: "Attendance Grading System",
         description:
-          "System that records and grades attendance with student identification data to efficiently grade attendance and import grades directly into a professor's gradebook.",
+          "System that records and grades attendance with student identification data to efficiently grade attendance and import grades directly into a [CSUSM](https://www.csusm.edu/) professor's gradebook.",
         technologies: ["python", "bash"],
         isPublic: false,
         highlights: [
@@ -115,7 +116,7 @@ export function useProjects() {
       {
         title: "myPR200 GUI",
         description:
-          "GUI application built for MCTSSA, which processes parsed JSON data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.",
+          "GUI application built for [MCTSSA](https://www.mctssa.marines.mil/), which processes parsed JSON data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.",
         technologies: ["python", "pyqt"],
         isPublic: false,
         highlights: [
