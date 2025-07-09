@@ -40,7 +40,7 @@ export function TechnologyCategories() {
               onClick={expandAllSections}
               // Disable button if all sections are expanded
               disabled={Object.keys(collapsedSections).length === 0}
-              className='bg-blue-500 hover:bg-blue-600 text-white md:px-3 md:py-1.5 px-4 py-2 rounded text-sm transition flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed'
+              className='bg-blue-500 hover:bg-blue-600 text-white md:px-3 md:py-1.5 px-8 py-3 rounded text-sm transition flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               <Plus className='w-3 h-3' />
               Expand
@@ -49,7 +49,7 @@ export function TechnologyCategories() {
               onClick={collapseAllSections}
               // Disable button if all sections are collapsed
               disabled={Object.keys(collapsedSections).length === technologyCategories.length}
-              className='bg-gray-600 hover:bg-gray-500 text-white md:px-3 md:py-1.5 px-4 py-2 rounded text-sm transition flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed'
+              className='bg-gray-600 hover:bg-gray-500 text-white md:px-3 md:py-1.5 px-8 py-3 rounded text-sm transition flex items-center gap-1 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               <Minus className='w-3 h-3' />
               Collapse

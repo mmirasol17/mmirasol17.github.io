@@ -19,7 +19,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
     } else if (props.project.isPublic) {
       return { status: "Public", color: "bg-blue-500" };
     } else {
-      return { status: "Private/Academic", color: "bg-gray-500" };
+      return { status: "Private/Academic", color: "bg-pink-500" };
     }
   }, [props.project]);
 

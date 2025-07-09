@@ -17,7 +17,7 @@ export function TechnologyStackFooter() {
     <div className='text-center items-center justify-center gap-2 flex flex-col'>
       <button
         onClick={scrollToProjects}
-        className='text-blue-400 font-bold underline transition duration-200 hover:text-blue-300 text-xl'
+        className='text-blue-400 font-bold underline transition duration-200 hover:text-blue-300 text-lg lg:text-3xl'
       >
         How have I used these technologies?
       </button>

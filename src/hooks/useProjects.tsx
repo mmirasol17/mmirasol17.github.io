@@ -23,8 +23,9 @@ export function useProjects() {
       {
         title: "Enterprise SaaS",
         description:
-          "Full-stack development on enterprise platform serving 1,000+ users with ML optimization, 5x performance improvements, and multi-factor authentication integration.",
+          "Full-stack enterprise SaaS platform, SigParser, serving 1,000+ users with AI-powered parsing algorithms, third-party integrations, data enrichment, and statistics tracking for enhanced Contact data.",
         technologies: ["react", "cs", "dotnet", "postgresql", "aws", "terraform", "sagemaker", "bedrock", "huggingface", "jupyter", "python"],
+        link: "https://sigparser.com",
         isPublic: false,
         highlights: [
           "Enhanced React.js Table framework with 5x faster component rendering",
@@ -54,7 +55,7 @@ export function useProjects() {
       {
         title: "ProUML",
         description:
-          "Web application that allows users to create and edit UML diagrams, import Java projects to be translated to UML, and collaborate with other users in real-time.",
+          "Web application to simplify creating and customizing UML diagrams, which supports real-time collaboration, various diagram customizations, structured diagram storage, and Java code-to-diagram translation.",
         technologies: ["react", "typescript", "tailwind", "go", "postgresql"],
         link: "https://prouml.com/",
         isPublic: true,
@@ -99,7 +100,7 @@ export function useProjects() {
       {
         title: "Attendance Grading System",
         description:
-          "System that records and grades attendance by receiving identification data from students, then recording their attendance grades directly into a professor's gradebook.",
+          "System that records and grades attendance with student identification data to efficiently grade attendance and import grades directly into a professor's gradebook.",
         technologies: ["python", "bash"],
         isPublic: false,
         highlights: [
@@ -114,7 +115,7 @@ export function useProjects() {
       {
         title: "myPR200 GUI",
         description:
-          "GUI application that processes parsed data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.",
+          "GUI application built for MCTSSA, which processes parsed JSON data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.",
         technologies: ["python", "pyqt"],
         isPublic: false,
         highlights: [
