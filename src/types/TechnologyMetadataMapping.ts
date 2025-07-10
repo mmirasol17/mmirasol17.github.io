@@ -139,6 +139,10 @@ export const TechnologyMetadataMapping: Record<TechnologyType, TechnologyMetadat
     name: "Terraform",
     url: "https://www.terraform.io/",
   },
+  tkinter: {
+    name: "Tkinter",
+    url: "https://docs.python.org/3/library/tkinter.html",
+  },
   typescript: {
     name: "TypeScript",
     url: "https://www.typescriptlang.org/",

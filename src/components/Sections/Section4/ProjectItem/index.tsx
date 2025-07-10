@@ -29,7 +29,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
       return "Web Application";
     } else if (props.project.technologies.includes("kotlin") || (props.project.technologies.includes("java") && props.project.technologies.includes("androidstudio"))) {
       return "Mobile App";
-    } else if (props.project.technologies.includes("python") && props.project.technologies.includes("pyqt")) {
+    } else if (props.project.technologies.includes("python") && (props.project.technologies.includes("pyqt") || props.project.technologies.includes("tkinter"))) {
       return "Desktop App";
     } else if (props.project.technologies.includes("cpp") || props.project.technologies.includes("bash")) {
       return "CLI Tool";

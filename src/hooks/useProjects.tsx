@@ -102,7 +102,7 @@ export function useProjects() {
         title: "Attendance Grading System",
         description:
           "System that records and grades attendance with student identification data to efficiently grade attendance and import grades directly into a [CSUSM](https://www.csusm.edu/) professor's gradebook.",
-        technologies: ["python", "bash"],
+        technologies: ["python", "tkinter", "bash"],
         isPublic: false,
         highlights: [
           "Raspberry Pi desktop application using Python for hardware integration",

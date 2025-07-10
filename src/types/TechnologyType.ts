@@ -32,6 +32,7 @@ export type TechnologyType =
   | "swift"
   | "tailwind"
   | "terraform"
+  | "tkinter"
   | "typescript"
   | "vite"
   | "vscode";
