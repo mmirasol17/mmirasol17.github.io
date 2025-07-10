@@ -39,7 +39,10 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
   }, [props.project.technologies]);
 
   return (
-    <div className='bg-gradient-to-br from-gray-400 to-gray-700 rounded-2xl p-6 shadow-2xl hover:scale-[101%] transition-transform duration-300'>
+    <div
+      className='bg-gradient-to-br from-gray-400 to-gray-700 rounded-2xl p-6 shadow-2xl hover:scale-[101%] transition-transform duration-300'
+      id={props.project.title}
+    >
       <div className='mb-3'>
         <div className='flex justify-between items-start gap-3 sm:flex-row flex-col'>
           <div className='flex-1'>

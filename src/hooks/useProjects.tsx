@@ -39,7 +39,7 @@ export function useProjects() {
       },
       {
         title: "MyOrganizer",
-        description: "Web application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.",
+        description: "Application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.",
         technologies: ["react", "typescript", "tailwind", "firebase"],
         link: "https://myorganizer.app/",
         isPublic: true,
@@ -55,7 +55,7 @@ export function useProjects() {
       {
         title: "ProUML",
         description:
-          "Web application to simplify creating and customizing UML diagrams, which supports real-time collaboration, various diagram customizations, structured diagram storage, and Java code-to-diagram translation.",
+          "[CSUSM CapStone](https://www.csusm.edu/ece/engineeringcapstone/index.html) project built to simplify creating and customizing UML diagrams, which supports real-time collaboration, various diagram customizations, structured diagram storage, and Java code-to-diagram translation.",
         technologies: ["react", "typescript", "tailwind", "go", "postgresql"],
         link: "https://prouml.com/",
         isPublic: true,
