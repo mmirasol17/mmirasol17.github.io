@@ -66,7 +66,8 @@ export function TechnologyCategoryItem(props: Readonly<TechnologyCategoryItemPro
 
           {/* Project Tags */}
           <div className='flex flex-wrap gap-1'>
-            {props.item.projects.slice(0, 2).map((project, i) => (
+            {/* {props.item.projects.slice(0, 2).map((project, i) => ( */}
+            {props.item.projects.map((project, i) => (
               <button
                 key={`${i}:${project.title}`}
                 className='text-xs bg-white/20 text-white px-2 py-0.5 rounded-full truncate transition-all duration-200 hover:scale-105'
@@ -78,7 +79,7 @@ export function TechnologyCategoryItem(props: Readonly<TechnologyCategoryItemPro
                 {project.title}
               </button>
             ))}
-            {props.item.projects.length > 2 && <span className='text-xs bg-white/20 text-white px-2 py-0.5 rounded-full'>+{props.item.projects.length - 2}</span>}
+            {/* {props.item.projects.length > 2 && <span className='text-xs bg-white/20 text-white px-2 py-0.5 rounded-full'>+{props.item.projects.length - 2}</span>} */}
           </div>
         </div>
 
