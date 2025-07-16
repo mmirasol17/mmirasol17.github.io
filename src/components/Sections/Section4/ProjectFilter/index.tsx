@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { Filter, X, Search, Code, Server, Database, Cloud, Brain, Smartphone } from "lucide-react";
+import { Filter, X, Search } from "lucide-react";
 import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
 import { useProjectFilters } from "../../../../providers/ProjectFilterProvider";
-import { TechnologyType } from "../../../../types/TechnologyType";
 import { useTechnologies } from "../../../../hooks/useTechnologies";
 import { cn } from "../../../../utils/cn";
 
