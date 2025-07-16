@@ -4,6 +4,7 @@ import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
 import { ExternalLink, Github } from "lucide-react";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
 import Markdown from "react-markdown";
+import { cn } from "../../../../utils/cn";
 
 interface ProjectItemProps {
   project: IProject;
@@ -49,7 +50,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
             <h4 className='text-xl font-bold text-white mb-1'>{props.project.title}</h4>
             <span className='text-blue-300 text-sm font-medium'>{projectType}</span>
           </div>
-          <span className={`px-3 py-1 rounded-full text-xs font-medium text-white whitespace-nowrap self-start ${projectStatusInfo.color}`}>{projectStatusInfo.status}</span>
+          <span className={cn("px-3 py-1 rounded-full text-xs font-medium text-white whitespace-nowrap self-start", projectStatusInfo.color)}>{projectStatusInfo.status}</span>
         </div>
       </div>
 
@@ -129,9 +130,10 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
             href={props.project.link}
             target='_blank'
             rel='noopener noreferrer'
-            className={`inline-flex items-center gap-2 text-white px-3 py-2 rounded-lg transition text-sm hover:scale-105 duration-300 ${
+            className={cn(
+              "inline-flex items-center gap-2 text-white px-3 py-2 rounded-lg transition text-sm hover:scale-105 duration-300",
               props.project.link.includes("github.com") ? "bg-gray-700 hover:bg-gray-600" : "bg-blue-500 hover:bg-blue-600"
-            }`}
+            )}
           >
             {props.project.link.includes("github.com") ? (
               <>

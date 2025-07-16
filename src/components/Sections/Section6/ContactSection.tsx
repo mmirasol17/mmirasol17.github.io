@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { AnimatedSection } from "../../AnimatedSection";
 import { SocialMediaIcon } from "../../Icons/SocialMediaIcon";
+import { cn } from "../../../utils/cn";
 
 export interface ContactForm {
   name: string;
@@ -112,9 +113,10 @@ export function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder='John Doe'
-                className={`rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 ${
-                  errors.name ? "ring-2 ring-red-500" : ""
-                }`}
+                className={cn(
+                  "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400",
+                  errors.name && "ring-2 ring-red-500"
+                )}
               />
               {errors.name && <span className='text-red-500 text-sm mt-1 italic'>{errors.name}</span>}
             </div>
@@ -133,9 +135,10 @@ export function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder='johndoe@example.com'
-                className={`rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 ${
-                  errors.email ? "ring-2 ring-red-500" : ""
-                }`}
+                className={cn(
+                  "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400",
+                  errors.email && "ring-2 ring-red-500"
+                )}
               />
               {errors.email && <span className='text-red-500 text-sm mt-1 italic'>{errors.email}</span>}
             </div>
@@ -154,9 +157,10 @@ export function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder='Hello there Marin! My name is John, and I would love to discuss a project that I am working on!'
-                className={`rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 resize-vertical ${
-                  errors.message ? "ring-2 ring-red-500" : ""
-                }`}
+                className={cn(
+                  "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 resize-vertical",
+                  errors.message && "ring-2 ring-red-500"
+                )}
               />
               {errors.message && <span className='text-red-500 text-sm mt-1 italic'>{errors.message}</span>}
             </div>

@@ -1,13 +1,7 @@
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
+import { handleScrollToElementById } from "../../utils";
 
 export function Footer() {
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
-
   const githubBuildNumber = useMemo(() => {
     return import.meta.env.VITE_GITHUB_BUILD_NUMBER;
   }, []);
@@ -29,7 +23,7 @@ export function Footer() {
       <div className='mx-auto text-center font-bold text-white flex flex-col gap-2'>
         <div className='flex mt-2 justify-center'>
           <button
-            onClick={scrollToTop}
+            onClick={() => handleScrollToElementById("intro")}
             className='animate-bounce w-14 h-14 p-2 bg-gradient-to-br from-gray-400 to-gray-700 rounded-full cursor-pointer flex items-center justify-center transition duration-200 hover:scale-110'
           >
             <img
