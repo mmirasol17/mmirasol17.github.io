@@ -19,9 +19,14 @@ export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: 
       <div className='p-4 space-y-6'>
         <ProjectTechnologiesFilters />
 
-        <ProjectStatusesFilters />
-
-        <ProjectTypesFilters />
+        <div className='flex flex-col sm:flex-row sm:gap-6 space-y-6 sm:space-y-0'>
+          <div className='flex-1'>
+            <ProjectStatusesFilters />
+          </div>
+          <div className='flex-1'>
+            <ProjectTypesFilters />
+          </div>
+        </div>
 
         {/* Clear All Button */}
         {hasActiveFilters && (
