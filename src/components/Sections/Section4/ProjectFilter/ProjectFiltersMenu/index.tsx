@@ -14,7 +14,7 @@ export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: 
   return (
     <div
       ref={ref}
-      className='absolute top-full left-0 w-full sm:w-[28rem] lg:w-[32rem] bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50 max-h-[32rem] overflow-y-auto'
+      className='absolute top-full left-0 w-full sm:w-[28rem] lg:w-[32rem] bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50 max-h-[32rem] overflow-y-auto dropdown-scrollbar'
     >
       <div className='p-4 space-y-6'>
         <ProjectTechnologiesFilters />
