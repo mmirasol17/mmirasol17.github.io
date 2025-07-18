@@ -95,7 +95,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
           {/* Modal Content */}
           <div
             ref={ref}
-            className={`relative w-full bg-gray-800 rounded-t-2xl shadow-xl border-t border-gray-700 max-h-[90vh] flex flex-col ${modalClassName}`}
+            className={`relative w-full bg-gray-800 rounded-t-2xl shadow-xl border-t border-gray-700 max-h-[90svh] flex flex-col ${modalClassName}`}
           >
             {/* Header - only show if title provided or done button enabled */}
             {(title || showDoneButton) && (
