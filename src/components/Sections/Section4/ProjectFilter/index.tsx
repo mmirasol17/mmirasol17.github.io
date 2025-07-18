@@ -70,6 +70,7 @@ export function ProjectFilters() {
           {isDropdownOpen && (
             <ProjectFiltersMenu
               ref={dropdownRef}
+              isDropdownOpen={isDropdownOpen}
               setIsDropdownOpen={setIsDropdownOpen}
             />
           )}

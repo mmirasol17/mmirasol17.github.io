@@ -1,24 +1,30 @@
-import { forwardRef } from "react";
+import { forwardRef, useCallback } from "react";
 import { useProjectFilters } from "../../../../../providers/ProjectFilterProvider";
 import { X } from "lucide-react";
 import { ProjectTechnologiesFilters } from "./ProjectTechnologiesFilters";
 import { ProjectStatusesFilters } from "./ProjectStatusesFilters";
 import { ProjectTypesFilters } from "./ProjectTypesFilters";
+import { Menu } from "../../../../Menu";
 
 interface ProjectFiltersMenuProps {
+  isDropdownOpen: boolean;
   setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: Readonly<ProjectFiltersMenuProps>, ref: React.ForwardedRef<HTMLDivElement>) {
   const { clearAllFilters, hasActiveFilters } = useProjectFilters();
 
+  const handleClose = useCallback(() => props.setIsDropdownOpen(false), []);
+
   return (
-    <div
+    <Menu
       ref={ref}
-      className='absolute top-full left-0 w-full sm:w-[28rem] lg:w-[32rem] bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50 max-h-[32rem] overflow-y-auto dropdown-scrollbar'
+      isOpen={props.isDropdownOpen}
+      onClose={handleClose}
+      title='Filter Projects'
+      showDoneButton={true}
+      doneButtonText='Apply Filters'
     >
       <div className='p-4 space-y-6'>
-        <ProjectTechnologiesFilters />
-
         <div className='flex flex-col sm:flex-row sm:gap-6 space-y-6 sm:space-y-0'>
           <div className='flex-1'>
             <ProjectStatusesFilters />
@@ -27,6 +33,8 @@ export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: 
             <ProjectTypesFilters />
           </div>
         </div>
+
+        <ProjectTechnologiesFilters />
 
         {/* Clear All Button */}
         {hasActiveFilters && (
@@ -42,6 +50,6 @@ export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: 
           </button>
         )}
       </div>
-    </div>
+    </Menu>
   );
 });
