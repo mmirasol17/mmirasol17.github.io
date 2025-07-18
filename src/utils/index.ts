@@ -9,3 +9,18 @@ export function handleScrollToElementById(id: string) {
     });
   }
 }
+
+export function getProjectStatusColor(status: string) {
+  switch (status) {
+    case "Open Source":
+      return "bg-purple-500";
+    case "Live Production":
+      return "bg-green-500";
+    case "Public":
+      return "bg-blue-500";
+    case "Private/Academic":
+      return "bg-pink-500";
+    default:
+      return "bg-gray-500";
+  }
+}

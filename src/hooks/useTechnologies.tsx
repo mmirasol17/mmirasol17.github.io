@@ -19,15 +19,22 @@ export interface ITechnologyCategoryItem {
   projects: IProject[];
 }
 
-export function useTechnologies() {
+interface TechnologiesProps {
+  iconSize?: "sm" | "lg";
+}
+export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
   const { projects } = useProjects();
+
+  const iconClassName = useMemo(() => {
+    return props.iconSize === "sm" ? "w-4 h-4" : "w-6 h-6";
+  }, [props.iconSize]);
 
   const technologyCategories: ITechnologyCategory[] = useMemo(
     () => [
       {
         category: "frontend",
         title: "Frontend Development",
-        icon: <Code className='w-6 h-6' />,
+        icon: <Code className={iconClassName} />,
         color: "from-blue-500 to-cyan-500",
         technologies: [
           { technology: "react", level: "Expert", projects: projects.filter((p) => p.technologies.includes("react")) },
@@ -41,7 +48,7 @@ export function useTechnologies() {
       {
         category: "backend",
         title: "Backend Development",
-        icon: <Server className='w-6 h-6' />,
+        icon: <Server className={iconClassName} />,
         color: "from-green-500 to-emerald-500",
         technologies: [
           { technology: "cs", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("cs")) },
@@ -55,7 +62,7 @@ export function useTechnologies() {
       {
         category: "database",
         title: "Database & Storage",
-        icon: <Database className='w-6 h-6' />,
+        icon: <Database className={iconClassName} />,
         color: "from-orange-500 to-red-500",
         technologies: [
           { technology: "postgresql", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("postgresql")) },
@@ -66,7 +73,7 @@ export function useTechnologies() {
       {
         category: "cloud",
         title: "Cloud & DevOps",
-        icon: <Cloud className='w-6 h-6' />,
+        icon: <Cloud className={iconClassName} />,
         color: "from-yellow-500 to-orange-500",
         technologies: [
           { technology: "aws", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("aws")) },
@@ -78,7 +85,7 @@ export function useTechnologies() {
       {
         category: "ml",
         title: "Machine Learning",
-        icon: <Brain className='w-6 h-6' />,
+        icon: <Brain className={iconClassName} />,
         color: "from-pink-500 to-rose-500",
         technologies: [
           { technology: "sagemaker", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("sagemaker")) },
@@ -90,7 +97,7 @@ export function useTechnologies() {
       {
         category: "mobile",
         title: "Mobile Development",
-        icon: <Smartphone className='w-6 h-6' />,
+        icon: <Smartphone className={iconClassName} />,
         color: "from-purple-500 to-pink-500",
         technologies: [
           { technology: "kotlin", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("kotlin")) },
