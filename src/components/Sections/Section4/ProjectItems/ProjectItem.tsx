@@ -3,8 +3,8 @@ import { IProject } from "../../../../hooks/useProjects";
 import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
 import { ExternalLink, Github } from "lucide-react";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
-import Markdown from "react-markdown";
 import { cn } from "../../../../utils/cn";
+import { MarkdownText } from "../../../MarkdownText";
 
 interface ProjectItemProps {
   project: IProject;
@@ -42,7 +42,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
   return (
     <div
       className='bg-gradient-to-br from-gray-400 to-gray-700 rounded-2xl p-6 shadow-2xl hover:scale-[101%] transition-transform duration-300'
-      id={props.project.title}
+      id={props.project.id}
     >
       <div className='mb-3'>
         <div className='flex justify-between items-start gap-3 sm:flex-row flex-col'>
@@ -54,33 +54,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
         </div>
       </div>
 
-      <Markdown
-        components={{
-          p: ({ node, ...props }) => (
-            <p
-              className='text-white text-sm mb-4 leading-relaxed'
-              {...props}
-            />
-          ),
-          a: ({ node, ...props }) => (
-            <a
-              className='text-blue-300 font-bold hover:underline'
-              target='_blank'
-              rel='noopener noreferrer'
-              title={props.href}
-              {...props}
-            />
-          ),
-          code: ({ node, ...props }) => (
-            <code
-              className='bg-gray-800 text-white px-1 rounded'
-              {...props}
-            />
-          ),
-        }}
-      >
-        {props.project.description}
-      </Markdown>
+      <MarkdownText>{props.project.description}</MarkdownText>
 
       {/* Conditional highlights section */}
       {/* {props.project.highlights && props.project.highlights.length > 0 && (

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { TechnologyType } from "../types/TechnologyType";
 
 export interface IProject {
+  id: string;
   title: string;
   description: string;
   technologies: TechnologyType[];
@@ -21,6 +22,7 @@ export function useProjects() {
   const projects: IProject[] = useMemo(() => {
     return [
       {
+        id: "enterprise-saas",
         title: "Enterprise SaaS",
         description:
           "Full-stack enterprise SaaS platform, [SigParser](https://sigparser.com), serving 1,000+ users with AI-powered parsing algorithms, third-party integrations, data enrichment, and statistics tracking for enhanced Contact data.",
@@ -38,6 +40,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "myorganizer",
         title: "MyOrganizer",
         description: "Application that allows users to organize and visualize their schedule, budget, and tasks all in one dashboard.",
         technologies: ["react", "typescript", "tailwind", "firebase"],
@@ -53,6 +56,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "prouml",
         title: "ProUML",
         description:
           "[CSUSM CapStone](https://www.csusm.edu/ece/engineeringcapstone/index.html) project built to simplify creating and customizing UML diagrams, which supports real-time collaboration, various diagram customizations, structured diagram storage, and Java code-to-diagram translation.",
@@ -69,6 +73,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "chattington",
         title: "Chattington",
         description: "Chatbot Android mobile application that allows users to have conversations with an automated chatbot, enabled by using OpenAI's Chat Completions API.",
         technologies: ["kotlin", "firebase", "androidstudio"],
@@ -84,6 +89,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "gradeapp",
         title: "GradeApp",
         description:
           "Android mobile application that interfaces with the grading system of a [CSUSM](https://www.csusm.edu/) professor's courses to record and update students' grades seamlessly.",
@@ -99,6 +105,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "attendance-grading-system",
         title: "Attendance Grading System",
         description:
           "System that records and grades attendance with student identification data to efficiently grade attendance and import grades directly into a [CSUSM](https://www.csusm.edu/) professor's gradebook.",
@@ -114,6 +121,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "mypr200-gui",
         title: "myPR200 GUI",
         description:
           "GUI application built for [MCTSSA](https://www.mctssa.marines.mil/), which processes parsed JSON data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.",
@@ -129,6 +137,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "exchangemyideas",
         title: "ExchangeMyIdeas",
         description: "A minimalistic blog website, which allows users to post, reply, and search for blogs.",
         technologies: ["javascript", "html", "css", "php", "mysql"],
@@ -144,6 +153,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "car-database-cli",
         title: "Car Database CLI",
         description:
           "Database command-line interface (CLI), which stores car information using a hash table. The data is locally stored in a .txt file, where the data will be accessed.",
@@ -160,6 +170,7 @@ export function useProjects() {
         ],
       },
       {
+        id: "terminal-tic-tac-toe",
         title: "Tic-Tac-Toe CLI",
         description:
           "Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local command-line, such as the Mac Terminal, Windows Command Prompt, etc.",

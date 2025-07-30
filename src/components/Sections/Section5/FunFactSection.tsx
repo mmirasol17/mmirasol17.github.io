@@ -1,13 +1,12 @@
-import React, { useMemo } from "react";
 import { AnimatedSection } from "../../AnimatedSection";
 import { TechnologyIcon } from "../../Icons/TechnologyIcon";
 import { TechnologyType } from "../../../types/TechnologyType";
+import { Fragment } from "react/jsx-runtime";
+import { TechnologyMetadataMapping } from "../../../types/TechnologyMetadataMapping";
+
+const TOOLS: TechnologyType[] = ["react", "typescript", "tailwind", "vite", "githubpages"];
 
 export function FunFactSection() {
-  const tools: TechnologyType[] = useMemo(() => {
-    return ["react", "typescript", "tailwind", "vite", "githubpages"];
-  }, []);
-
   return (
     <AnimatedSection
       id='fact'
@@ -18,8 +17,9 @@ export function FunFactSection() {
           <div>
             <h2 className='text-4xl font-bold mb-4 text-white text-center'>Fun Fact!</h2>
             <p className='text-white font-light md:text-lg mb-8 text-center'>
-              I built this portfolio using React.js, TypeScript, TailwindCSS, Vite, and GitHub Pages! I used React to handle component logic and state management, TypeScript for
-              type safety, and TailwindCSS for styling. I also used Vite for bundling, and GitHub Pages to host this portfolio website.
+              I built this portfolio using {TechnologyMetadataMapping["react"].name}, {TechnologyMetadataMapping["typescript"].name}, {TechnologyMetadataMapping["tailwind"].name},{" "}
+              {TechnologyMetadataMapping["vite"].name}, and {TechnologyMetadataMapping["githubpages"].name}! I used React to handle component logic and state management, TypeScript
+              for type safety, and TailwindCSS for styling. I also used Vite for bundling, and GitHub Pages to host this portfolio website.
             </p>
             <p className='text-white font-light md:text-lg mb-8 text-center'>
               If you are building a website, I highly recommend trying out some of these tools, as they are very easy to use, make development much more efficient, and are very
@@ -30,16 +30,16 @@ export function FunFactSection() {
             </p>
           </div>
 
-          <div className='flex items-center gap-3 justify-center text-white font-light'>
-            {tools.map((tool, index) => (
-              <React.Fragment key={tool}>
+          <div className='flex items-center gap-3 justify-center text-white text-sm leading-relaxed'>
+            {TOOLS.map((tool, index) => (
+              <Fragment key={tool}>
                 {index > 0 && <span className='text-2xl hidden md:block'>×</span>}
                 <TechnologyIcon
                   icon={tool}
                   className='animate-pulse w-12 h-12'
                   enableTechnologyLink
                 />
-              </React.Fragment>
+              </Fragment>
             ))}
           </div>
         </div>

@@ -39,10 +39,10 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
         technologies: [
           { technology: "react", level: "Expert", projects: projects.filter((p) => p.technologies.includes("react")) },
           { technology: "typescript", level: "Expert", projects: projects.filter((p) => p.technologies.includes("typescript")) },
-          { technology: "tailwind", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("tailwind")) },
-          { technology: "html", level: "Expert", projects: projects.filter((p) => p.technologies.includes("html")) },
-          { technology: "css", level: "Expert", projects: projects.filter((p) => p.technologies.includes("css")) },
-          { technology: "javascript", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("javascript")) },
+          { technology: "tailwind", level: "Expert", projects: projects.filter((p) => p.technologies.includes("tailwind")) },
+          { technology: "html", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("html")) },
+          { technology: "css", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("css")) },
+          // { technology: "javascript", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("javascript")) },
         ],
       },
       {
@@ -51,8 +51,8 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
         icon: <Server className={iconClassName} />,
         color: "from-green-500 to-emerald-500",
         technologies: [
-          { technology: "cs", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("cs")) },
-          { technology: "dotnet", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("dotnet")) },
+          { technology: "cs", level: "Expert", projects: projects.filter((p) => p.technologies.includes("cs")) },
+          { technology: "dotnet", level: "Expert", projects: projects.filter((p) => p.technologies.includes("dotnet")) },
           { technology: "go", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("go")) },
           { technology: "python", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("python")) },
           { technology: "php", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("php")) },

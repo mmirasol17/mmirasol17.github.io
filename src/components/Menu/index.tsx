@@ -1,5 +1,6 @@
-import { forwardRef, useEffect, ReactNode, useState, useCallback } from "react";
+import { forwardRef, useEffect, ReactNode, useState, useCallback, useMemo } from "react";
 import { X } from "lucide-react";
+import { cn } from "../../utils/cn";
 
 interface MenuProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ interface MenuProps {
   // Dropdown-specific props
   dropdownWidth?: string;
   dropdownMaxHeight?: string;
+  alignment?: "left" | "right" | "center";
 
   // Styling overrides
   dropdownClassName?: string;
@@ -31,24 +33,26 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
     doneButtonText = "Done",
     dropdownWidth = "w-[28rem] lg:w-[32rem]",
     dropdownMaxHeight = "max-h-[32rem]",
+    alignment = "left",
     dropdownClassName = "",
     modalClassName = "",
     backdropClassName = "",
   },
   ref
 ) {
+  const isMobile = useMemo(() => window.innerWidth < 640, []);
+
   // Prevent body scroll when modal is open on mobile
   useEffect(() => {
-    if (isOpen) {
+    if (isMobile && isOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     }
-
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isMobile, isOpen]);
 
   // Close on backdrop click
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -77,7 +81,17 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
       <div className='hidden sm:block'>
         <div
           ref={ref}
-          className={`absolute top-full left-0 ${dropdownWidth} bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50 ${dropdownMaxHeight} overflow-y-auto dropdown-scrollbar ${dropdownClassName}`}
+          className={cn(
+            "absolute top-full",
+            alignment === "left" && "left-0",
+            alignment === "right" && "right-0",
+            alignment === "center" && "left-1/2 transform -translate-x-1/2",
+            dropdownWidth,
+            "bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50",
+            dropdownMaxHeight,
+            "overflow-y-auto dropdown-scrollbar",
+            dropdownClassName
+          )}
         >
           {children}
         </div>
@@ -90,12 +104,12 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
           onClick={handleBackdropClick}
         >
           {/* Backdrop */}
-          <div className={`absolute inset-0 bg-black/50 ${backdropClassName}`} />
+          <div className={cn("absolute inset-0 bg-black/50", backdropClassName)} />
 
           {/* Modal Content */}
           <div
             ref={ref}
-            className={`relative w-full bg-gray-800 rounded-t-2xl shadow-xl border-t border-gray-700 max-h-[90svh] flex flex-col ${modalClassName}`}
+            className={cn("relative w-full bg-gray-800 rounded-t-2xl shadow-xl border-t border-gray-700 max-h-[90svh] flex flex-col", modalClassName)}
           >
             {/* Header - only show if title provided or done button enabled */}
             {(title || showDoneButton) && (

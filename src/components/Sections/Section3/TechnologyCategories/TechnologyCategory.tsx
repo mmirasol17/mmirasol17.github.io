@@ -13,6 +13,7 @@ export function TechnologyCategory(props: Readonly<TechnologyCategoryProps>) {
     <div
       className={`bg-gradient-to-br ${props.category.color} rounded-2xl p-3 md:p-6 shadow-lg transition-all duration-300 cursor-pointer`}
       onClick={() => props.onToggleCollapse(props.category.category)}
+      id={props.category.category}
     >
       <div className='flex items-center gap-3'>
         <div className='text-white'>{props.category.icon}</div>

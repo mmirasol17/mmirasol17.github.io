@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useMemo, ReactNode } from "react";
 import { IProject } from "../hooks/useProjects";
 import { TechnologyType } from "../types/TechnologyType";
+import { getProjectStatus, getProjectType } from "../utils";
 
 export interface ProjectFilters {
   searchTerm: string;
@@ -50,36 +51,6 @@ export function ProjectFilterProvider({ children, projects }: Readonly<ProjectFi
     selectedStatuses: [],
     selectedTypes: [],
   });
-
-  // Helper function to get project status
-  const getProjectStatus = (project: IProject): string => {
-    if (project.link) {
-      if (project.link.includes("github.com")) {
-        return "Open Source";
-      } else {
-        return "Live Production";
-      }
-    } else if (project.isPublic) {
-      return "Public";
-    } else {
-      return "Private/Academic";
-    }
-  };
-
-  // Helper function to get project type
-  const getProjectType = (project: IProject): string => {
-    if (project.technologies.includes("react") || project.technologies.includes("javascript") || project.technologies.includes("html")) {
-      return "Web Application";
-    } else if (project.technologies.includes("kotlin") || (project.technologies.includes("java") && project.technologies.includes("androidstudio"))) {
-      return "Mobile App";
-    } else if (project.technologies.includes("python") && (project.technologies.includes("pyqt") || project.technologies.includes("tkinter"))) {
-      return "Desktop App";
-    } else if (project.technologies.includes("cpp") || project.technologies.includes("bash")) {
-      return "CLI Tool";
-    } else {
-      return "Application";
-    }
-  };
 
   // Extract unique technologies from all projects
   const availableTechnologies = useMemo(() => {
