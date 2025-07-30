@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Briefcase, ChevronDown, Menu as MenuIcon, MessageCircle, User, Wrench } from "lucide-react";
 import { getProjectType, handleScrollToElementById } from "../../../../utils";
 import { Menu } from "../../../Menu";
@@ -16,12 +16,28 @@ const SECTION_ICONS = {
 };
 
 export function RightNavMobile() {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const { technologyCategories } = useTechnologies({ iconSize: "sm" });
   const { projects } = useProjects();
 
   const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSubSection, setActiveSubSection] = useState<string>("");
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node) && buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+        setIsMainMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Track active section based on scroll
   useEffect(() => {
@@ -47,6 +63,33 @@ export function RightNavMobile() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Track active subsection based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+
+      const subSections = technologyCategories.map((cat) => cat.category).concat(projects.map((proj) => proj.id));
+
+      for (const subSectionId of subSections) {
+        const element = document.getElementById(subSectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSubSection(subSectionId);
+            break;
+          }
+        }
+      }
+
+      if (window.scrollY < 200) {
+        setActiveSubSection("");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [technologyCategories, projects]);
 
   const hasSubSections = (section: string) => {
     return ["technologies", "projects"].includes(section);
@@ -74,6 +117,7 @@ export function RightNavMobile() {
     <div className='sm:hidden'>
       {/* Menu Button */}
       <button
+        ref={buttonRef}
         onClick={() => setIsMainMenuOpen(true)}
         className='p-2 text-white hover:bg-white/10 rounded-lg transition-colors'
         aria-label='Open navigation menu'
@@ -83,6 +127,7 @@ export function RightNavMobile() {
 
       {/* Mobile Navigation Menu */}
       <Menu
+        ref={dropdownRef}
         isOpen={isMainMenuOpen}
         onClose={() => {
           setIsMainMenuOpen(false);
@@ -97,10 +142,7 @@ export function RightNavMobile() {
               {/* Main Section Button */}
               <button
                 onClick={() => handleSectionClick(section)}
-                className={cn(
-                  "flex items-center justify-between w-full px-4 py-3 text-left hover:bg-white/10 transition-colors",
-                  activeSection === section && "text-blue-400 bg-white/5"
-                )}
+                className={cn("flex items-center justify-between w-full px-4 py-3 text-left hover:bg-white/10 transition-colors", activeSection === section && "text-blue-400")}
               >
                 <div className='flex items-center gap-3 flex-1'>
                   {/* Section Icon */}
@@ -121,7 +163,10 @@ export function RightNavMobile() {
                       <button
                         key={category.category}
                         onClick={() => handleSubSectionClick(category.category)}
-                        className='flex items-center gap-3 w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors'
+                        className={cn(
+                          "flex items-center gap-3 w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors",
+                          activeSubSection === category.category && activeSection === "technologies" && "text-blue-400"
+                        )}
                       >
                         {category.icon}
                         <span>{category.title}</span>
@@ -133,7 +178,10 @@ export function RightNavMobile() {
                       <button
                         key={project.id}
                         onClick={() => handleSubSectionClick(project.id)}
-                        className='flex items-center gap-3 w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors'
+                        className={cn(
+                          "flex items-center gap-3 w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors",
+                          activeSubSection === project.id && activeSection === "projects" && "text-blue-400"
+                        )}
                       >
                         {PROJECT_TYPE_ICONS[getProjectType(project)] || <span className='text-gray-400'>?</span>}
                         <span>{project.title}</span>
