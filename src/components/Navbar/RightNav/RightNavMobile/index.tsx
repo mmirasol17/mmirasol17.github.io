@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, Menu as MenuIcon } from "lucide-react";
+import { Briefcase, ChevronDown, Menu as MenuIcon, MessageCircle, User, Wrench } from "lucide-react";
 import { getProjectType, handleScrollToElementById } from "../../../../utils";
 import { Menu } from "../../../Menu";
 import { useTechnologies } from "../../../../hooks/useTechnologies";
@@ -8,6 +8,12 @@ import { cn } from "../../../../utils/cn";
 import { PROJECT_TYPE_ICONS } from "../../../Sections/Section4/ProjectFilter/ProjectFiltersMenu/ProjectTypeIcons";
 
 const SECTIONS = ["about", "technologies", "projects", "contact"];
+const SECTION_ICONS = {
+  about: User,
+  technologies: Wrench, // or Code2, Laptop
+  projects: Briefcase, // or Database, Layers
+  contact: MessageCircle, // or Github, Globe
+};
 
 export function RightNavMobile() {
   const { technologyCategories } = useTechnologies({ iconSize: "sm" });
@@ -96,7 +102,14 @@ export function RightNavMobile() {
                   activeSection === section && "text-blue-400 bg-white/5"
                 )}
               >
-                <span className='capitalize font-medium'>{section}</span>
+                <div className='flex items-center gap-3 flex-1'>
+                  {/* Section Icon */}
+                  {(() => {
+                    const IconComponent = SECTION_ICONS[section as keyof typeof SECTION_ICONS];
+                    return IconComponent ? <IconComponent className='w-5 h-5' /> : null;
+                  })()}
+                  <span className='capitalize font-medium'>{section}</span>
+                </div>
                 {hasSubSections(section) && <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", expandedSection === section && "rotate-180")} />}
               </button>
 
