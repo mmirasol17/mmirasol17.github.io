@@ -34,7 +34,7 @@ export function Footer() {
             />
           </button>
         </div>
-        <span>&copy; 2023 Marin Mirasol. All rights reserved.</span>
+        <span className='text-sm md:text-base'>&copy; 2023 Marin Mirasol. All rights reserved.</span>
 
         {/* Build info with links */}
         {(githubBuildNumber || githubCommitSha) && (

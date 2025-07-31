@@ -8,7 +8,7 @@ interface MenuProps {
   children: ReactNode;
 
   // Modal-specific props
-  title?: string;
+  title?: string | ReactNode;
   showDoneButton?: boolean;
   doneButtonText?: string;
 

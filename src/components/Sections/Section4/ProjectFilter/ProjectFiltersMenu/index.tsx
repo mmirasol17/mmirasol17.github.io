@@ -1,6 +1,6 @@
 import { forwardRef, useCallback } from "react";
 import { useProjectFilters } from "../../../../../providers/ProjectFilterProvider";
-import { X } from "lucide-react";
+import { Filter, X } from "lucide-react";
 import { ProjectTechnologiesFilters } from "./ProjectTechnologiesFilters";
 import { ProjectStatusesFilters } from "./ProjectStatusesFilters";
 import { ProjectTypesFilters } from "./ProjectTypesFilters";
@@ -20,7 +20,12 @@ export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: 
       ref={ref}
       isOpen={props.isDropdownOpen}
       onClose={handleClose}
-      title='Filter Projects'
+      title={
+        <div className='flex items-center gap-2'>
+          <Filter className='w-5 h-5' />
+          <span className='text-lg font-semibold'>Filters</span>
+        </div>
+      }
       showDoneButton={true}
       doneButtonText='Apply Filters'
     >
