@@ -193,7 +193,7 @@ export function RightNavMobile() {
             {/* Menu Content */}
             <div
               className='flex-1 overflow-y-auto'
-              style={{ maxHeight: "calc(100svh - 70px)" }}
+              style={{ maxHeight: "calc(100% - 70px)" }}
             >
               <div className='space-y-1 p-2'>
                 {SECTIONS.map((section) => (
