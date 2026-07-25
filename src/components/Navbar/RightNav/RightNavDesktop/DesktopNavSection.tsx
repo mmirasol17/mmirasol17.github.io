@@ -62,14 +62,8 @@ export function DesktopNavSection(props: Readonly<DesktopNavSectionProps>) {
     <div
       ref={containerRef}
       className='relative'
-      onMouseEnter={() => {
-        console.log("Mouse entered!", props.section);
-        setIsDropdownOpen(true);
-      }}
-      onMouseLeave={() => {
-        console.log("Mouse left!", props.section);
-        setIsDropdownOpen(false);
-      }}
+      onMouseEnter={() => setIsDropdownOpen(true)}
+      onMouseLeave={() => setIsDropdownOpen(false)}
     >
       <button
         key={props.section}
@@ -79,7 +73,9 @@ export function DesktopNavSection(props: Readonly<DesktopNavSectionProps>) {
       >
         {props.section}
       </button>
-      {isDropdownOpen && hasSubSections && (
+      {/* Menu stays mounted while it animates closed, so it handles its own
+          open/closed rendering rather than being unmounted here. */}
+      {hasSubSections && (
         <Menu
           ref={dropdownRef}
           isOpen={isDropdownOpen}

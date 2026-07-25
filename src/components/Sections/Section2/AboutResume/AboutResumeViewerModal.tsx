@@ -1,5 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { X, Maximize2, Minimize2 } from "lucide-react";
+import { useResumeDocument } from "../../../../hooks/useResumeDocument";
+import { handleScrollToElementById } from "../../../../utils";
+import { ResumeDocument } from "./ResumeDocument";
 
 interface AboutResumeViewerModalProps {
   isOpen: boolean;
@@ -9,6 +12,17 @@ interface AboutResumeViewerModalProps {
 
 export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalProps>) {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const { status, document: resumeDocument } = useResumeDocument(props.documentId);
+
+  // Set when a redaction chip is clicked. The scroll-lock cleanup below is the only point where the
+  // page is scrollable again *and* the restore has already happened, so the jump is handed to it
+  // rather than raced against it with a timer.
+  const isContactRequestedRef = useRef(false);
+
+  const handleContactRequest = useCallback(() => {
+    isContactRequestedRef.current = true;
+    props.onClose();
+  }, [props.onClose]);
 
   // Lock/unlock body scroll when modal opens/closes
   useEffect(() => {
@@ -31,6 +45,11 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
 
         // Restore scroll position
         window.scrollTo(0, scrollY);
+
+        if (isContactRequestedRef.current) {
+          isContactRequestedRef.current = false;
+          handleScrollToElementById("contact");
+        }
       };
     }
   }, [props.isOpen]);
@@ -64,20 +83,25 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
 
   return (
     <div
-      className='fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4'
+      className='fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-0 md:p-4'
       onClick={handleBackdropClick}
     >
+      {/* Edge to edge on phones — the document is dense enough that inset margins and a 5/6 height
+          were costing real reading space. The windowed treatment starts at md. */}
       <div
-        className={`bg-white rounded-lg shadow-2xl transition-all duration-300 flex flex-col ${isFullscreen ? "w-full h-full" : "w-full max-w-4xl h-5/6"}`}
+        className={`bg-white shadow-2xl transition-all duration-300 flex flex-col w-full h-full rounded-none md:rounded-lg ${
+          isFullscreen ? "md:w-full md:h-full" : "md:max-w-4xl md:h-5/6"
+        }`}
         onClick={(e) => e.stopPropagation()} // Prevent click from bubbling to backdrop
       >
         {/* Modal Header */}
-        <div className='flex items-center justify-between p-4 border-b bg-gray-50 rounded-t-lg flex-shrink-0'>
+        <div className='flex items-center justify-between p-4 border-b bg-gray-50 rounded-t-none md:rounded-t-lg flex-shrink-0'>
           <h3 className='text-sm md:text-lg font-semibold text-gray-900'>Marin Mirasol - Resume</h3>
           <div className='flex items-center gap-2'>
+            {/* Hidden on phones, where the modal already fills the screen and this would do nothing. */}
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
-              className='p-2 hover:bg-gray-200 rounded-lg transition-colors'
+              className='hidden md:block p-2 hover:bg-gray-200 rounded-lg transition-colors'
               title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
             >
               {isFullscreen ? <Minimize2 className='w-5 h-5 text-gray-600' /> : <Maximize2 className='w-5 h-5 text-gray-600' />}
@@ -92,28 +116,41 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
           </div>
         </div>
 
-        {/* Resume Iframe */}
-        <div className='flex-1 w-full overflow-hidden'>
-          <iframe
-            src={`https://docs.google.com/document/d/${props.documentId}/preview`}
-            className='w-full h-full border-0'
-            title='Resume Preview'
-            allow='fullscreen'
-            style={{
-              // Enable smooth scrolling on mobile
-              WebkitOverflowScrolling: "touch",
-              // Allow touch gestures for zoom/pan
-              touchAction: "manipulation",
-              // Improve rendering on mobile
-              transform: "translateZ(0)",
-              // Ensure proper scaling
-              minHeight: "100%",
-              // Mobile-specific optimizations
-              WebkitTransform: "translate3d(0,0,0)",
-              backfaceVisibility: "hidden",
-              perspective: "1000px",
-            }}
-          />
+        {/* Resume Body */}
+        <div className='flex-1 w-full overflow-y-auto overflow-x-hidden rounded-b-none md:rounded-b-lg'>
+          {status === "loading" && (
+            <div className='flex h-full w-full items-center justify-center gap-3 text-gray-500'>
+              <div className='w-6 h-6 animate-spin rounded-full border-2 border-gray-300 border-t-blue-400' />
+              <span>Loading resume...</span>
+            </div>
+          )}
+
+          {status === "ready" && resumeDocument && (
+            <ResumeDocument
+              document={resumeDocument}
+              onContactRequest={handleContactRequest}
+            />
+          )}
+
+          {/* If the export can't be fetched, fall back to Google's own viewer. Contact details are
+              visible in that case, so it stays a last resort rather than the default path. */}
+          {status === "error" && (
+            <iframe
+              src={`https://docs.google.com/document/d/${props.documentId}/preview`}
+              className='w-full h-full border-0'
+              title='Resume Preview'
+              allow='fullscreen'
+              style={{
+                WebkitOverflowScrolling: "touch",
+                touchAction: "manipulation",
+                transform: "translateZ(0)",
+                minHeight: "100%",
+                WebkitTransform: "translate3d(0,0,0)",
+                backfaceVisibility: "hidden",
+                perspective: "1000px",
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

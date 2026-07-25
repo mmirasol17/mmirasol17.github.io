@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark base so sections never fade in over a white page background.
+   color-scheme keeps native form controls / scrollbars dark too. */
+html,
+body {
+  background-color: #111827; /* gray-900 */
+  color-scheme: dark;
+}
+
 /* Custom utility classes */
 @layer utilities {
   .text-shadow {
@@ -10,6 +18,31 @@
 
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
+  }
+
+  /* Fade the top & bottom edges of a vertically scrollable area so clipped
+     content reads as "there's more" instead of a hard cut.
+     The fade sizes default to 0 and are set by `useOverflowFade` only on an
+     edge that actually has more content past it — otherwise a short,
+     non-scrolling menu would have its first and last items faded for no
+     reason. */
+  .scroll-fade-y {
+    --fade-top: 0px;
+    --fade-bottom: 0px;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 var(--fade-top),
+      #000 calc(100% - var(--fade-bottom)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 var(--fade-top),
+      #000 calc(100% - var(--fade-bottom)),
+      transparent 100%
+    );
   }
 }
 

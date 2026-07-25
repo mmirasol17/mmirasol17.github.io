@@ -40,6 +40,7 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
           { technology: "react", level: "Expert", projects: projects.filter((p) => p.technologies.includes("react")) },
           { technology: "typescript", level: "Expert", projects: projects.filter((p) => p.technologies.includes("typescript")) },
           { technology: "tailwind", level: "Expert", projects: projects.filter((p) => p.technologies.includes("tailwind")) },
+          { technology: "vite", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("vite")) },
           { technology: "html", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("html")) },
           { technology: "css", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("css")) },
           // { technology: "javascript", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("javascript")) },
@@ -53,6 +54,8 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
         technologies: [
           { technology: "cs", level: "Expert", projects: projects.filter((p) => p.technologies.includes("cs")) },
           { technology: "dotnet", level: "Expert", projects: projects.filter((p) => p.technologies.includes("dotnet")) },
+          { technology: "nodejs", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("nodejs")) },
+          { technology: "express", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("express")) },
           { technology: "go", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("go")) },
           { technology: "python", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("python")) },
           { technology: "php", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("php")) },
@@ -66,6 +69,8 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
         color: "from-orange-500 to-red-500",
         technologies: [
           { technology: "postgresql", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("postgresql")) },
+          { technology: "prisma", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("prisma")) },
+          { technology: "supabase", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("supabase")) },
           { technology: "mysql", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("mysql")) },
           { technology: "firebase", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("firebase")) },
         ],
@@ -77,6 +82,10 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
         color: "from-yellow-500 to-orange-500",
         technologies: [
           { technology: "aws", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("aws")) },
+          { technology: "gcp", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("gcp")) },
+          { technology: "digitalocean", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("digitalocean")) },
+          { technology: "docker", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("docker")) },
+          { technology: "githubactions", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("githubactions")) },
           { technology: "terraform", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("terraform")) },
           { technology: "git", level: "Expert", projects: projects.filter((p) => p.technologies.includes("git")) },
           { technology: "bash", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("bash")) },
@@ -100,6 +109,8 @@ export function useTechnologies(props: TechnologiesProps = { iconSize: "lg" }) {
         icon: <Smartphone className={iconClassName} />,
         color: "from-purple-500 to-pink-500",
         technologies: [
+          { technology: "expo", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("expo")) },
+          { technology: "swift", level: "Intermediate", projects: projects.filter((p) => p.technologies.includes("swift")) },
           { technology: "kotlin", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("kotlin")) },
           { technology: "java", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("java")) },
           { technology: "androidstudio", level: "Advanced", projects: projects.filter((p) => p.technologies.includes("androidstudio")) },

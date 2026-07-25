@@ -8,8 +8,8 @@ export function AboutHeader() {
           <strong className='text-blue-400'>Magna Cum Laude</strong> from Cal State San Marcos with a B.S. in Software Engineering.
         </p>
         <p className='text-lg md:text-xl font-light leading-relaxed'>
-          I specialize in full-stack development, machine learning optimization, and cloud infrastructure, with expertise in React.js, ASP.NET, Python, AWS, and modern DevOps
-          practices.
+          I specialize in full-stack development, machine learning optimization, and cloud infrastructure, with expertise in React.js, TypeScript, ASP.NET, Node.js, Python, AWS, and
+          modern DevOps practices.
         </p>
       </div>
     </div>

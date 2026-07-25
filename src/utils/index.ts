@@ -5,8 +5,14 @@ export function handleScrollToElementById(id: string) {
   if (element) {
     const navbar = document.querySelector(".navbar");
     const offset = navbar ? navbar.clientHeight : 64;
+    // Must not use offsetTop: it is measured from the nearest offsetParent,
+    // which any transformed ancestor becomes. Nested targets (the project
+    // cards) would then report a position relative to their section and
+    // scroll to the wrong place. A viewport rect plus the current scroll is
+    // always document-relative.
+    const top = element.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({
-      top: element.offsetTop - offset,
+      top: Math.max(top, 0),
       behavior: "smooth",
     });
   }
@@ -44,7 +50,10 @@ export function getProjectStatus(project: IProject): string {
 
 // Helper function to get project type
 export function getProjectType(project: IProject): string {
-  if (project.technologies.includes("react") || project.technologies.includes("javascript") || project.technologies.includes("html")) {
+  // Ships web *and* native from one codebase — checked first, since these also match the web rule below.
+  if (project.technologies.includes("expo")) {
+    return "Cross-Platform App";
+  } else if (project.technologies.includes("react") || project.technologies.includes("javascript") || project.technologies.includes("html")) {
     return "Web Application";
   } else if (project.technologies.includes("kotlin") || (project.technologies.includes("java") && project.technologies.includes("androidstudio"))) {
     return "Mobile App";

@@ -1,6 +1,8 @@
 import { forwardRef, useEffect, ReactNode, useState, useCallback, useMemo } from "react";
 import { X } from "lucide-react";
 import { cn } from "../../utils/cn";
+import { useMountTransition } from "../../hooks/useMountTransition";
+import { useOverflowFade } from "../../hooks/useOverflowFade";
 
 interface MenuProps {
   isOpen: boolean;
@@ -42,6 +44,26 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
 ) {
   const isMobile = useMemo(() => window.innerWidth < 640, []);
 
+  // Stay mounted long enough for the closing animation to play.
+  const isMounted = useMountTransition(isOpen, 280);
+
+  const setDropdownFadeRef = useOverflowFade<HTMLDivElement>();
+  const setModalFadeRef = useOverflowFade<HTMLDivElement>();
+
+  // The dropdown is both the scroll container and the element the parent needs
+  // a ref to (for click-outside), so both refs have to land on the same node.
+  const setDropdownRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      setDropdownFadeRef(node);
+      if (typeof ref === "function") {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+    },
+    [ref, setDropdownFadeRef]
+  );
+
   // Prevent body scroll when modal is open on mobile
   useEffect(() => {
     if (isMobile && isOpen) {
@@ -73,14 +95,14 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isMounted) return null;
 
   return (
     <>
       {/* Desktop: Dropdown */}
       <div className='hidden sm:block'>
         <div
-          ref={ref}
+          ref={setDropdownRef}
           className={cn(
             "absolute top-full",
             alignment === "left" && "left-0",
@@ -89,7 +111,8 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
             dropdownWidth,
             "bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50",
             dropdownMaxHeight,
-            "overflow-y-auto dropdown-scrollbar",
+            "overflow-y-auto dropdown-scrollbar scroll-fade-y",
+            isOpen ? "animate-dropdown-in menu-items-in" : "animate-dropdown-out",
             dropdownClassName
           )}
         >
@@ -104,12 +127,16 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
           onClick={handleBackdropClick}
         >
           {/* Backdrop */}
-          <div className={cn("absolute inset-0 bg-black/50", backdropClassName)} />
+          <div className={cn("absolute inset-0 bg-black/50", isOpen ? "animate-backdrop-in" : "animate-backdrop-out", backdropClassName)} />
 
           {/* Modal Content */}
           <div
             ref={ref}
-            className={cn("relative w-full bg-gray-800 rounded-t-2xl shadow-xl border-t border-gray-700 max-h-[90svh] flex flex-col", modalClassName)}
+            className={cn(
+              "relative w-full bg-gray-800 rounded-t-2xl shadow-xl border-t border-gray-700 max-h-[90svh] flex flex-col",
+              isOpen ? "animate-sheet-up" : "animate-sheet-down",
+              modalClassName
+            )}
           >
             {/* Header - only show if title provided or done button enabled */}
             {(title || showDoneButton) && (
@@ -126,7 +153,12 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(function Menu(
             )}
 
             {/* Content - This is where the scroll happens */}
-            <div className='flex-1 overflow-y-auto'>{children}</div>
+            <div
+              ref={setModalFadeRef}
+              className='flex-1 overflow-y-auto scroll-fade-y'
+            >
+              {children}
+            </div>
 
             {/* Done Button - only show if enabled and no title (to avoid duplicate) */}
             {showDoneButton && !title && (

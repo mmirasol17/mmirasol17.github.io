@@ -1,25 +1,348 @@
 /* animations.css */
 @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .fade-in {
+  0% {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
   }
-
-  .fade-in.animate-fadeIn {
+  100% {
     opacity: 1;
   }
-  
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.animate-fadeIn {
+  opacity: 1;
+}
+
+/* Softer rise for staggered typography (headings, hero lines). */
+@keyframes riseInText {
+  0% {
+    opacity: 0;
+    transform: translateY(0.9rem);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Reveal-on-scroll base state: hidden + shifted down. Add `.is-visible`
+   (toggled by the intersection observer) to play the rise. */
+.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* After the reveal finishes, stop being a containing block: a lingering
+   transform/will-change would make this the offsetParent of every element
+   inside and would trap `position: fixed` descendants within the section. */
+.reveal.is-settled {
+  transform: none;
+  will-change: auto;
+  transition: none;
+}
+
+/* Staggered text entrance — apply to a wrapper and give each child a
+   custom --i (index) to cascade the reveal. */
+.stagger-text > * {
+  opacity: 0;
+  animation: riseInText 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 120ms);
+}
+
+/* Animated gradient sweep for emphasized typography. */
+@keyframes textShimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #60a5fa 0%, #93c5fd 25%, #ffffff 50%, #93c5fd 75%, #60a5fa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: textShimmer 6s linear infinite;
+}
+
+/* Smooth expand/collapse using a 0fr -> 1fr grid row. The inner child
+   must be `overflow: hidden` (`.collapsible-inner`). */
+.collapsible-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+
+.collapsible-content.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.collapsible-content > .collapsible-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ---- Menu / overlay enter + exit animations ---- */
+
+@keyframes dropdownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropdownOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.5rem) scale(0.97);
+  }
+}
+
+.animate-dropdown-in {
+  animation: dropdownIn 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: top;
+}
+
+.animate-dropdown-out {
+  animation: dropdownOut 0.16s ease-in forwards;
+  transform-origin: top;
+}
+
+@keyframes sheetUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheetDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.animate-sheet-up {
+  animation: sheetUp 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-sheet-down {
+  animation: sheetDown 0.26s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+@keyframes drawerIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawerOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-drawer-in {
+  animation: drawerIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-drawer-out {
+  animation: drawerOut 0.26s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+/* Cascade the menu's own rows in just behind the panel itself, so a dropdown
+   reads as "unfolding" rather than appearing all at once. */
+@keyframes menuItemIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.375rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-items-in > * {
+  animation: menuItemIn 0.26s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.menu-items-in > *:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.menu-items-in > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.menu-items-in > *:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.menu-items-in > *:nth-child(4) {
+  animation-delay: 0.16s;
+}
+.menu-items-in > *:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.menu-items-in > *:nth-child(6) {
+  animation-delay: 0.24s;
+}
+.menu-items-in > *:nth-child(7) {
+  animation-delay: 0.28s;
+}
+.menu-items-in > *:nth-child(n + 8) {
+  animation-delay: 0.32s;
+}
+
+.animate-backdrop-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-backdrop-out {
+  animation: fadeOut 0.24s ease-in forwards;
+}
+
+/* Hover preview of a project's live site. */
+@keyframes previewIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-preview-in {
+  animation: previewIn 0.18s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Optional: Remove hover scaling animation on mobile devices */
 @media (hover: none) {
   :hover {
     transform: none !important;
+  }
+}
+
+/* Reduced motion: drop the *distracting* motion (large translates, scale,
+   blur, infinite loops) but KEEP opacity cross-fades, which are the
+   recommended substitute. Everything still animates — just gently — so the
+   UI never loses its feedback. */
+@media (prefers-reduced-motion: reduce) {
+  /* Scroll reveal: fade only, no rise. */
+  .reveal {
+    transform: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .reveal.is-visible {
+    transform: none;
+  }
+
+  /* Typography: keep the stagger cadence, drop the rise + blur. */
+  .stagger-text > * {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+  }
+
+  /* No endless gradient loop; fall back to a solid accent. */
+  .text-shimmer {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: #60a5fa;
+  }
+
+  /* Overlays: swap the transform-based keyframes for plain fades.
+     The nav drawer is deliberately excluded — its slide is a short,
+     directional move tied to the user's own tap, and the direction is what
+     communicates "this panel came from / went back to the edge". It keeps
+     sliding, just faster. */
+  .animate-sheet-up,
+  .animate-preview-in {
+    animation-name: fadeIn;
+    transform: none;
+  }
+
+  .animate-sheet-down {
+    animation-name: fadeOut;
+    transform: none;
+  }
+
+  /* Dropdown keeps its small directional move (same rationale as the
+     drawer), just quicker; its rows fade without shifting. */
+  .animate-dropdown-in {
+    animation-duration: 0.16s;
+  }
+
+  .animate-dropdown-out {
+    animation-duration: 0.14s;
+  }
+
+  .menu-items-in > * {
+    animation-name: fadeIn;
+    animation-duration: 0.2s;
+  }
+
+  .animate-drawer-in {
+    animation-duration: 0.22s;
+  }
+
+  .animate-drawer-out {
+    animation-duration: 0.2s;
+  }
+
+  /* Accordion keeps its (small) size transition — it's the core affordance. */
+  .collapsible-content {
+    transition: grid-template-rows 0.2s ease, opacity 0.2s ease;
   }
 }

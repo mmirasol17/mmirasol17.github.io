@@ -10,7 +10,7 @@ export function AboutResume() {
     <div className='text-center'>
       <h3 className='text-3xl font-bold mb-4 text-blue-400'>Resume</h3>
       <p className='text-lg font-light text-white mb-6 max-w-2xl mx-auto'>
-        Want to learn more about my professional experience, education, and technical achievements? Download my resume or view it online.
+        Want to learn more about my professional experience, education, and technical achievements? Take a look at my resume below.
       </p>
 
       <AboutResumeButtons documentId={documentId} />

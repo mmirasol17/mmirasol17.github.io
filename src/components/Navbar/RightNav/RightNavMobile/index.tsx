@@ -4,6 +4,8 @@ import { getProjectType, handleScrollToElementById } from "../../../../utils";
 import { useTechnologies } from "../../../../hooks/useTechnologies";
 import { useProjects } from "../../../../hooks/useProjects";
 import { cn } from "../../../../utils/cn";
+import { useMountTransition } from "../../../../hooks/useMountTransition";
+import { useOverflowFade } from "../../../../hooks/useOverflowFade";
 import { PROJECT_TYPE_ICONS } from "../../../Sections/Section4/ProjectFilter/ProjectFiltersMenu/ProjectTypeIcons";
 
 const SECTIONS = ["about", "technologies", "projects", "contact"];
@@ -24,6 +26,10 @@ export function RightNavMobile() {
   const [activeSubSection, setActiveSubSection] = useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  // Keep the drawer mounted while it animates closed.
+  const isMenuMounted = useMountTransition(isMenuOpen, 260);
+  const setMenuFadeRef = useOverflowFade<HTMLDivElement>();
 
   const githubBuildNumber = useMemo(() => {
     return import.meta.env.VITE_GITHUB_BUILD_NUMBER;
@@ -161,18 +167,18 @@ export function RightNavMobile() {
       </button>
 
       {/* Backdrop */}
-      {isMenuOpen && (
+      {isMenuMounted && (
         <>
           <div
-            className='fixed inset-0 bg-black/50 z-40 transition-opacity duration-300'
+            className={cn("fixed inset-0 bg-black/50 z-40", isMenuOpen ? "animate-backdrop-in" : "animate-backdrop-out")}
             onClick={handleBackdropClick}
           />
           {/* Side Menu */}
           <div
             ref={sideMenuRef}
             className={cn(
-              "fixed top-0 right-0 h-full w-72 bg-gray-800 shadow-xl z-50 transform transition-transform duration-300 ease-in-out rounded-tl-2xl rounded-bl-2xl border-l border-gray-700",
-              isMenuOpen ? "translate-x-0" : "translate-x-full"
+              "fixed top-0 right-0 h-full w-72 bg-gray-800 shadow-xl z-50 rounded-tl-2xl rounded-bl-2xl border-l border-gray-700",
+              isMenuOpen ? "animate-drawer-in" : "animate-drawer-out"
             )}
           >
             {/* Header */}
@@ -192,7 +198,8 @@ export function RightNavMobile() {
 
             {/* Menu Content */}
             <div
-              className='flex-1 overflow-y-auto'
+              ref={setMenuFadeRef}
+              className='flex-1 overflow-y-auto scroll-fade-y'
               style={{ maxHeight: "calc(100% - 70px)" }}
             >
               <div className='space-y-1 p-2'>
@@ -220,37 +227,41 @@ export function RightNavMobile() {
                     </button>
 
                     {/* Subsections */}
-                    {hasSubSections(section) && expandedSection === section && (
-                      <div className='mt-1 space-y-1 pl-4'>
-                        {section === "technologies" &&
-                          technologyCategories.map((category) => (
-                            <button
-                              key={category.category}
-                              onClick={() => handleSubSectionClick(category.category)}
-                              className={cn(
-                                "flex items-center gap-3 w-full px-3 py-2 text-sm text-left rounded-md hover:bg-white/10 transition-colors",
-                                activeSubSection === category.category && activeSection === "technologies" ? "text-blue-400" : "text-gray-300"
-                              )}
-                            >
-                              <span className='text-lg'>{category.icon}</span>
-                              <span>{category.title}</span>
-                            </button>
-                          ))}
+                    {hasSubSections(section) && (
+                      <div className={cn("collapsible-content", expandedSection === section && "is-open")}>
+                        <div className='collapsible-inner'>
+                          <div className='mt-1 space-y-1 pl-4'>
+                            {section === "technologies" &&
+                              technologyCategories.map((category) => (
+                                <button
+                                  key={category.category}
+                                  onClick={() => handleSubSectionClick(category.category)}
+                                  className={cn(
+                                    "flex items-center gap-3 w-full px-3 py-2 text-sm text-left rounded-md hover:bg-white/10 transition-colors",
+                                    activeSubSection === category.category && activeSection === "technologies" ? "text-blue-400" : "text-gray-300"
+                                  )}
+                                >
+                                  <span className='text-lg'>{category.icon}</span>
+                                  <span>{category.title}</span>
+                                </button>
+                              ))}
 
-                        {section === "projects" &&
-                          projects.map((project) => (
-                            <button
-                              key={project.id}
-                              onClick={() => handleSubSectionClick(project.id)}
-                              className={cn(
-                                "flex items-center gap-3 w-full px-3 py-2 text-sm text-left rounded-md hover:bg-white/10 transition-colors",
-                                activeSubSection === project.id && activeSection === "projects" ? "text-blue-400" : "text-gray-300"
-                              )}
-                            >
-                              <span className='text-lg'>{PROJECT_TYPE_ICONS[getProjectType(project)] || <span className='text-gray-400'>?</span>}</span>
-                              <span>{project.title}</span>
-                            </button>
-                          ))}
+                            {section === "projects" &&
+                              projects.map((project) => (
+                                <button
+                                  key={project.id}
+                                  onClick={() => handleSubSectionClick(project.id)}
+                                  className={cn(
+                                    "flex items-center gap-3 w-full px-3 py-2 text-sm text-left rounded-md hover:bg-white/10 transition-colors",
+                                    activeSubSection === project.id && activeSection === "projects" ? "text-blue-400" : "text-gray-300"
+                                  )}
+                                >
+                                  <span className='text-lg'>{PROJECT_TYPE_ICONS[getProjectType(project)] || <span className='text-gray-400'>?</span>}</span>
+                                  <span>{project.title}</span>
+                                </button>
+                              ))}
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>

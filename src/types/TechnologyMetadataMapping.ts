@@ -35,9 +35,25 @@ export const TechnologyMetadataMapping: Record<TechnologyType, TechnologyMetadat
     name: "CSS",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
+  digitalocean: {
+    name: "DigitalOcean",
+    url: "https://www.digitalocean.com/",
+  },
+  docker: {
+    name: "Docker",
+    url: "https://www.docker.com/",
+  },
   dotnet: {
     name: "ASP.NET",
     url: "https://dotnet.microsoft.com/en-us/apps/aspnet",
+  },
+  expo: {
+    name: "Expo",
+    url: "https://expo.dev/",
+  },
+  express: {
+    name: "Express",
+    url: "https://expressjs.com/",
   },
   firebase: {
     name: "Firebase",
@@ -99,6 +115,10 @@ export const TechnologyMetadataMapping: Record<TechnologyType, TechnologyMetadat
     name: "MySQL",
     url: "https://www.mysql.com/",
   },
+  nodejs: {
+    name: "Node.js",
+    url: "https://nodejs.org/",
+  },
   php: {
     name: "PHP",
     url: "https://www.php.net/",
@@ -106,6 +126,10 @@ export const TechnologyMetadataMapping: Record<TechnologyType, TechnologyMetadat
   postgresql: {
     name: "PostgreSQL",
     url: "https://www.postgresql.org/",
+  },
+  prisma: {
+    name: "Prisma",
+    url: "https://www.prisma.io/",
   },
   pyqt: {
     name: "PyQt",
@@ -126,6 +150,10 @@ export const TechnologyMetadataMapping: Record<TechnologyType, TechnologyMetadat
   sql: {
     name: "SQL",
     url: "https://www.w3schools.com/sql/",
+  },
+  supabase: {
+    name: "Supabase",
+    url: "https://supabase.com/",
   },
   swift: {
     name: "Swift",

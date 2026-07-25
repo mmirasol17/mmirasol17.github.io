@@ -7,19 +7,44 @@ interface AnimatedSectionProps {
 }
 
 /**
- * AnimatedSection component that fades in from black when it comes into view.
- * Only animates once, then stays visible.
+ * AnimatedSection reveals its content with a gentle fade + rise as it
+ * scrolls into view. Crucially, the <section> background is painted at
+ * all times — only the inner content animates — so the reveal never
+ * flashes the (previously white) page background. Animates once.
  * @param {AnimatedSectionProps} props - The properties for the AnimatedSection component.
  * @return {JSX.Element} The rendered AnimatedSection component.
  */
 export function AnimatedSection(props: AnimatedSectionProps) {
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [hasSettled, setHasSettled] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  // Once the reveal is done, drop the transform/will-change. While either is
+  // present the wrapper is a containing block, which makes it the
+  // offsetParent of everything inside and traps `position: fixed`
+  // descendants (e.g. the filters modal) inside the section.
+  useEffect(() => {
+    if (!hasAnimated) return;
+
+    const timeout = window.setTimeout(() => setHasSettled(true), 1000);
+    return () => window.clearTimeout(timeout);
+  }, [hasAnimated]);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
     if (!currentRef || hasAnimated) return;
 
+    // Fall back to visible content if the API is unavailable, so a section can
+    // never get stuck at opacity 0.
+    if (typeof IntersectionObserver === "undefined") {
+      setHasAnimated(true);
+      return;
+    }
+
+    // threshold must stay 0: a percentage threshold can never be met by a
+    // section taller than the viewport (e.g. the projects list on mobile),
+    // which would leave it permanently hidden. rootMargin gives the small
+    // "scrolled into view" delay instead.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -29,7 +54,7 @@ export function AnimatedSection(props: AnimatedSectionProps) {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     );
 
     observer.observe(currentRef);
@@ -45,9 +70,9 @@ export function AnimatedSection(props: AnimatedSectionProps) {
     <section
       ref={sectionRef}
       id={props.id}
-      className={`transition-opacity duration-1000 ${hasAnimated ? "opacity-100" : "opacity-0 bg-black"} ${props.className}`}
+      className={props.className}
     >
-      {props.children}
+      <div className={`reveal ${hasAnimated ? "is-visible" : ""} ${hasSettled ? "is-settled" : ""}`}>{props.children}</div>
     </section>
   );
 }

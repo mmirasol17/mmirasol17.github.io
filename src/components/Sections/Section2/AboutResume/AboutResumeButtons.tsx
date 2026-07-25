@@ -1,54 +1,62 @@
-import { Download, Eye, FileText } from "lucide-react";
+import { Eye } from "lucide-react";
 import { useCallback, useState } from "react";
 import { AboutResumeViewerModal } from "./AboutResumeViewerModal";
+
+// Direct PDF/DOCX downloads are disabled. They export the original Google Doc, which still carries
+// the real phone number and email — unlike the viewer, which redacts them on the way in. Removing
+// the buttons only takes away the convenient path (the export URL is still reachable by anyone who
+// reads the document ID out of the bundle), so this is a visibility measure, not a protective one.
+// Restore this import alongside the commented-out buttons below.
+// import { Download, Eye, FileText } from "lucide-react";
 
 interface AboutResumeDownloaderProps {
   documentId: string;
 }
 
-interface INotification {
-  message: string;
-  type: "success" | "error";
-}
+// interface INotification {
+//   message: string;
+//   type: "success" | "error";
+// }
 
 export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [notification, setNotification] = useState<INotification | null>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  const showNotification = useCallback((message: string, type: "success" | "error") => {
-    setNotification({ message, type });
-    setTimeout(() => setNotification(null), 3000);
-  }, []);
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [notification, setNotification] = useState<INotification | null>(null);
 
-  const handleDownload = useCallback(
-    async (format: "pdf" | "docx") => {
-      setIsLoading(true);
+  // const showNotification = useCallback((message: string, type: "success" | "error") => {
+  //   setNotification({ message, type });
+  //   setTimeout(() => setNotification(null), 3000);
+  // }, []);
 
-      try {
-        const exportUrl = `https://docs.google.com/document/d/${props.documentId}/export?format=${format}`;
-        const filename = `Marin_Mirasol_Resume.${format}`;
-
-        const link = document.createElement("a");
-        link.href = exportUrl;
-        link.download = filename;
-        link.target = "_blank";
-
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        showNotification("Resume downloaded successfully!", "success");
-        await new Promise((resolve) => setTimeout(resolve, 800));
-      } catch (error) {
-        console.error("Download failed:", error);
-        showNotification("Download failed. Please try again.", "error");
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    [props.documentId, showNotification]
-  );
+  // const handleDownload = useCallback(
+  //   async (format: "pdf" | "docx") => {
+  //     setIsLoading(true);
+  //
+  //     try {
+  //       const exportUrl = `https://docs.google.com/document/d/${props.documentId}/export?format=${format}`;
+  //       const filename = `Marin_Mirasol_Resume.${format}`;
+  //
+  //       const link = document.createElement("a");
+  //       link.href = exportUrl;
+  //       link.download = filename;
+  //       link.target = "_blank";
+  //
+  //       document.body.appendChild(link);
+  //       link.click();
+  //       document.body.removeChild(link);
+  //
+  //       showNotification("Resume downloaded successfully!", "success");
+  //       await new Promise((resolve) => setTimeout(resolve, 800));
+  //     } catch (error) {
+  //       console.error("Download failed:", error);
+  //       showNotification("Download failed. Please try again.", "error");
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   },
+  //   [props.documentId, showNotification]
+  // );
 
   const handleViewResume = useCallback(() => {
     setIsViewerOpen(true);
@@ -69,7 +77,7 @@ export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) 
           </button>
 
           {/* Download PDF Button */}
-          <button
+          {/* <button
             onClick={() => handleDownload("pdf")}
             disabled={isLoading}
             className='group inline-flex items-center justify-center gap-2 bg-green-500 text-white font-bold rounded-2xl py-3 px-6 transition-all duration-200 hover:scale-105 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg hover:shadow-xl w-full md:w-auto'
@@ -85,17 +93,17 @@ export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) 
                 <span>Download PDF</span>
               </>
             )}
-          </button>
+          </button> */}
 
           {/* Download DOCX Button */}
-          <button
+          {/* <button
             onClick={() => handleDownload("docx")}
             disabled={isLoading}
             className='group inline-flex items-center justify-center gap-2 bg-gray-600 text-white font-bold rounded-2xl py-3 px-6 transition-all duration-200 hover:scale-105 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg hover:shadow-xl w-full md:w-auto'
           >
             <FileText className='w-5 h-5 group-hover:animate-pulse' />
             <span>Download DOCX</span>
-          </button>
+          </button> */}
         </div>
 
         {/* Inline Preview Option */}
@@ -104,7 +112,7 @@ export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) 
         </div>
 
         {/* Success/Error Notifications */}
-        {notification && (
+        {/* {notification && (
           <div
             className={`fixed top-4 right-4 z-40 p-4 rounded-lg text-white shadow-lg transition-all duration-300 ${
               notification.type === "success" ? "bg-green-500" : "bg-red-500"
@@ -119,7 +127,7 @@ export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) 
               <span>{notification.message}</span>
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Resume Viewer Modal */}

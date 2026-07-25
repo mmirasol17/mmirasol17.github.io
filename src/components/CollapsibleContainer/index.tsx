@@ -40,30 +40,24 @@ export function CollapsibleContainer(props: Readonly<CollapsibleContainerProps>)
       <div className='flex items-center gap-3'>
         {props.header ?? null}
         <div className='bg-white/20 hover:bg-white/30 rounded-full p-1 transition-colors'>
-          {isCollapsed ? (
-            <Plus
-              className='w-4 h-4 text-white'
-              onClick={(e) => {
-                if (props.collapseAction === "header-click") {
-                  onToggleCollapse();
-                }
-                e.stopPropagation();
-              }}
-            />
-          ) : (
-            <Minus
-              className='w-4 h-4 text-white'
-              onClick={(e) => {
-                if (props.collapseAction === "header-click") {
-                  onToggleCollapse();
-                }
-                e.stopPropagation();
-              }}
-            />
-          )}
+          <div
+            className='transition-transform duration-300'
+            onClick={(e) => {
+              if (props.collapseAction === "header-click") {
+                onToggleCollapse();
+              }
+              e.stopPropagation();
+            }}
+          >
+            {isCollapsed ? <Plus className='w-4 h-4 text-white' /> : <Minus className='w-4 h-4 text-white' />}
+          </div>
         </div>
       </div>
-      {!isCollapsed && <div className='mt-6 space-y-3 animate-in slide-in-from-top duration-300'>{props.children}</div>}
+      <div className={cn("collapsible-content", !isCollapsed && "is-open")}>
+        <div className='collapsible-inner'>
+          <div className='mt-6 space-y-3'>{props.children}</div>
+        </div>
+      </div>
     </div>
   );
 }
