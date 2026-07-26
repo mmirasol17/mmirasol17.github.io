@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { X, Maximize2, Minimize2 } from "lucide-react";
+import { X, Maximize2, Minimize2, ZoomIn, ZoomOut } from "lucide-react";
 import { useResumeDocument } from "../../../../hooks/useResumeDocument";
 import { handleScrollToElementById } from "../../../../utils";
 import { ResumeDocument } from "./ResumeDocument";
@@ -10,9 +10,27 @@ interface AboutResumeViewerModalProps {
   documentId: string;
 }
 
+// Same rungs Google Docs offers, minus the ones that make 9pt type unreadable either way.
+const ZOOM_STEPS = [0.5, 0.75, 1, 1.25, 1.5, 2];
+
 export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalProps>) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const { status, document: resumeDocument } = useResumeDocument(props.documentId);
+
+  // null = follow the viewer (fit on phones, 100% once the page fits). Any number pins the zoom.
+  const [zoom, setZoom] = useState<number | null>(null);
+  const [scale, setScale] = useState(1);
+
+  const handleZoom = useCallback((direction: 1 | -1) => {
+    setZoom((current) => {
+      const base = current ?? scale;
+      const next =
+        direction === 1
+          ? ZOOM_STEPS.find((step) => step > base + 0.001)
+          : [...ZOOM_STEPS].reverse().find((step) => step < base - 0.001);
+      return next ?? base;
+    });
+  }, [scale]);
 
   // Set when a redaction chip is clicked. The scroll-lock cleanup below is the only point where the
   // page is scrollable again *and* the restore has already happened, so the jump is handed to it
@@ -45,6 +63,9 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
 
         // Restore scroll position
         window.scrollTo(0, scrollY);
+
+        // The component stays mounted between openings, so a pinned zoom would otherwise persist.
+        setZoom(null);
 
         if (isContactRequestedRef.current) {
           isContactRequestedRef.current = false;
@@ -98,6 +119,36 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
         <div className='flex items-center justify-between p-4 border-b bg-gray-50 rounded-t-none md:rounded-t-lg flex-shrink-0'>
           <h3 className='text-sm md:text-lg font-semibold text-gray-900'>Marin Mirasol - Resume</h3>
           <div className='flex items-center gap-2'>
+            {/* The page is rendered at its true 8.5in width so the line breaks match the document,
+                which leaves 9pt type small on a phone — hence a real zoom control rather than reflow. */}
+            {status === "ready" && (
+              <div className='flex items-center rounded-lg border border-gray-200 bg-white'>
+                <button
+                  onClick={() => handleZoom(-1)}
+                  disabled={scale <= ZOOM_STEPS[0] + 0.001}
+                  className='p-2 rounded-l-lg hover:bg-gray-100 transition-colors disabled:opacity-40 disabled:hover:bg-transparent'
+                  title='Zoom out'
+                >
+                  <ZoomOut className='w-4 h-4 text-gray-600' />
+                </button>
+                <button
+                  onClick={() => setZoom(null)}
+                  className='w-14 py-1 text-xs tabular-nums text-gray-600 hover:bg-gray-100 transition-colors'
+                  title='Fit to width'
+                >
+                  {Math.round(scale * 100)}%
+                </button>
+                <button
+                  onClick={() => handleZoom(1)}
+                  disabled={scale >= ZOOM_STEPS[ZOOM_STEPS.length - 1] - 0.001}
+                  className='p-2 rounded-r-lg hover:bg-gray-100 transition-colors disabled:opacity-40 disabled:hover:bg-transparent'
+                  title='Zoom in'
+                >
+                  <ZoomIn className='w-4 h-4 text-gray-600' />
+                </button>
+              </div>
+            )}
+
             {/* Hidden on phones, where the modal already fills the screen and this would do nothing. */}
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
@@ -117,7 +168,9 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
         </div>
 
         {/* Resume Body */}
-        <div className='flex-1 w-full overflow-y-auto overflow-x-hidden rounded-b-none md:rounded-b-lg'>
+        {/* Grey canvas behind the page, the way Docs frames a document. overflow-x has to stay
+            reachable — zooming past the fit scale makes the page wider than the modal. */}
+        <div className='flex-1 w-full overflow-auto bg-[#f1f3f4] rounded-b-none md:rounded-b-lg'>
           {status === "loading" && (
             <div className='flex h-full w-full items-center justify-center gap-3 text-gray-500'>
               <div className='w-6 h-6 animate-spin rounded-full border-2 border-gray-300 border-t-blue-400' />
@@ -129,6 +182,8 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
             <ResumeDocument
               document={resumeDocument}
               onContactRequest={handleContactRequest}
+              zoom={zoom}
+              onScaleChange={setScale}
             />
           )}
 

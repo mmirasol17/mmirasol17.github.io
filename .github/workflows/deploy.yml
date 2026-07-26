@@ -41,6 +41,7 @@ jobs:
           VITE_GITHUB_BUILD_ID: ${{ github.run_id }}
           VITE_GITHUB_COMMIT_SHA: ${{ github.sha }}
           VITE_GITHUB_REPO_URL: https://github.com/mmirasol17/mmirasol17.github.io
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.VITE_WEB3FORMS_ACCESS_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
