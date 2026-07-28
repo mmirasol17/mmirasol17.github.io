@@ -200,6 +200,62 @@ function collapseDuplicateRules(root: HTMLElement, ruleClasses: Set<string>) {
   }
 }
 
+// Dates sit at the right margin in the Doc because a right tab stop pushes them there. The HTML
+// export has no concept of a tab stop, so it emits the tab as a lone span of non-breaking spaces -
+// the date lands a few characters after the title instead of at the margin, and the gap changes
+// width with the title. Rebuild the row as a flex line: everything before the run stays left,
+// everything after it is pushed right. Matching on the run (rather than Google's class names) keeps
+// this working through edits, since Google renumbers those on every save.
+const MINIMUM_TAB_SPACES = 3;
+
+function isTabRemnant(node: Node): boolean {
+  const text = node.textContent ?? "";
+  if (!/^[\s ]*$/.test(text)) return false;
+  return (text.match(/ /g)?.length ?? 0) >= MINIMUM_TAB_SPACES;
+}
+
+function edgeTextNode(root: Node, edge: "first" | "last"): Text | null {
+  if (root.nodeType === Node.TEXT_NODE) return root as Text;
+  const children = Array.from(root.childNodes);
+  if (edge === "last") children.reverse();
+  for (const child of children) {
+    const found = edgeTextNode(child, edge);
+    if (found) return found;
+  }
+  return null;
+}
+
+function restoreTabStops(root: HTMLElement, ownerDocument: Document) {
+  for (const paragraph of Array.from(root.querySelectorAll("p"))) {
+    const children = Array.from(paragraph.childNodes);
+    const separator = children.findIndex(isTabRemnant);
+    if (separator === -1) continue;
+
+    const leftNodes = children.slice(0, separator);
+    const rightNodes = children.slice(separator + 1);
+    const hasText = (nodes: Node[]) => nodes.some((node) => (node.textContent ?? "").trim() !== "");
+
+    paragraph.removeChild(children[separator]);
+    // A tab with nothing after it is stray spacing, not a two-column row - dropping it is the fix.
+    if (!hasText(leftNodes) || !hasText(rightNodes)) continue;
+
+    const left = ownerDocument.createElement("span");
+    left.className = "resume-row__left";
+    left.append(...leftNodes);
+
+    const right = ownerDocument.createElement("span");
+    right.className = "resume-row__right";
+    right.append(...rightNodes);
+
+    // Some rows pad the title with their own trailing spaces before the tab; the flex gap replaces them.
+    const leftEdge = edgeTextNode(left, "last");
+    if (leftEdge) leftEdge.textContent = (leftEdge.textContent ?? "").replace(/[\s ]+$/, "");
+
+    paragraph.append(left, right);
+    paragraph.classList.add("resume-row");
+  }
+}
+
 function parseResumeDocument(html: string): IResumeDocument {
   // DOMParser output is inert: nothing loads or runs while we clean it up.
   const parsed = new DOMParser().parseFromString(html, "text/html");
@@ -212,6 +268,7 @@ function parseResumeDocument(html: string): IResumeDocument {
   sanitize(body);
   unwrapRedirects(body);
   collapseDuplicateRules(body, collectBottomRuleClasses(styleText));
+  restoreTabStops(body, parsed);
   redactContactDetails(body, parsed);
 
   return {

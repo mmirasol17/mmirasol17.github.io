@@ -59,6 +59,21 @@ const RESUME_DOCUMENT_STYLES = `
 
   .resume-document a { color: #2563eb; }
 
+  /* Title-and-date rows rebuilt from the export's tab remnants (see restoreTabStops). Baseline
+     alignment keeps the date on the title's baseline even when the two runs differ in size. */
+  .resume-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5em;
+  }
+
+  /* The date never wraps; if the column gets tight it's the title that gives, as in the Doc. */
+  .resume-row__right {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
   .resume-redaction {
     display: inline-grid;
     align-items: center;
