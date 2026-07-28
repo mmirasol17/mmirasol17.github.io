@@ -63,24 +63,36 @@
   transition: none;
 }
 
-/* Per-item reveal: each card unfolds downward the first time it scrolls into
-   view - the clip reveals it top-to-bottom so it reads as growing in height -
-   cascading via a JS-set transition-delay. The layout box is full size the
-   whole time (the clip just hides it), so nothing below shifts. clip-path is
-   dropped once settled so it can never clip a hover preview / fixed child. */
+/* Per-item reveal: each card swipes in horizontally the first time it scrolls
+   into view - alternating left / right down the list for a back-and-forth feel,
+   cascading via a JS-set transition-delay. The transform is dropped once settled
+   so it never lingers as a containing block over its children (which would trap
+   fixed descendants like the hover preview). The parent .reveal-track clips the
+   x-overflow so the incoming slide can't spawn a horizontal scrollbar. */
+.reveal-track {
+  overflow-x: clip;
+}
+
 .reveal-item {
   opacity: 0;
-  clip-path: inset(0 0 100% 0);
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-item--from-left {
+  transform: translateX(-4rem);
+}
+
+.reveal-item--from-right {
+  transform: translateX(4rem);
 }
 
 .reveal-item.is-visible {
   opacity: 1;
-  clip-path: inset(0 0 0 0);
+  transform: translateX(0);
 }
 
 .reveal-item.is-settled {
-  clip-path: none;
+  transform: none;
   transition: none;
 }
 
@@ -131,31 +143,32 @@
   min-height: 0;
 }
 
-/* Tech skills cascade in - like the desktop nav submenu - each time their
-   category opens (reuses the menuItemIn keyframe). Scoped to `.is-open` so the
-   animation re-runs on every expand, not just first mount. */
-.collapsible-content.is-open .skill-cascade > * {
+/* Tech skills cascade in - like the desktop nav submenu - reusing the
+   menuItemIn keyframe. Gated on the category card's `.is-visible` so it plays
+   when the section scrolls into view (not invisibly on mount), and replays on
+   every manual expand (is-open re-added while the card stays is-visible). */
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > * {
   animation: menuItemIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(1) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(1) {
   animation-delay: 0.05s;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(2) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(2) {
   animation-delay: 0.1s;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(3) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(3) {
   animation-delay: 0.15s;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(4) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(4) {
   animation-delay: 0.2s;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(5) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(5) {
   animation-delay: 0.25s;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(6) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(6) {
   animation-delay: 0.3s;
 }
-.collapsible-content.is-open .skill-cascade > *:nth-child(n + 7) {
+.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(n + 7) {
   animation-delay: 0.35s;
 }
 
@@ -436,14 +449,16 @@
     transform: none;
   }
 
-  /* Per-item reveal: fade only, no unfold. */
-  .reveal-item {
-    clip-path: none;
+  /* Per-item reveal: fade only, no horizontal swipe. */
+  .reveal-item,
+  .reveal-item--from-left,
+  .reveal-item--from-right {
+    transform: none;
     transition: opacity 0.5s ease;
   }
 
   .reveal-item.is-visible {
-    clip-path: none;
+    transform: none;
   }
 
   /* Typography: keep the stagger cadence, drop the rise + blur. */
@@ -492,7 +507,7 @@
   }
 
   /* Tech skills: keep the stagger cadence, drop the downward shift. */
-  .collapsible-content.is-open .skill-cascade > * {
+  .reveal-item.is-visible .collapsible-content.is-open .skill-cascade > * {
     animation-name: fadeIn;
     animation-duration: 0.3s;
   }

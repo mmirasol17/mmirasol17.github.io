@@ -60,7 +60,14 @@ export function Reveal(props: Readonly<RevealProps>) {
   return (
     <div
       ref={ref}
-      className={cn("reveal-item", visible && "is-visible", settled && "is-settled", className)}
+      className={cn(
+        "reveal-item",
+        // Alternate the entrance direction so cards swipe in left, right, left...
+        index % 2 === 0 ? "reveal-item--from-left" : "reveal-item--from-right",
+        visible && "is-visible",
+        settled && "is-settled",
+        className
+      )}
       style={!settled ? { transitionDelay: `${Math.min(index, STAGGER_CAP) * STAGGER_MS}ms` } : undefined}
     >
       {children}

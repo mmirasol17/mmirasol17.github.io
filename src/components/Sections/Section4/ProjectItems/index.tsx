@@ -7,7 +7,7 @@ export function ProjectItems() {
 
   return (
     <>
-      <div className='grid grid-cols-1 gap-8 text-sm lg:text-base'>
+      <div className='reveal-track grid grid-cols-1 gap-8 text-sm lg:text-base'>
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project, index) => (
             <Reveal
