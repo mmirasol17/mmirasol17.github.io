@@ -167,6 +167,39 @@ function unwrapRedirects(root: HTMLElement) {
   }
 }
 
+// Class names that draw a visible bottom rule, read from the Doc's own exported stylesheet.
+// Google renumbers these classes on every edit, so they're derived per-fetch rather than hardcoded.
+function collectBottomRuleClasses(styleText: string): Set<string> {
+  const classes = new Set<string>();
+  const blockPattern = /\.([A-Za-z0-9_-]+)\s*\{([^}]*)\}/g;
+  let block: RegExpExecArray | null;
+  while ((block = blockPattern.exec(styleText)) !== null) {
+    const [, name, body] = block;
+    const styled = /border-bottom-style\s*:\s*(?:solid|double|dashed|dotted|groove|ridge|inset|outset)/i.test(body);
+    const width = body.match(/border-bottom-width\s*:\s*([\d.]+)/i);
+    const hasWidth = width ? Number.parseFloat(width[1]) > 0 : false;
+    // Also catch the shorthand form (`border-bottom: 0.8pt solid #000`).
+    const shorthand = /border-bottom\s*:\s*[^;]*\b(?:solid|double|dashed|dotted)\b/i.test(body);
+    if ((styled && hasWidth) || shorthand) classes.add(name);
+  }
+  return classes;
+}
+
+// A section heading with a bottom border (e.g. "EDUCATION") is followed in the export by an empty
+// paragraph that inherited the same border, so the divider renders as two lines instead of one.
+// Drop the border from the empty trailing paragraph so the rule matches the Doc (and the other
+// sections, which have no such trailing paragraph). Border comes from a class, so an inline
+// `border-bottom:none` is the surgical override; it survives sanitize() (inline styles are kept).
+function collapseDuplicateRules(root: HTMLElement, ruleClasses: Set<string>) {
+  const drawsRule = (el: Element | null) => !!el && Array.from(el.classList).some((c) => ruleClasses.has(c));
+  for (const paragraph of Array.from(root.querySelectorAll("p"))) {
+    if ((paragraph.textContent ?? "").trim() !== "") continue;
+    if (!drawsRule(paragraph) || !drawsRule(paragraph.previousElementSibling)) continue;
+    const existing = paragraph.getAttribute("style")?.trim().replace(/;$/, "");
+    paragraph.setAttribute("style", existing ? `${existing};border-bottom:none` : "border-bottom:none");
+  }
+}
+
 function parseResumeDocument(html: string): IResumeDocument {
   // DOMParser output is inert: nothing loads or runs while we clean it up.
   const parsed = new DOMParser().parseFromString(html, "text/html");
@@ -178,6 +211,7 @@ function parseResumeDocument(html: string): IResumeDocument {
 
   sanitize(body);
   unwrapRedirects(body);
+  collapseDuplicateRules(body, collectBottomRuleClasses(styleText));
   redactContactDetails(body, parsed);
 
   return {
