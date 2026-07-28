@@ -1,17 +1,16 @@
 # Regenerate the project-preview screenshots (screenshots/capture.mjs) and open
-# a PR with whatever changed. Public pages only — no login, no secrets.
+# a PR with whatever changed. Public pages only - no login, no secrets.
 #
-# HOW TO RUN: Actions tab -> "Regenerate project previews" -> Run workflow.
-# It captures the live apps, converts to webp under
-# public/images/project-previews/, and opens a reviewable PR (binaries don't
-# get pushed straight to master).
+# This is a MANUAL job (no schedule): Actions tab -> "Regenerate project
+# previews" -> Run workflow. It captures the live apps, converts to webp under
+# public/images/project-previews/, and opens a reviewable PR (binaries don't get
+# pushed straight to master). It reuses one branch, so re-running updates the
+# same PR instead of stacking duplicates.
 
 name: Regenerate project previews
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 6 * * 1" # Mondays 06:00 UTC (comment out to disable auto-refresh)
 
 concurrency:
   group: regenerate-previews
@@ -70,3 +69,18 @@ jobs:
             Review the image diffs, then merge if they look right.
           add-paths: |
             public/images/project-previews/**
+
+      # create-pull-request keeps a single PR on chore/regenerate-previews, so
+      # re-runs update it rather than duplicating. Belt-and-suspenders: close any
+      # OTHER open "regenerate previews" PRs (e.g. from a stray branch) so they
+      # never pile up.
+      - name: Close any redundant preview PRs
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for pr in $(gh pr list --state open --search 'in:title "regenerate project previews"' \
+              --json number,headRefName -q '.[] | select(.headRefName != "chore/regenerate-previews") | .number'); do
+            echo "Closing redundant PR #$pr"
+            gh pr close "$pr" --comment "Superseded by the latest preview-regeneration run." || true
+          done
