@@ -82,7 +82,7 @@
   transition: none;
 }
 
-/* Staggered text entrance — apply to a wrapper and give each child a
+/* Staggered text entrance - apply to a wrapper and give each child a
    custom --i (index) to cascade the reveal. */
 .stagger-text > * {
   opacity: 0;
@@ -345,7 +345,7 @@
 
 /* Reduced motion: drop the *distracting* motion (large translates, scale,
    blur, infinite loops) but KEEP opacity cross-fades, which are the
-   recommended substitute. Everything still animates — just gently — so the
+   recommended substitute. Everything still animates - just gently - so the
    UI never loses its feedback. */
 @media (prefers-reduced-motion: reduce) {
   /* Scroll reveal: fade only, no rise. */
@@ -383,7 +383,7 @@
   }
 
   /* Overlays: swap the transform-based keyframes for plain fades.
-     The nav drawer is deliberately excluded — its slide is a short,
+     The nav drawer is deliberately excluded - its slide is a short,
      directional move tied to the user's own tap, and the direction is what
      communicates "this panel came from / went back to the edge". It keeps
      sliding, just faster. */
@@ -421,13 +421,13 @@
     animation-duration: 0.2s;
   }
 
-  /* Accordion keeps its (small) size transition — it's the core affordance. */
+  /* Accordion keeps its (small) size transition - it's the core affordance. */
   .collapsible-content {
     transition: grid-template-rows 0.2s ease, opacity 0.2s ease;
   }
 
   /* Card flip: cross-fade the two faces instead of rotating, but keep the
-     scene's height transition — the card growing to reveal the gallery is the
+     scene's height transition - the card growing to reveal the gallery is the
      affordance, not the spin. */
   .flip-card {
     transition: none;

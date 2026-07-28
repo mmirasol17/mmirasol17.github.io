@@ -11,7 +11,7 @@ interface ProjectPreviewCarouselProps {
   onIndexChange: (i: number) => void;
   /** Flip the card back to the details face. */
   onClose: () => void;
-  /** Whether this (back) face is currently shown — gates keyboard handling + focus. */
+  /** Whether this (back) face is currently shown - gates keyboard handling + focus. */
   active: boolean;
 }
 

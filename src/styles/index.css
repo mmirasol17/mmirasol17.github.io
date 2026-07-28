@@ -23,7 +23,7 @@ body {
   /* Fade the top & bottom edges of a vertically scrollable area so clipped
      content reads as "there's more" instead of a hard cut.
      The fade sizes default to 0 and are set by `useOverflowFade` only on an
-     edge that actually has more content past it — otherwise a short,
+     edge that actually has more content past it - otherwise a short,
      non-scrolling menu would have its first and last items faded for no
      reason. */
   .scroll-fade-y {

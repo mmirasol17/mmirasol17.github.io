@@ -9,7 +9,7 @@ interface AnimatedSectionProps {
 /**
  * AnimatedSection reveals its content with a gentle fade + rise as it
  * scrolls into view. Crucially, the <section> background is painted at
- * all times — only the inner content animates — so the reveal never
+ * all times - only the inner content animates - so the reveal never
  * flashes the (previously white) page background. Animates once.
  * @param {AnimatedSectionProps} props - The properties for the AnimatedSection component.
  * @return {JSX.Element} The rendered AnimatedSection component.

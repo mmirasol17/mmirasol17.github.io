@@ -6,7 +6,7 @@ export type ResumeRedactionKind = "email" | "phone";
 export const RESUME_REDACTION_ATTRIBUTE = "data-resume-redaction";
 
 export interface IResumeDocument {
-  /** Classes Google puts on <body> — they carry the page geometry, so they move to the wrapper. */
+  /** Classes Google puts on <body> - they carry the page geometry, so they move to the wrapper. */
   bodyClassName: string;
   bodyHtml: string;
   /** The document's own stylesheet, injected into a shadow root so it can't leak into the site. */
@@ -44,7 +44,7 @@ const FORBIDDEN_TAGS = ["script", "iframe", "object", "embed", "link", "meta", "
 
 const GOOGLE_REDIRECT_PREFIX = "https://www.google.com/url?";
 
-// Reopening the viewer shouldn't refetch — the document only changes when Marin edits it.
+// Reopening the viewer shouldn't refetch - the document only changes when Marin edits it.
 const documentCache = new Map<string, IResumeDocument>();
 
 /** Replaces every letter and digit with a bullet, keeping separators so the shape still reads as a phone/email. */
@@ -57,8 +57,8 @@ function createRedactionElement(ownerDocument: Document, kind: ResumeRedactionKi
   button.type = "button";
   button.className = "resume-redaction";
   button.setAttribute(RESUME_REDACTION_ATTRIBUTE, kind);
-  // Deliberately does not include the real value — screen readers shouldn't leak what the mask hides.
-  button.setAttribute("aria-label", `${kind === "email" ? "Email address" : "Phone number"} hidden — go to the contact section`);
+  // Deliberately does not include the real value - screen readers shouldn't leak what the mask hides.
+  button.setAttribute("aria-label", `${kind === "email" ? "Email address" : "Phone number"} hidden - go to the contact section`);
 
   const mask = ownerDocument.createElement("span");
   mask.className = "resume-redaction__mask";
@@ -87,7 +87,7 @@ function findRedactions(text: string): RedactionMatch[] {
     pattern.lastIndex = 0;
     let match = pattern.exec(text);
     while (match !== null) {
-      // Guard the left edge without a lookbehind — Safari below 16.4 throws on those at parse time.
+      // Guard the left edge without a lookbehind - Safari below 16.4 throws on those at parse time.
       const precededByDigit = match.index > 0 && /\d/.test(text[match.index - 1]);
       const kind = resolveKind(match[0]);
       if (!precededByDigit && kind) {
@@ -189,7 +189,7 @@ function parseResumeDocument(html: string): IResumeDocument {
 
 /**
  * Fetches the resume straight from its Google Doc and returns it as sanitized, redacted markup.
- * Content stays sourced from the Doc — editing it there is all that's needed to update the site.
+ * Content stays sourced from the Doc - editing it there is all that's needed to update the site.
  */
 export function useResumeDocument(documentId: string): UseResumeDocumentResult {
   const cached = documentCache.get(documentId) ?? null;

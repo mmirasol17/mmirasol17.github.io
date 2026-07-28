@@ -3,7 +3,7 @@ import { cn } from "../../utils/cn";
 
 interface RevealProps {
   children: ReactNode;
-  /** Stagger index — items entering together cascade by this. */
+  /** Stagger index - items entering together cascade by this. */
   index?: number;
   className?: string;
 }

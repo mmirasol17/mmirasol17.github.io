@@ -107,7 +107,7 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
       className='fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-0 md:p-4'
       onClick={handleBackdropClick}
     >
-      {/* Edge to edge on phones — the document is dense enough that inset margins and a 5/6 height
+      {/* Edge to edge on phones - the document is dense enough that inset margins and a 5/6 height
           were costing real reading space. The windowed treatment starts at md. */}
       <div
         className={`bg-white shadow-2xl transition-all duration-300 flex flex-col w-full h-full rounded-none md:rounded-lg ${
@@ -120,7 +120,7 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
           <h3 className='text-sm md:text-lg font-semibold text-gray-900'>Marin Mirasol - Resume</h3>
           <div className='flex items-center gap-2'>
             {/* The page is rendered at its true 8.5in width so the line breaks match the document,
-                which leaves 9pt type small on a phone — hence a real zoom control rather than reflow. */}
+                which leaves 9pt type small on a phone - hence a real zoom control rather than reflow. */}
             {status === "ready" && (
               <div className='flex items-center rounded-lg border border-gray-200 bg-white'>
                 <button
@@ -169,7 +169,7 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
 
         {/* Resume Body */}
         {/* Grey canvas behind the page, the way Docs frames a document. overflow-x has to stay
-            reachable — zooming past the fit scale makes the page wider than the modal. */}
+            reachable - zooming past the fit scale makes the page wider than the modal. */}
         <div className='flex-1 w-full overflow-auto bg-[#f1f3f4] rounded-b-none md:rounded-b-lg'>
           {status === "loading" && (
             <div className='flex h-full w-full items-center justify-center gap-3 text-gray-500'>

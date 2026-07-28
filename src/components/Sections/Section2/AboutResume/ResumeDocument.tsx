@@ -14,7 +14,7 @@ interface ResumeDocumentProps {
 const FALLBACK_PAGE_WIDTH_PX = 816;
 
 // The chips for the redacted contact details, plus the page shell. Deliberately absent: anything
-// that touches the text column's width, padding or font — the export's own stylesheet owns those,
+// that touches the text column's width, padding or font - the export's own stylesheet owns those,
 // and overriding them is what makes the line breaks drift away from the real document.
 const RESUME_DOCUMENT_STYLES = `
   :host { display: block; }
@@ -116,7 +116,7 @@ interface PageSize {
  * `p`, `li` and `ul`, so it has to be isolated or it would repaint the rest of the site.
  *
  * The page is laid out at the fixed width the Doc was written at and then scaled with a transform
- * to fit the viewer. Reflowing it to the modal instead — which is what this used to do — rewraps
+ * to fit the viewer. Reflowing it to the modal instead - which is what this used to do - rewraps
  * every paragraph, so the preview stops matching what the document looks like in Google Docs.
  */
 export function ResumeDocument(props: Readonly<ResumeDocumentProps>) {
@@ -183,7 +183,7 @@ export function ResumeDocument(props: Readonly<ResumeDocumentProps>) {
     };
   }, [props.document]);
 
-  // Width available to the page, excluding the gutter — the observer fires once on observe, so
+  // Width available to the page, excluding the gutter - the observer fires once on observe, so
   // there is no separate initial read.
   useEffect(() => {
     const viewport = viewportRef.current;

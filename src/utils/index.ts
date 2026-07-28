@@ -50,7 +50,7 @@ export function getProjectStatus(project: IProject): string {
 
 // Helper function to get project type
 export function getProjectType(project: IProject): string {
-  // Ships web *and* native from one codebase — checked first, since these also match the web rule below.
+  // Ships web *and* native from one codebase - checked first, since these also match the web rule below.
   if (project.technologies.includes("expo")) {
     return "Cross-Platform App";
   } else if (project.technologies.includes("react") || project.technologies.includes("javascript") || project.technologies.includes("html")) {

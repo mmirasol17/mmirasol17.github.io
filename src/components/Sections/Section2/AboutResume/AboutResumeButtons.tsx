@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { AboutResumeViewerModal } from "./AboutResumeViewerModal";
 
 // Direct PDF/DOCX downloads are disabled. They export the original Google Doc, which still carries
-// the real phone number and email — unlike the viewer, which redacts them on the way in. Removing
+// the real phone number and email - unlike the viewer, which redacts them on the way in. Removing
 // the buttons only takes away the convenient path (the export URL is still reachable by anyone who
 // reads the document ID out of the bundle), so this is a visibility measure, not a protective one.
 // Restore this import alongside the commented-out buttons below.
