@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { IProject } from "../../../../hooks/useProjects";
 import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
-import { ExternalLink, Eye, Github } from "lucide-react";
+import { ExternalLink, Eye, Github, Terminal as TerminalIcon } from "lucide-react";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
 import { cn } from "../../../../utils/cn";
 import { getProjectStatus, getProjectStatusColor, getProjectType } from "../../../../utils";
 import { MarkdownText } from "../../../MarkdownText";
 import { PREVIEW_HEIGHT, PREVIEW_WIDTH, ProjectPreviewFloating } from "../../../ProjectPreview";
 import { ProjectPreviewCarousel } from "../../../ProjectPreview/ProjectPreviewCarousel";
+import { ProjectTerminal } from "../../../Terminal/ProjectTerminal";
 
 const PREVIEW_CURSOR_GAP = 24;
 const PREVIEW_VIEWPORT_MARGIN = 16;
@@ -29,7 +30,9 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
   const backRef = useRef<HTMLDivElement>(null);
 
   const images = props.project.previewImages ?? [];
-  const hasPreview = images.length > 0;
+  const terminalApp = props.project.terminal;
+  const hasImages = images.length > 0;
+  const hasFlip = hasImages || Boolean(terminalApp);
   const backId = `${props.project.id}-preview`;
 
   // Only devices with a real pointer get the hover preview.
@@ -42,10 +45,9 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
   }, []);
 
   const isPreviewShowing = previewPosition !== null;
-  const showFloatingPreview = hasPreview && canHover && isPreviewShowing && !isFlipped;
+  const showFloatingPreview = hasImages && canHover && isPreviewShowing && !isFlipped;
 
-  // Dismiss the hover preview on scroll / blur (pointerleave won't fire if the
-  // card scrolls out from under a stationary cursor).
+  // Dismiss the hover preview on scroll / blur.
   useEffect(() => {
     if (!isPreviewShowing) return;
     const dismiss = () => setPreviewPosition(null);
@@ -57,12 +59,10 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
     };
   }, [isPreviewShowing]);
 
-  // Drive the flip-scene height from whichever face is showing. Measured in a
-  // layout effect so the first height lands before paint (no mount animation),
-  // while later flips animate the change via the CSS height transition. A
-  // ResizeObserver keeps it correct as content/viewport change.
+  // Drive the flip-scene height from whichever face is showing so the card
+  // animates between its collapsed height and the taller preview/terminal.
   useLayoutEffect(() => {
-    if (!hasPreview) return;
+    if (!hasFlip) return;
     const measure = () => {
       const face = isFlipped ? backRef.current : frontRef.current;
       if (face) setSceneHeight(face.offsetHeight);
@@ -76,15 +76,14 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
       observer.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, [hasPreview, isFlipped]);
+  }, [hasFlip, isFlipped]);
 
-  // backface-visibility hides a face visually but not from AT/keyboard, so mark
-  // the hidden face `inert` (set imperatively — React 18 doesn't type it).
+  // Mark the hidden face `inert` (backface-visibility hides it visually only).
   useEffect(() => {
-    if (!hasPreview) return;
+    if (!hasFlip) return;
     frontRef.current?.toggleAttribute("inert", isFlipped);
     backRef.current?.toggleAttribute("inert", !isFlipped);
-  }, [hasPreview, isFlipped]);
+  }, [hasFlip, isFlipped]);
 
   const toggleFlip = useCallback(() => setIsFlipped((f) => !f), []);
   const flipBack = useCallback(() => {
@@ -92,7 +91,6 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
     previewButtonRef.current?.focus();
   }, []);
 
-  // Anchor the hover preview beside the cursor; mouse only.
   const handlePointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     if (e.pointerType !== "mouse") return;
     const flipToLeft = e.clientX + PREVIEW_CURSOR_GAP + PREVIEW_WIDTH > window.innerWidth - PREVIEW_VIEWPORT_MARGIN;
@@ -102,19 +100,19 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
     setPreviewPosition({ x: Math.max(x, PREVIEW_VIEWPORT_MARGIN), y });
   }, []);
 
-  // Clicking the card body (any device) flips to the preview. Nested links,
-  // buttons, and the tech chips (which stopPropagation) handle their own clicks;
-  // exit is via the carousel's Back button / Escape.
+  // Clicking the card body (any device) flips to the preview/terminal. Nested
+  // links, buttons, and tech chips (which stopPropagation) handle their own
+  // clicks; exit is via the Back button / Escape.
   const handleCardActivate = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const target = e.target as HTMLElement;
       if (target.closest("a,button")) return;
       if (window.getSelection()?.toString()) return;
-      if (!hasPreview || isFlipped) return;
+      if (!hasFlip || isFlipped) return;
       setPreviewPosition(null);
       toggleFlip();
     },
-    [hasPreview, isFlipped, toggleFlip]
+    [hasFlip, isFlipped, toggleFlip]
   );
 
   const projectStatusInfo = useMemo(() => {
@@ -124,7 +122,6 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
 
   const projectType = useMemo(() => getProjectType(props.project), [props.project]);
 
-  // The details face (also rendered directly when a project has no preview).
   const detailsContent = (
     <>
       <div className='mb-3'>
@@ -146,7 +143,6 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
               key={index + tech}
               className='flex items-center gap-1 bg-blue-600/80 text-white px-2 py-1 rounded-full text-xs cursor-pointer hover:scale-105 transition-transform duration-300'
               onClick={(e) => {
-                // Don't let a chip tap also flip the card.
                 e.stopPropagation();
                 const url = TechnologyMetadataMapping[tech].url || "";
                 if (url) {
@@ -166,9 +162,9 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
         </div>
       </div>
 
-      {(props.project.link || hasPreview) && (
+      {(props.project.link || hasFlip) && (
         <div className='flex flex-wrap gap-3'>
-          {hasPreview && (
+          {hasFlip && (
             <button
               ref={previewButtonRef}
               onClick={toggleFlip}
@@ -176,8 +172,17 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
               aria-controls={backId}
               className='inline-flex items-center gap-2 rounded-lg bg-gray-700 px-3 py-2 text-sm text-white transition duration-300 hover:scale-105 hover:bg-gray-600'
             >
-              <Eye className='h-4 w-4' />
-              Preview
+              {terminalApp ? (
+                <>
+                  <TerminalIcon className='h-4 w-4' />
+                  Try it
+                </>
+              ) : (
+                <>
+                  <Eye className='h-4 w-4' />
+                  Preview
+                </>
+              )}
             </button>
           )}
           {props.project.link && (
@@ -210,14 +215,14 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
 
   return (
     <div
-      className={cn("bg-gradient-to-br from-gray-400 to-gray-700 rounded-2xl p-6 shadow-2xl hover:scale-[101%] transition-transform duration-300", hasPreview && !isFlipped && "cursor-pointer")}
+      className={cn("bg-gradient-to-br from-gray-400 to-gray-700 rounded-2xl p-6 shadow-2xl hover:scale-[101%] transition-transform duration-300", hasFlip && !isFlipped && "cursor-pointer")}
       id={props.project.id}
-      onPointerMove={hasPreview && canHover ? handlePointerMove : undefined}
+      onPointerMove={hasImages && canHover ? handlePointerMove : undefined}
       onPointerLeave={() => setPreviewPosition(null)}
       onPointerCancel={() => setPreviewPosition(null)}
       onClick={handleCardActivate}
     >
-      {hasPreview ? (
+      {hasFlip ? (
         <div
           ref={sceneRef}
           className={cn("flip-scene", isFlipped && "is-flipped")}
@@ -237,15 +242,25 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
               className='flip-face flip-face-back'
               aria-hidden={!isFlipped}
             >
-              <ProjectPreviewCarousel
-                images={images}
-                title={props.project.title}
-                url={props.project.link}
-                index={carouselIndex}
-                onIndexChange={setCarouselIndex}
-                onClose={flipBack}
-                active={isFlipped}
-              />
+              {terminalApp ? (
+                <ProjectTerminal
+                  app={terminalApp}
+                  title={props.project.title}
+                  url={props.project.link}
+                  onClose={flipBack}
+                  active={isFlipped}
+                />
+              ) : (
+                <ProjectPreviewCarousel
+                  images={images}
+                  title={props.project.title}
+                  url={props.project.link}
+                  index={carouselIndex}
+                  onIndexChange={setCarouselIndex}
+                  onClose={flipBack}
+                  active={isFlipped}
+                />
+              )}
             </div>
           </div>
         </div>

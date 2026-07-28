@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { TechnologyType } from "../types/TechnologyType";
+import { TerminalAppId } from "../components/Terminal/ProjectTerminal";
 
 export interface IProject {
   id: string;
@@ -11,6 +12,8 @@ export interface IProject {
   highlights?: string[];
   /** Screenshots shown as a hover peek and a swipeable flip carousel. Order = display order. Omit for projects with nothing to show. */
   previewImages?: string[];
+  /** Interactive CLI reimplementation the card flips to, in place of screenshots. */
+  terminal?: TerminalAppId;
 }
 
 /**
@@ -212,6 +215,7 @@ export function useProjects() {
         technologies: ["cpp", "bash"],
         link: "https://github.com/mmirasol17/Terminal-Tic-Tac-Toe",
         isPublic: true,
+        terminal: "tic-tac-toe",
         highlights: [
           "Cross-platform C++ implementation for Mac Terminal and Windows Command Prompt",
           "Clean command-line user interface with ASCII graphics",
