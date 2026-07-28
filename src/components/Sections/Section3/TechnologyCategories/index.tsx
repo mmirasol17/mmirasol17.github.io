@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { useTechnologies } from "../../../../hooks/useTechnologies";
 import { Minus, Plus } from "lucide-react";
+import { Reveal } from "../../../Reveal";
 import { TechnologyCategory } from "./TechnologyCategory";
 
 export function TechnologyCategories() {
@@ -69,13 +70,17 @@ export function TechnologyCategories() {
       </div>
 
       <div className='grid gap-6'>
-        {technologyCategories.map((data) => (
-          <TechnologyCategory
+        {technologyCategories.map((data, index) => (
+          <Reveal
             key={data.category}
-            category={data}
-            isCollapsed={collapsedSections[data.category] || false}
-            onToggleCollapse={toggleSectionCollapse}
-          />
+            index={index}
+          >
+            <TechnologyCategory
+              category={data}
+              isCollapsed={collapsedSections[data.category] || false}
+              onToggleCollapse={toggleSectionCollapse}
+            />
+          </Reveal>
         ))}
       </div>
     </div>

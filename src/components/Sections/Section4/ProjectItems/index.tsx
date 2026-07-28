@@ -1,4 +1,5 @@
 import { useProjectFilters } from "../../../../providers/ProjectFilterProvider";
+import { Reveal } from "../../../Reveal";
 import { ProjectItem } from "./ProjectItem";
 
 export function ProjectItems() {
@@ -9,10 +10,12 @@ export function ProjectItems() {
       <div className='grid grid-cols-1 gap-8 text-sm lg:text-base'>
         {filteredProjects.length > 0 ? (
           filteredProjects.map((project, index) => (
-            <ProjectItem
+            <Reveal
               key={index + project.title}
-              project={project}
-            />
+              index={index}
+            >
+              <ProjectItem project={project} />
+            </Reveal>
           ))
         ) : (
           <div className='text-center py-12'>

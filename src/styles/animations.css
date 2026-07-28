@@ -63,6 +63,25 @@
   transition: none;
 }
 
+/* Per-item reveal: each card fades + rises the first time it scrolls into
+   view, cascading via a JS-set transition-delay. Drops its transform once
+   settled so it never lingers as a containing block over its children. */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-item.is-settled {
+  transform: none;
+  transition: none;
+}
+
 /* Staggered text entrance — apply to a wrapper and give each child a
    custom --i (index) to cascade the reveal. */
 .stagger-text > * {
@@ -266,6 +285,57 @@
   animation: previewIn 0.18s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Project card flip: front = details, back = screenshot carousel. The scene's
+   height is set from JS (measured per face) so it animates between the
+   collapsed card height and the taller carousel in lockstep with the rotate.
+   The rotate lives on the inner .flip-card so it never fights the card root's
+   own hover:scale / transition-transform. */
+.flip-scene {
+  position: relative;
+  perspective: 1200px;
+  transition: height 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flip-scene.is-flipped .flip-card {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face-back {
+  transform: rotateY(180deg);
+}
+
+/* Screenshot carousel inside the back face. */
+.carousel-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+}
+
 /* Optional: Remove hover scaling animation on mobile devices */
 @media (hover: none) {
   :hover {
@@ -285,6 +355,16 @@
   }
 
   .reveal.is-visible {
+    transform: none;
+  }
+
+  /* Per-item reveal: fade only, no rise. */
+  .reveal-item {
+    transform: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .reveal-item.is-visible {
     transform: none;
   }
 
@@ -344,5 +424,37 @@
   /* Accordion keeps its (small) size transition — it's the core affordance. */
   .collapsible-content {
     transition: grid-template-rows 0.2s ease, opacity 0.2s ease;
+  }
+
+  /* Card flip: cross-fade the two faces instead of rotating, but keep the
+     scene's height transition — the card growing to reveal the gallery is the
+     affordance, not the spin. */
+  .flip-card {
+    transition: none;
+    transform: none !important;
+  }
+
+  .flip-face {
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+
+  .flip-face-back {
+    transform: none;
+    opacity: 0;
+  }
+
+  .flip-scene.is-flipped .flip-face-front {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .flip-scene.is-flipped .flip-face-back {
+    opacity: 1;
+  }
+
+  .carousel-track {
+    transition: opacity 0.2s ease;
   }
 }
