@@ -21,7 +21,8 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
   const [previewPosition, setPreviewPosition] = useState<{ x: number; y: number } | null>(null);
   const [isFlipped, setIsFlipped] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
-  const [sceneHeight, setSceneHeight] = useState<number>();
+  const [frontHeight, setFrontHeight] = useState<number>();
+  const [backHeight, setBackHeight] = useState<number>();
   const [canHover, setCanHover] = useState(false);
 
   const previewButtonRef = useRef<HTMLButtonElement>(null);
@@ -59,13 +60,14 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
     };
   }, [isPreviewShowing]);
 
-  // Drive the flip-scene height from whichever face is showing so the card
-  // animates between its collapsed height and the taller preview/terminal.
+  // Measure BOTH faces up front (not just the active one) so the flip has its
+  // target height immediately — no post-flip growth/lag. Observe once, not per
+  // flip. setState bails when a height is unchanged, so this can't feedback-loop.
   useLayoutEffect(() => {
     if (!hasFlip) return;
     const measure = () => {
-      const face = isFlipped ? backRef.current : frontRef.current;
-      if (face) setSceneHeight(face.offsetHeight);
+      if (frontRef.current) setFrontHeight(frontRef.current.offsetHeight);
+      if (backRef.current) setBackHeight(backRef.current.offsetHeight);
     };
     measure();
     const observer = new ResizeObserver(measure);
@@ -76,7 +78,9 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
       observer.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, [hasFlip, isFlipped]);
+  }, [hasFlip]);
+
+  const sceneHeight = isFlipped ? backHeight : frontHeight;
 
   // Mark the hidden face `inert` (backface-visibility hides it visually only).
   useEffect(() => {
