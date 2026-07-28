@@ -212,6 +212,7 @@ export function useProjects() {
         technologies: ["cpp", "bash"],
         link: "https://github.com/mmirasol17/Car-Database",
         isPublic: true,
+        terminal: "car-database",
         highlights: [
           "Hash table data structure implementation in C++ for efficient storage",
           "Command-line interface (CLI) with intuitive user commands",

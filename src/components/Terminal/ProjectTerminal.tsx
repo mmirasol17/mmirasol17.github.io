@@ -3,12 +3,14 @@ import { ArrowLeft } from "lucide-react";
 import { ProjectPreviewFrame } from "../ProjectPreview";
 import { Terminal, TerminalProgram } from "./Terminal";
 import { createTicTacToe } from "./programs/ticTacToe";
+import { createCarDatabase } from "./programs/carDatabase";
 
 /** Interactive CLI reimplementations that a project card can flip to. */
-export type TerminalAppId = "tic-tac-toe";
+export type TerminalAppId = "tic-tac-toe" | "car-database";
 
 const PROGRAMS: Record<TerminalAppId, () => TerminalProgram> = {
   "tic-tac-toe": createTicTacToe,
+  "car-database": createCarDatabase,
 };
 
 interface ProjectTerminalProps {
