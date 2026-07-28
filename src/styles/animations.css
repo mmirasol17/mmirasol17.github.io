@@ -493,16 +493,14 @@
     transform: none;
   }
 
-  /* Per-item reveal: fade only, no horizontal swipe. */
-  .reveal-slide,
-  .reveal-slide--from-left,
-  .reveal-slide--from-right {
-    transform: none;
-    transition: opacity 0.5s ease;
-  }
-
-  .reveal-slide.is-visible {
-    transform: none;
+  /* Per-item reveal: keep the alternating left / right direction, since that
+     back-and-forth is the point of the effect, but cut the travel from a full
+     off-screen sweep to a short nudge. Same rationale as the drawer and
+     dropdown below: a small directional move reads as "this came from that
+     side" without the large-scale motion reduced motion is asking us to drop. */
+  .reveal-slide {
+    --reveal-shift: 1.5rem;
+    transition: opacity 0.5s ease, transform 0.45s ease-out;
   }
 
   /* Typography: keep the stagger cadence, drop the rise + blur. */
