@@ -379,16 +379,15 @@
   animation-delay: var(--delay, 0s);
 }
 
-/* Optional: Remove hover scaling animation on mobile devices */
+/* Remove hover scaling on touch devices, where a tap sticks in :hover and would
+   otherwise leave the element scaled. Reset ONLY Tailwind's scale vars - the old
+   blanket `transform: none !important` here also wiped every real transform on a
+   tapped element (the card-flip rotation, the carousel track, the orbit offsets),
+   which is what broke the mobile preview/terminal. Raw transforms are untouched. */
 @media (hover: none) {
   :hover {
-    transform: none !important;
-  }
-
-  /* ...but never let that reset an orbit button's position transform on tap,
-     or the button would jump to the photo center. Keep it at its orbit spot. */
-  .orbit-item:hover {
-    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) !important;
+    --tw-scale-x: 1 !important;
+    --tw-scale-y: 1 !important;
   }
 }
 
