@@ -2,14 +2,17 @@ import { CSSProperties } from "react";
 import { SocialMediaMetadataMapping } from "../../../../types/SocialMediaMetadataMapping";
 import { SocialMediaType } from "../../../../types/SocialMediaType";
 
-// Where each social button rests, as a unit vector (x right, y down) scaled by
-// the --orbit radius, plus its reveal order. The diagonals keep the top and
-// bottom center of the photo clear (name/headshot stay unobstructed).
-const ORBIT_SOCIALS: ReadonlyArray<{ id: SocialMediaType; dx: number; dy: number }> = [
-  { id: "linkedin", dx: 0.766, dy: -0.643 }, // top-right
-  { id: "github", dx: -0.766, dy: -0.643 }, // top-left
-  { id: "instagram", dx: 0.766, dy: 0.643 }, // bottom-right
-  { id: "discord", dx: -0.766, dy: 0.643 }, // bottom-left
+// Where each social button rests, as an offset from the photo center scaled by
+// the --orbit radius (x right, y down), plus its reveal delay. Deliberately
+// irregular - uneven angles, varied radii, and staggered timing - so the ring
+// reads as scattered rather than mechanically symmetric. The straight-down zone
+// stays button-free and the lower two sit within the photo's height, so nothing
+// crowds the name below.
+const ORBIT_SOCIALS: ReadonlyArray<{ id: SocialMediaType; dx: number; dy: number; delay: number }> = [
+  { id: "linkedin", dx: 0.36, dy: -0.89, delay: 0.28 }, // high, just right of top
+  { id: "github", dx: -0.94, dy: -0.61, delay: 0.2 }, // upper-left, pushed out
+  { id: "instagram", dx: 0.86, dy: 0.6, delay: 0.44 }, // lower-right
+  { id: "discord", dx: -0.85, dy: 0.49, delay: 0.36 }, // left, lower-middle
 ];
 
 export function IntroPersonalPhoto() {
@@ -26,7 +29,7 @@ export function IntroPersonalPhoto() {
           />
         </div>
 
-        {ORBIT_SOCIALS.map((social, index) => {
+        {ORBIT_SOCIALS.map((social) => {
           const meta = SocialMediaMetadataMapping[social.id];
           return (
             <a
@@ -41,7 +44,7 @@ export function IntroPersonalPhoto() {
                 {
                   "--dx": `calc(var(--orbit) * ${social.dx})`,
                   "--dy": `calc(var(--orbit) * ${social.dy})`,
-                  "--delay": `${0.25 + index * 0.09}s`,
+                  "--delay": `${social.delay}s`,
                 } as CSSProperties
               }
             >
