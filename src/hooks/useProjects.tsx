@@ -9,6 +9,8 @@ export interface IProject {
   technologies: TechnologyType[];
   link?: string;
   isPublic: boolean;
+  /** App icon shown on the card. Real marks pulled from the live apps where they exist, hand-drawn in `public/icons/projects/` where they do not. */
+  icon: string;
   highlights?: string[];
   /** Screenshots shown as a hover peek and a swipeable flip carousel. Order = display order. Omit for projects with nothing to show. */
   previewImages?: string[];
@@ -28,6 +30,7 @@ export function useProjects() {
     return [
       {
         id: "enterprise-saas",
+        icon: "./icons/projects/enterprise-saas.png",
         title: "Enterprise SaaS",
         description:
           "Full-stack enterprise SaaS platform, [SigParser](https://sigparser.com), serving 1,000+ users with AI-powered parsing algorithms, third-party integrations, data enrichment, and statistics tracking for enhanced Contact data.",
@@ -47,6 +50,7 @@ export function useProjects() {
       },
       {
         id: "lifelyze",
+        icon: "./icons/projects/lifelyze.png",
         title: "Lifelyze",
         description:
           "Cross-platform personal organizer unifying Calendar, Budget, Health, Notes, Reminders, and an AI assistant in one dashboard, shipping to web, iOS, and Android from a shared Expo codebase with native modules and a Go API backend.",
@@ -76,6 +80,7 @@ export function useProjects() {
       },
       {
         id: "tunelyze",
+        icon: "./icons/projects/tunelyze.svg",
         title: "Tunelyze",
         description:
           "Smart Spotify playlist builder that syncs your entire library into a sortable, filterable grid of audio features (BPM, energy, valence, danceability), then builds playlists from those filters and exports them back to Spotify.",
@@ -102,6 +107,7 @@ export function useProjects() {
       },
       {
         id: "prouml",
+        icon: "./icons/projects/prouml.svg",
         title: "ProUML",
         description:
           "[CSUSM CapStone](https://www.csusm.edu/ece/engineeringcapstone/index.html) project built to simplify creating and customizing UML diagrams, which supports real-time collaboration, various diagram customizations, structured diagram storage, and Java code-to-diagram translation.",
@@ -120,6 +126,7 @@ export function useProjects() {
       },
       {
         id: "chattington",
+        icon: "./icons/projects/chattington.png",
         title: "Chattington",
         description: "Chatbot Android mobile application that allows users to have conversations with an automated chatbot, enabled by using OpenAI's Chat Completions API.",
         technologies: ["kotlin", "firebase", "androidstudio"],
@@ -136,6 +143,7 @@ export function useProjects() {
       },
       {
         id: "gradeapp",
+        icon: "./icons/projects/gradeapp.svg",
         title: "GradeApp",
         description:
           "Android mobile application that interfaces with the grading system of a [CSUSM](https://www.csusm.edu/) professor's courses to record and update students' grades seamlessly.",
@@ -152,6 +160,7 @@ export function useProjects() {
       },
       {
         id: "attendance-grading-system",
+        icon: "./icons/projects/attendance-grading-system.svg",
         title: "Attendance Grading System",
         description:
           "System that records and grades attendance with student identification data to efficiently grade attendance and import grades directly into a [CSUSM](https://www.csusm.edu/) professor's gradebook.",
@@ -168,6 +177,7 @@ export function useProjects() {
       },
       {
         id: "mypr200-gui",
+        icon: "./icons/projects/mypr200-gui.svg",
         title: "myPR200 GUI",
         description:
           "GUI application built for [MCTSSA](https://www.mctssa.marines.mil/), which processes parsed JSON data from a PR200 electromagnetic spectrum analyzer and visualizes the data in plots used by radio frequency specialists.",
@@ -184,6 +194,7 @@ export function useProjects() {
       },
       {
         id: "exchangemyideas",
+        icon: "./icons/projects/exchangemyideas.svg",
         title: "ExchangeMyIdeas",
         description:
           "A minimalistic blog website, which allows users to post, reply, and search for blogs. Originally a [CSUSM](https://www.csusm.edu/) CIS444 team project, since rehosted as a subdomain of this site and hardened against SQL injection and XSS.",
@@ -206,6 +217,7 @@ export function useProjects() {
       },
       {
         id: "car-database-cli",
+        icon: "./icons/projects/car-database-cli.svg",
         title: "Car Database CLI",
         description:
           "Database command-line interface (CLI), which stores car information using a hash table. The data is locally stored in a .txt file, where the data will be accessed.",
@@ -224,6 +236,7 @@ export function useProjects() {
       },
       {
         id: "terminal-tic-tac-toe",
+        icon: "./icons/projects/terminal-tic-tac-toe.svg",
         title: "Tic-Tac-Toe CLI",
         description:
           "Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local command-line, such as the Mac Terminal, Windows Command Prompt, etc.",

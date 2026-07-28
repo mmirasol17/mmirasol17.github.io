@@ -17,6 +17,7 @@ interface ProjectTerminalProps {
   app: TerminalAppId;
   title: string;
   url?: string;
+  icon?: string;
   /** Flip the card back to the details face. */
   onClose: () => void;
   /** Whether this (back) face is currently shown. */
@@ -44,6 +45,7 @@ export function ProjectTerminal(props: Readonly<ProjectTerminalProps>) {
       <ProjectPreviewFrame
         title={props.title}
         url={props.url}
+        icon={props.icon}
       >
         <Terminal
           makeProgram={makeProgram}

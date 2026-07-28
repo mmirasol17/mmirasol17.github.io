@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Tic-Tac-Toe CLI: the board, on a terminal-dark tile. Board spans 18-82
+       with the dividers on the thirds, so every mark clears its cell lines. -->
+  <defs>
+    <linearGradient id="ttt-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#ttt-bg)" />
+  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.45">
+    <path d="M39.5 18v64" />
+    <path d="M60.5 18v64" />
+    <path d="M18 39.5h64" />
+    <path d="M18 60.5h64" />
+  </g>
+  <g stroke="#60a5fa" stroke-width="4.5" stroke-linecap="round">
+    <path d="M24.5 24.5l8.5 8.5" />
+    <path d="M33 24.5l-8.5 8.5" />
+  </g>
+  <circle cx="50" cy="50" r="5" fill="none" stroke="#ffffff" stroke-width="4.5" />
+  <g stroke="#60a5fa" stroke-width="4.5" stroke-linecap="round">
+    <path d="M67 67l8.5 8.5" />
+    <path d="M75.5 67L67 75.5" />
+  </g>
+</svg>

@@ -28,6 +28,23 @@ notice noticeable visual updates to any of the showcased live projects
 like to start a screenshot-regeneration job** so the portfolio stays current.
 Offer it - don't run it unprompted.
 
+## Project app icons
+
+Every project card shows an app icon, set by the `icon` field in
+`useProjects.tsx` and served from `public/icons/projects/<project-id>.(svg|png)`.
+The same file doubles as the favicon in the fake browser chrome of the preview
+frame and terminal.
+
+- Real marks, pulled from the live apps: Lifelyze, Tunelyze, ExchangeMyIdeas,
+  SigParser (Enterprise SaaS), and Chattington (its Play Store launcher icon
+  from the Android repo).
+- Hand-drawn tiles for the ones with no published icon: ProUML (its site brands
+  itself with the lucide `command` glyph; its only favicon is the stock Next.js
+  one), GradeApp, Attendance Grading System, myPR200 GUI, and the two CLI tools.
+- Every file is a self-contained rounded-square tile that reads at 22px, so
+  callers only pick a size. Add a new one the same way and keep transparent
+  marks off transparent backgrounds.
+
 ## Conventions
 
 - No em dashes in site copy or code - use hyphens.

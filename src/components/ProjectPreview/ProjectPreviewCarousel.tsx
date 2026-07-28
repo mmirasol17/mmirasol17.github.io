@@ -7,6 +7,7 @@ interface ProjectPreviewCarouselProps {
   images: string[];
   title: string;
   url?: string;
+  icon?: string;
   index: number;
   onIndexChange: (i: number) => void;
   /** Flip the card back to the details face. */
@@ -81,6 +82,7 @@ export function ProjectPreviewCarousel(props: Readonly<ProjectPreviewCarouselPro
       <ProjectPreviewFrame
         title={props.title}
         url={props.url}
+        icon={props.icon}
       >
         <div
           className='carousel-viewport relative bg-gray-900'

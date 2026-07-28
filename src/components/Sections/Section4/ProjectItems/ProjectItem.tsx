@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { IProject } from "../../../../hooks/useProjects";
 import { TechnologyIcon } from "../../../Icons/TechnologyIcon";
+import { ProjectIcon } from "../../../Icons/ProjectIcon";
 import { ExternalLink, Eye, Github, Terminal as TerminalIcon } from "lucide-react";
 import { TechnologyMetadataMapping } from "../../../../types/TechnologyMetadataMapping";
 import { cn } from "../../../../utils/cn";
@@ -130,9 +131,16 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
     <>
       <div className='mb-3'>
         <div className='flex justify-between items-start gap-3 sm:flex-row flex-col'>
-          <div className='flex-1'>
-            <h4 className='text-xl font-bold text-white mb-1'>{props.project.title}</h4>
-            <span className='text-blue-300 text-sm font-medium'>{projectType}</span>
+          <div className='flex flex-1 items-center gap-3 min-w-0'>
+            <ProjectIcon
+              src={props.project.icon}
+              title={props.project.title}
+              className='h-12 w-12 flex-shrink-0 shadow-lg ring-1 ring-white/20'
+            />
+            <div className='min-w-0'>
+              <h4 className='text-xl font-bold text-white mb-1'>{props.project.title}</h4>
+              <span className='text-blue-300 text-sm font-medium'>{projectType}</span>
+            </div>
           </div>
           <span className={cn("px-3 py-1 rounded-full text-xs font-medium text-white whitespace-nowrap self-start", projectStatusInfo.color)}>{projectStatusInfo.status}</span>
         </div>
@@ -251,6 +259,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
                   app={terminalApp}
                   title={props.project.title}
                   url={props.project.link}
+                  icon={props.project.icon}
                   onClose={flipBack}
                   active={isFlipped}
                 />
@@ -259,6 +268,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
                   images={images}
                   title={props.project.title}
                   url={props.project.link}
+                  icon={props.project.icon}
                   index={carouselIndex}
                   onIndexChange={setCarouselIndex}
                   onClose={flipBack}
@@ -277,6 +287,7 @@ export function ProjectItem(props: Readonly<ProjectItemProps>) {
           src={images[0]}
           title={props.project.title}
           url={props.project.link}
+          icon={props.project.icon}
           x={previewPosition.x}
           y={previewPosition.y}
         />

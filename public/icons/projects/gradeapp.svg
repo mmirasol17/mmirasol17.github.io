@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- GradeApp: a gradebook clipboard with a marked entry. -->
+  <defs>
+    <linearGradient id="gradeapp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#gradeapp-bg)" />
+  <rect x="24" y="26" width="52" height="54" rx="9" fill="#ffffff" />
+  <rect x="38" y="16" width="24" height="16" rx="7" fill="#047857" />
+  <path d="M37 54l9 9 18-20" fill="none" stroke="#047857" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

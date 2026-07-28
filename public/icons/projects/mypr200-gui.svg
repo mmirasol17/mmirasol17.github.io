@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- myPR200 GUI: a spectrum trace on the analyzer's plot. -->
+  <defs>
+    <linearGradient id="pr200-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0b1120" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#pr200-bg)" />
+  <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.28">
+    <path d="M18 34h64" />
+    <path d="M18 52h64" />
+  </g>
+  <path
+    d="M16 68l8-5 6 5 6-24 6 24 8-9 6-30 6 30 8 6 6-15 6 18"
+    fill="none"
+    stroke="#22d3ee"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path d="M16 78h68" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+</svg>
