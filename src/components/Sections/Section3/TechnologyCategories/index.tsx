@@ -69,7 +69,7 @@ export function TechnologyCategories() {
         </div>
       </div>
 
-      <div className='reveal-track grid gap-6'>
+      <div className='grid gap-6'>
         {technologyCategories.map((data, index) => (
           <Reveal
             key={data.category}

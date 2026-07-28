@@ -67,33 +67,55 @@
    into view - alternating left / right down the list for a back-and-forth feel,
    cascading via a JS-set transition-delay. The transform is dropped once settled
    so it never lingers as a containing block over its children (which would trap
-   fixed descendants like the hover preview). The parent .reveal-track clips the
-   x-overflow so the incoming slide can't spawn a horizontal scrollbar. */
-.reveal-track {
+   fixed descendants like the hover preview).
+
+   The horizontal clip goes on the full-bleed <section> (`.reveal-viewport`), NOT
+   on the padded max-width list inside it: clipping there cut the slide off at the
+   content edge, which is what made cards look like they popped into existence
+   just inside the padding rather than flying in from the screen edge. A section
+   spans the viewport, so it clips exactly at the screen edges - the card crosses
+   the padding in full view and still never spawns a horizontal scrollbar.
+   `clip` (not `hidden`) keeps the vertical axis `visible` instead of forcing it
+   to `auto`, so the section never becomes a scroll container. */
+.reveal-viewport {
   overflow-x: clip;
 }
 
-.reveal-item {
+.reveal-slide {
+  /* Distance that parks the card just past the screen edge: the card is
+     centered in the viewport, so half its own width (50%) puts its trailing
+     edge at its center and 50vw pushes that center off-screen. The extra 2rem
+     clears the card's shadow. */
+  --reveal-shift: calc(50% + 50vw + 2rem);
   opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal-item--from-left {
-  transform: translateX(-4rem);
+.reveal-slide--from-left {
+  transform: translateX(calc(-1 * var(--reveal-shift)));
 }
 
-.reveal-item--from-right {
-  transform: translateX(4rem);
+.reveal-slide--from-right {
+  transform: translateX(var(--reveal-shift));
 }
 
-.reveal-item.is-visible {
+.reveal-slide.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-.reveal-item.is-settled {
+.reveal-slide.is-settled {
   transform: none;
   transition: none;
+}
+
+/* Without `overflow: clip` (Safari < 16) an off-screen card would drag a
+   horizontal scrollbar along with it, so fall back to the short in-bounds
+   swipe there. */
+@supports not (overflow: clip) {
+  .reveal-slide {
+    --reveal-shift: 4rem;
+  }
 }
 
 /* Staggered text entrance - apply to a wrapper and give each child a
@@ -143,33 +165,55 @@
   min-height: 0;
 }
 
-/* Tech skills cascade in - like the desktop nav submenu - reusing the
-   menuItemIn keyframe. Gated on the category card's `.is-visible` so it plays
-   when the section scrolls into view (not invisibly on mount), and replays on
-   every manual expand (is-open re-added while the card stays is-visible). */
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > * {
-  animation: menuItemIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+/* Skill rows drop down into their category card, one after the other. Gated on
+   the card's `.is-visible` so it plays when the section scrolls into view (not
+   invisibly on mount), and replays on every manual expand (is-open re-added
+   while the card stays is-visible).
+
+   The cascade waits out the card's own entrance - `--reveal-stagger` is that
+   card's slot in the list stagger, set by <Reveal> - so the rows are seen
+   dropping into a card that has already landed. Without that lead-in they ran
+   while the card was still off-screen at opacity 0, i.e. nobody ever saw them.
+   `.collapsible-inner` clips the overflow, so each row slides out from under
+   the row above it (the first from under the card header). */
+@keyframes skillDropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.85rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(1) {
-  animation-delay: 0.05s;
+
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > * {
+  animation: skillDropIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--reveal-stagger, 0ms) + 0.32s + var(--cascade-step, 0ms));
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(2) {
-  animation-delay: 0.1s;
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(1) {
+  --cascade-step: 0ms;
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(3) {
-  animation-delay: 0.15s;
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(2) {
+  --cascade-step: 60ms;
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(4) {
-  animation-delay: 0.2s;
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(3) {
+  --cascade-step: 120ms;
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(5) {
-  animation-delay: 0.25s;
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(4) {
+  --cascade-step: 180ms;
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(6) {
-  animation-delay: 0.3s;
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(5) {
+  --cascade-step: 240ms;
 }
-.reveal-item.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(n + 7) {
-  animation-delay: 0.35s;
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(6) {
+  --cascade-step: 300ms;
+}
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(7) {
+  --cascade-step: 360ms;
+}
+.reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > *:nth-child(n + 8) {
+  --cascade-step: 420ms;
 }
 
 /* ---- Menu / overlay enter + exit animations ---- */
@@ -450,14 +494,14 @@
   }
 
   /* Per-item reveal: fade only, no horizontal swipe. */
-  .reveal-item,
-  .reveal-item--from-left,
-  .reveal-item--from-right {
+  .reveal-slide,
+  .reveal-slide--from-left,
+  .reveal-slide--from-right {
     transform: none;
     transition: opacity 0.5s ease;
   }
 
-  .reveal-item.is-visible {
+  .reveal-slide.is-visible {
     transform: none;
   }
 
@@ -507,7 +551,7 @@
   }
 
   /* Tech skills: keep the stagger cadence, drop the downward shift. */
-  .reveal-item.is-visible .collapsible-content.is-open .skill-cascade > * {
+  .reveal-slide.is-visible .collapsible-content.is-open .skill-cascade > * {
     animation-name: fadeIn;
     animation-duration: 0.3s;
   }
