@@ -6,13 +6,49 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <!-- Site browser title -->
-    <title>Marin Mirasol - Personal Portfolio</title>
-    <!-- Site browser description -->
+
+    <!-- Primary meta -->
+    <title>Marin Mirasol - Software Engineer</title>
     <meta
       name="description"
-      content="A software engineer passionate about building, learning, and using software solutions that can improve the overall quality of life."
+      content="Marin Mirasol is a software engineer building full-stack web, mobile, and AI-powered applications. Explore projects, tech stack, and get in touch."
     />
+    <meta name="author" content="Marin Mirasol" />
+    <meta
+      name="keywords"
+      content="Marin Mirasol, software engineer, full-stack developer, web developer, mobile developer, React, TypeScript, Go, portfolio, AI"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://marinmirasol.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Marin Mirasol" />
+    <meta property="og:title" content="Marin Mirasol - Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer building full-stack web, mobile, and AI-powered applications. Explore projects, tech stack, and get in touch."
+    />
+    <meta property="og:url" content="https://marinmirasol.com/" />
+    <meta property="og:image" content="https://marinmirasol.com/og-image.png" />
+    <meta property="og:image:secure_url" content="https://marinmirasol.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Marin Mirasol - Software Engineer" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marin Mirasol - Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Software engineer building full-stack web, mobile, and AI-powered applications."
+    />
+    <meta name="twitter:image" content="https://marinmirasol.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Marin Mirasol - Software Engineer" />
 
     <!-- site favicon configs -->
     <link
@@ -45,10 +81,73 @@
       rel="manifest"
       href="./site.webmanifest"
     />
+
+    <!-- Structured data: Person + WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marin Mirasol",
+        "url": "https://marinmirasol.com/",
+        "image": "https://marinmirasol.com/og-image.png",
+        "jobTitle": "Software Engineer",
+        "description": "Software engineer building full-stack web, mobile, and AI-powered applications.",
+        "sameAs": [
+          "https://github.com/mmirasol17",
+          "https://www.linkedin.com/in/marin-mirasol/",
+          "https://www.instagram.com/marin_mirasol/"
+        ],
+        "knowsAbout": [
+          "Software Engineering",
+          "Full-Stack Development",
+          "React",
+          "TypeScript",
+          "Go",
+          "Web Development",
+          "Mobile Development",
+          "Artificial Intelligence"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Marin Mirasol - Portfolio",
+        "url": "https://marinmirasol.com/",
+        "author": { "@type": "Person", "name": "Marin Mirasol" }
+      }
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
+
+    <!-- Crawlable fallback for bots / social scrapers that don't run JavaScript. -->
+    <noscript>
+      <main style="max-width: 720px; margin: 40px auto; padding: 0 20px; font-family: system-ui, -apple-system, sans-serif; line-height: 1.6;">
+        <h1>Marin Mirasol - Software Engineer</h1>
+        <p>
+          I'm a software engineer building full-stack web, mobile, and AI-powered
+          applications. This portfolio is interactive and needs JavaScript to display fully.
+        </p>
+        <h2>Selected projects</h2>
+        <ul>
+          <li>Lifelyze - cross-platform personal organizer (calendar, budget, health, AI)</li>
+          <li>Tunelyze - smart Spotify playlist builder</li>
+          <li>ProUML - collaborative UML diagram tool</li>
+          <li>ExchangeMyIdeas - a minimalist blog</li>
+          <li>Enterprise SaaS at SigParser - AI-powered contact parsing</li>
+        </ul>
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href="https://github.com/mmirasol17">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/marin-mirasol/">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/marin_mirasol/">Instagram</a></li>
+        </ul>
+      </main>
+    </noscript>
+
     <script
       type="module"
       crossorigin
