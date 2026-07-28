@@ -1,0 +1,72 @@
+# Regenerate the project-preview screenshots (screenshots/capture.mjs) and open
+# a PR with whatever changed. Public pages only — no login, no secrets.
+#
+# HOW TO RUN: Actions tab -> "Regenerate project previews" -> Run workflow.
+# It captures the live apps, converts to webp under
+# public/images/project-previews/, and opens a reviewable PR (binaries don't
+# get pushed straight to master).
+
+name: Regenerate project previews
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC (comment out to disable auto-refresh)
+
+concurrency:
+  group: regenerate-previews
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regenerate:
+    name: Capture & open PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The runner's Google Chrome apt source intermittently fails a mirror hash
+      # check inside `--with-deps`; drop it so apt only hits Ubuntu mirrors, and
+      # retry to ride out transient hiccups.
+      - name: Install Playwright (Chromium)
+        run: |
+          sudo rm -f /etc/apt/sources.list.d/google-chrome.list /etc/apt/sources.list.d/google-cloud-sdk.list
+          n=0
+          until [ "$n" -ge 3 ]; do
+            npx playwright install --with-deps chromium && exit 0
+            n=$((n + 1)); echo "playwright install attempt $n failed; retrying in 15s..."; sleep 15
+          done
+          exit 1
+
+      - name: Capture screenshots
+        run: npm run screenshots
+
+      - name: Open pull request with regenerated previews
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/regenerate-previews
+          base: master
+          commit-message: "chore: regenerate project preview screenshots"
+          title: "chore: regenerate project previews"
+          body: |
+            Automated capture from the **Regenerate project previews** workflow.
+
+            Review the image diffs, then merge if they look right.
+          add-paths: |
+            public/images/project-previews/**

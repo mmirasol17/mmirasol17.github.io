@@ -53,7 +53,12 @@ export function useProjects() {
         technologies: ["react", "typescript", "tailwind", "expo", "swift", "kotlin", "go", "firebase", "gcp", "githubactions"],
         link: "https://lifelyze.com",
         isPublic: true,
-        previewImages: ["./images/project-previews/lifelyze.webp"],
+        previewImages: [
+          "./images/project-previews/lifelyze-1.webp",
+          "./images/project-previews/lifelyze-2.webp",
+          "./images/project-previews/lifelyze-3.webp",
+          "./images/project-previews/lifelyze-4.webp",
+        ],
         highlights: [
           "Go 1.23 + Gin REST API on Google Cloud Run, backing a React Native + TypeScript app bundled with Metro and exported to static web",
           "Styled with NativeWind 4, compiling Tailwind classes to native styles across web, iOS, and Android",
@@ -77,7 +82,12 @@ export function useProjects() {
         technologies: ["react", "typescript", "tailwind", "vite", "nodejs", "express", "prisma", "postgresql", "supabase", "docker", "digitalocean", "githubactions"],
         link: "https://tunelyze.com",
         isPublic: true,
-        previewImages: ["./images/project-previews/tunelyze.webp"],
+        previewImages: [
+          "./images/project-previews/tunelyze-1.webp",
+          "./images/project-previews/tunelyze-2.webp",
+          "./images/project-previews/tunelyze-3.webp",
+          "./images/project-previews/tunelyze-4.webp",
+        ],
         highlights: [
           "Spotify OAuth 2.0 with automatic token refresh and a self-serve access request flow for new users",
           "Full library sync of every playlist and liked song, run as background jobs on a pg-boss queue with live progress streamed to the client",
@@ -98,7 +108,7 @@ export function useProjects() {
         technologies: ["react", "typescript", "tailwind", "go", "postgresql"],
         link: "https://prouml.com/",
         isPublic: true,
-        previewImages: ["./images/project-previews/prouml.webp"],
+        previewImages: ["./images/project-previews/prouml-1.webp"],
         highlights: [
           "CSUSM sponsored CapStone project using Agile methodology with documentation",
           "Go backend API that retrieves and parses Java code into UML-tailored JSON",
