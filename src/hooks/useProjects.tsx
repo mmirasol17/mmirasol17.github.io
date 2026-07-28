@@ -190,6 +190,10 @@ export function useProjects() {
         technologies: ["javascript", "html", "css", "php", "mysql"],
         link: "https://exchangemyideas.marinmirasol.com",
         isPublic: true,
+        previewImages: [
+          "./images/project-previews/exchangemyideas-1.webp",
+          "./images/project-previews/exchangemyideas-2.webp",
+        ],
         highlights: [
           "Server-rendered PHP application backed by a normalized MySQL schema",
           "Posts and threaded replies linked by foreign key with cascading deletes",
