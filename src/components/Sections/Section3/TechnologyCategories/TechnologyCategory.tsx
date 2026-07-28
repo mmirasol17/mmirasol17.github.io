@@ -28,7 +28,7 @@ export function TechnologyCategory(props: Readonly<TechnologyCategoryProps>) {
 
       <div className={`collapsible-content ${props.isCollapsed ? "" : "is-open"}`}>
         <div className='collapsible-inner'>
-          <div className='mt-6 space-y-3'>
+          <div className='mt-6 space-y-3 skill-cascade'>
             {props.category.technologies.map((item) => (
               <TechnologyCategoryItem
                 key={item.technology}

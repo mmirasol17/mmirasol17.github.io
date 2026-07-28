@@ -63,22 +63,24 @@
   transition: none;
 }
 
-/* Per-item reveal: each card fades + rises the first time it scrolls into
-   view, cascading via a JS-set transition-delay. Drops its transform once
-   settled so it never lingers as a containing block over its children. */
+/* Per-item reveal: each card unfolds downward the first time it scrolls into
+   view - the clip reveals it top-to-bottom so it reads as growing in height -
+   cascading via a JS-set transition-delay. The layout box is full size the
+   whole time (the clip just hides it), so nothing below shifts. clip-path is
+   dropped once settled so it can never clip a hover preview / fixed child. */
 .reveal-item {
   opacity: 0;
-  transform: translateY(1.5rem);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  clip-path: inset(0 0 100% 0);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-item.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  clip-path: inset(0 0 0 0);
 }
 
 .reveal-item.is-settled {
-  transform: none;
+  clip-path: none;
   transition: none;
 }
 
@@ -127,6 +129,34 @@
 .collapsible-content > .collapsible-inner {
   overflow: hidden;
   min-height: 0;
+}
+
+/* Tech skills cascade in - like the desktop nav submenu - each time their
+   category opens (reuses the menuItemIn keyframe). Scoped to `.is-open` so the
+   animation re-runs on every expand, not just first mount. */
+.collapsible-content.is-open .skill-cascade > * {
+  animation: menuItemIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.collapsible-content.is-open .skill-cascade > *:nth-child(n + 7) {
+  animation-delay: 0.35s;
 }
 
 /* ---- Menu / overlay enter + exit animations ---- */
@@ -406,14 +436,14 @@
     transform: none;
   }
 
-  /* Per-item reveal: fade only, no rise. */
+  /* Per-item reveal: fade only, no unfold. */
   .reveal-item {
-    transform: none;
+    clip-path: none;
     transition: opacity 0.5s ease;
   }
 
   .reveal-item.is-visible {
-    transform: none;
+    clip-path: none;
   }
 
   /* Typography: keep the stagger cadence, drop the rise + blur. */
@@ -459,6 +489,12 @@
   .menu-items-in > * {
     animation-name: fadeIn;
     animation-duration: 0.2s;
+  }
+
+  /* Tech skills: keep the stagger cadence, drop the downward shift. */
+  .collapsible-content.is-open .skill-cascade > * {
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
   }
 
   .animate-drawer-in {
