@@ -1,19 +1,37 @@
 import { CSSProperties } from "react";
+import { FileText } from "lucide-react";
 import { SocialMediaMetadataMapping } from "../../../../types/SocialMediaMetadataMapping";
 import { SocialMediaType } from "../../../../types/SocialMediaType";
+import { OPEN_RESUME_VIEWER_EVENT } from "../../../../utils/events";
 
-// Where each social button rests, as an offset from the photo center scaled by
-// the --orbit radius (x right, y down), plus its reveal delay. Deliberately
-// irregular - uneven angles, varied radii, and staggered timing - so the ring
-// reads as scattered rather than mechanically symmetric. The straight-down zone
-// stays button-free and the lower two sit within the photo's height, so nothing
-// crowds the name below.
-const ORBIT_SOCIALS: ReadonlyArray<{ id: SocialMediaType; dx: number; dy: number; delay: number }> = [
-  { id: "linkedin", dx: 0.36, dy: -0.89, delay: 0.28 }, // high, just right of top
-  { id: "github", dx: -0.94, dy: -0.61, delay: 0.2 }, // upper-left, pushed out
-  { id: "instagram", dx: 0.86, dy: 0.6, delay: 0.44 }, // lower-right
-  { id: "discord", dx: -0.85, dy: 0.49, delay: 0.36 }, // left, lower-middle
+// Five buttons evenly spaced around the photo (regular pentagon, 72deg apart,
+// point-up) so the ring reads as deliberate and balanced. Offsets are the unit
+// vector (x right, y down) at radius 0.95 - just inside --orbit so every button
+// straddles the photo edge - and the reveal delays cascade clockwise from the
+// top. The bottom-center gap between the two lower buttons keeps the name clear.
+type OrbitButton = {
+  key: string;
+  dx: number;
+  dy: number;
+  delay: number;
+  social?: SocialMediaType;
+  resume?: boolean;
+};
+
+const ORBIT_BUTTONS: ReadonlyArray<OrbitButton> = [
+  { key: "resume", resume: true, dx: 0.0, dy: -0.95, delay: 0.22 }, // top
+  { key: "linkedin", social: "linkedin", dx: 0.904, dy: -0.294, delay: 0.29 }, // upper-right
+  { key: "instagram", social: "instagram", dx: 0.559, dy: 0.769, delay: 0.36 }, // lower-right
+  { key: "discord", social: "discord", dx: -0.559, dy: 0.769, delay: 0.43 }, // lower-left
+  { key: "github", social: "github", dx: -0.904, dy: -0.294, delay: 0.5 }, // upper-left
 ];
+
+const BUTTON_FACE =
+  "flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg ring-1 ring-black/5 transition duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl group-focus-visible:scale-110 group-focus-visible:ring-2 group-focus-visible:ring-blue-400";
+
+function openResumeViewer() {
+  window.dispatchEvent(new CustomEvent(OPEN_RESUME_VIEWER_EVENT));
+}
 
 export function IntroPersonalPhoto() {
   return (
@@ -29,28 +47,46 @@ export function IntroPersonalPhoto() {
           />
         </div>
 
-        {ORBIT_SOCIALS.map((social) => {
-          const meta = SocialMediaMetadataMapping[social.id];
+        {ORBIT_BUTTONS.map((button) => {
+          const style = {
+            "--dx": `calc(var(--orbit) * ${button.dx})`,
+            "--dy": `calc(var(--orbit) * ${button.dy})`,
+            "--delay": `${button.delay}s`,
+          } as CSSProperties;
+
+          if (button.resume) {
+            return (
+              <button
+                key={button.key}
+                type='button'
+                onClick={openResumeViewer}
+                aria-label='View resume'
+                title='Resume'
+                className='orbit-item group'
+                style={style}
+              >
+                <span className={BUTTON_FACE}>
+                  <FileText className='w-5 h-5 sm:w-6 sm:h-6 text-blue-600' />
+                </span>
+              </button>
+            );
+          }
+
+          const meta = SocialMediaMetadataMapping[button.social!];
           return (
             <a
-              key={social.id}
+              key={button.key}
               href={meta.url}
               target='_blank'
               rel='noopener noreferrer'
               aria-label={meta.name}
               title={meta.name}
               className='orbit-item group'
-              style={
-                {
-                  "--dx": `calc(var(--orbit) * ${social.dx})`,
-                  "--dy": `calc(var(--orbit) * ${social.dy})`,
-                  "--delay": `${social.delay}s`,
-                } as CSSProperties
-              }
+              style={style}
             >
-              <span className='flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-lg ring-1 ring-black/5 transition duration-300 group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl group-focus-visible:scale-110 group-focus-visible:ring-2 group-focus-visible:ring-blue-400'>
+              <span className={BUTTON_FACE}>
                 <img
-                  src={`./icons/socials/${social.id}.svg`}
+                  src={`./icons/socials/${button.social}.svg`}
                   alt=''
                   className='w-6 h-6 sm:w-7 sm:h-7'
                 />

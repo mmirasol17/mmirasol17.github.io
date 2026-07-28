@@ -1,6 +1,7 @@
 import { Eye } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AboutResumeViewerModal } from "./AboutResumeViewerModal";
+import { OPEN_RESUME_VIEWER_EVENT } from "../../../../utils/events";
 
 // Direct PDF/DOCX downloads are disabled. They export the original Google Doc, which still carries
 // the real phone number and email - unlike the viewer, which redacts them on the way in. Removing
@@ -20,6 +21,14 @@ interface AboutResumeDownloaderProps {
 
 export function AboutResumeButtons(props: Readonly<AboutResumeDownloaderProps>) {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+
+  // The hero's resume button lives in another section; it opens this viewer by
+  // dispatching a window event rather than reaching across the tree.
+  useEffect(() => {
+    const open = () => setIsViewerOpen(true);
+    window.addEventListener(OPEN_RESUME_VIEWER_EVENT, open);
+    return () => window.removeEventListener(OPEN_RESUME_VIEWER_EVENT, open);
+  }, []);
 
   // const [isLoading, setIsLoading] = useState<boolean>(false);
   // const [notification, setNotification] = useState<INotification | null>(null);

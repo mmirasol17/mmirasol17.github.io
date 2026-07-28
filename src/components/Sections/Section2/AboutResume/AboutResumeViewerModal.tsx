@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 import { X, Maximize2, Minimize2, ZoomIn, ZoomOut } from "lucide-react";
 import { useResumeDocument } from "../../../../hooks/useResumeDocument";
 import { handleScrollToElementById } from "../../../../utils";
@@ -102,7 +103,11 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
 
   if (!props.isOpen) return null;
 
-  return (
+  // Portal to <body> so the fixed overlay always covers the viewport. Rendered
+  // inline, it would be trapped by any transformed ancestor (e.g. the About
+  // section's scroll-reveal wrapper before it settles), which is what made it
+  // open off-screen when triggered from the hero.
+  return createPortal(
     <div
       className='fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-0 md:p-4'
       onClick={handleBackdropClick}
@@ -208,6 +213,7 @@ export function AboutResumeViewerModal(props: Readonly<AboutResumeViewerModalPro
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
