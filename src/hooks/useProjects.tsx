@@ -222,7 +222,7 @@ export function useProjects() {
         description:
           "Database command-line interface (CLI), which stores car information using a hash table. The data is locally stored in a .txt file, where the data will be accessed.",
         technologies: ["cpp", "bash"],
-        link: "https://github.com/mmirasol17/Car-Database",
+        link: "https://github.com/mmirasol17/Car-Database-CLI",
         isPublic: true,
         terminal: "car-database",
         highlights: [
@@ -241,7 +241,7 @@ export function useProjects() {
         description:
           "Implementation of the Tic-Tac-Toe game, which allows users to play the game directly on your local command-line, such as the Mac Terminal, Windows Command Prompt, etc.",
         technologies: ["cpp", "bash"],
-        link: "https://github.com/mmirasol17/Terminal-Tic-Tac-Toe",
+        link: "https://github.com/mmirasol17/Tic-Tac-Toe-CLI",
         isPublic: true,
         terminal: "tic-tac-toe",
         highlights: [
