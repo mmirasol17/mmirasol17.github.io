@@ -13,6 +13,29 @@ type SubmitStatus = "idle" | "sending" | "success" | "error";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
+/**
+ * Shared look for the form's fields.
+ *
+ * The idle field is flat, so hover is what tells you it is interactive before
+ * you commit a click: the gradient lifts and a soft ring appears, then focus
+ * hardens that ring to blue. A field in error keeps a red ring throughout - the
+ * hover only brightens it - so the warning is never traded away for feedback.
+ *
+ * @param {boolean} hasError - Whether the field is currently showing an error.
+ * @returns {string} The field's class list.
+ */
+function fieldClassName(hasError: boolean): string {
+  // The ring colour lives entirely in the per-state branch: a base
+  // `ring-transparent` sets the same custom property and would win over the
+  // error colour, leaving an invalid field with no ring at all.
+  return cn(
+    "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400",
+    "outline-none transition duration-200 hover:brightness-110 focus:brightness-110 focus:ring-2 focus:ring-blue-400",
+    "disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:brightness-100",
+    hasError ? "ring-2 ring-red-500 hover:ring-red-400" : "ring-1 ring-transparent hover:ring-2 hover:ring-gray-300/60 disabled:hover:ring-1 disabled:hover:ring-transparent"
+  );
+}
+
 export function ContactSection() {
   const accessKey = useMemo(() => {
     return import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
@@ -189,10 +212,7 @@ export function ContactSection() {
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? "name-error" : undefined}
                 placeholder='John Doe'
-                className={cn(
-                  "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60",
-                  errors.name && "ring-2 ring-red-500"
-                )}
+                className={fieldClassName(!!errors.name)}
               />
               {errors.name && (
                 <span
@@ -222,10 +242,7 @@ export function ContactSection() {
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "email-error" : undefined}
                 placeholder='johndoe@example.com'
-                className={cn(
-                  "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60",
-                  errors.email && "ring-2 ring-red-500"
-                )}
+                className={fieldClassName(!!errors.email)}
               />
               {errors.email && (
                 <span
@@ -254,10 +271,7 @@ export function ContactSection() {
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? "message-error" : undefined}
                 placeholder='Hello there Marin! My name is John, and I would love to discuss a project that I am working on!'
-                className={cn(
-                  "rounded-3xl p-2 bg-gradient-to-br from-gray-500 to-gray-700 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 resize-vertical disabled:opacity-60",
-                  errors.message && "ring-2 ring-red-500"
-                )}
+                className={cn(fieldClassName(!!errors.message), "resize-vertical")}
               />
               {errors.message && (
                 <span

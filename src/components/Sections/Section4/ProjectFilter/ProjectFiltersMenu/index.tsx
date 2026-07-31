@@ -28,6 +28,10 @@ export const ProjectFiltersMenu = forwardRef(function ProjectFiltersMenu(props: 
       }
       showDoneButton={true}
       doneButtonText='Apply Filters'
+      // The filter set is wide and sits directly above the results it filters,
+      // so an anchored dropdown covered the very grid the user is adjusting.
+      desktopVariant='modal'
+      modalWidth='max-w-3xl'
     >
       <div className='p-4 space-y-6'>
         <div className='flex flex-col sm:flex-row sm:gap-6 space-y-6 sm:space-y-0'>

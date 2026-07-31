@@ -57,6 +57,8 @@ export function ProjectFilters() {
           <button
             ref={buttonRef}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            aria-haspopup='dialog'
+            aria-expanded={isDropdownOpen}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-200 w-full sm:w-auto justify-center sm:justify-start ${
               hasActiveFilters ? "bg-blue-600 text-white border-blue-500" : "bg-gray-700 text-gray-300 border-gray-600 hover:bg-gray-600"
             }`}
@@ -66,14 +68,13 @@ export function ProjectFilters() {
             {hasActiveFilters && <span className='bg-blue-400 text-white text-xs px-2 py-1 rounded-full'>{totalFilterCount}</span>}
           </button>
 
-          {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <ProjectFiltersMenu
-              ref={dropdownRef}
-              isDropdownOpen={isDropdownOpen}
-              setIsDropdownOpen={setIsDropdownOpen}
-            />
-          )}
+          {/* Menu stays mounted while it animates closed, so it handles its own
+              open/closed rendering rather than being unmounted here. */}
+          <ProjectFiltersMenu
+            ref={dropdownRef}
+            isDropdownOpen={isDropdownOpen}
+            setIsDropdownOpen={setIsDropdownOpen}
+          />
         </div>
 
         {/* Clear All Button (outside dropdown) */}

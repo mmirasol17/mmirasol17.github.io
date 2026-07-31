@@ -280,6 +280,39 @@
   animation: sheetDown 0.26s cubic-bezier(0.55, 0, 1, 0.45) forwards;
 }
 
+/* Centered dialog: the desktop counterpart of the mobile sheet. It grows from
+   just under full size so it reads as arriving over the page rather than
+   cutting to it. */
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.97);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-modal-out {
+  animation: modalOut 0.18s ease-in forwards;
+}
+
 @keyframes drawerIn {
   0% {
     transform: translateX(100%);
@@ -523,12 +556,14 @@
      communicates "this panel came from / went back to the edge". It keeps
      sliding, just faster. */
   .animate-sheet-up,
+  .animate-modal-in,
   .animate-preview-in {
     animation-name: fadeIn;
     transform: none;
   }
 
-  .animate-sheet-down {
+  .animate-sheet-down,
+  .animate-modal-out {
     animation-name: fadeOut;
     transform: none;
   }
